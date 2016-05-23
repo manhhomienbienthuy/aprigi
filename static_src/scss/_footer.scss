@@ -1,0 +1,39 @@
+footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid $gray-line;
+
+    .links {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+        margin: 0 0 0 -2rem;
+
+        li {
+            margin: 0 0 0 2rem;
+        }
+    }
+
+    .socials {
+        @extend .links;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+
+        a {
+            color: $text-light;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $text-blue;
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        color: $text-light;
+    }
+}

@@ -1,0 +1,128 @@
+form {
+    font-size: 1rem;
+
+    // Global input styles
+    input[type="search"],
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="month"],
+    input[type="week"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    textarea {
+        appearance: none;
+        background: #fff;
+        border: 1px solid $gray-line;
+        border-radius: 0.25rem;
+        cursor: auto;
+        display: block;
+        font-weight: normal;;
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+        text-indent: 0;
+        vertical-align: middle;
+        width: 100%;
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            border-color: $text-blue;
+        }
+    }
+
+    textarea {
+        height: auto;
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+        margin-right: 0.5rem;
+        outline: none;
+    }
+
+    select {
+        border: 1px solid $gray-line;
+        background: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+    }
+
+    fieldset {
+        border: 1px solid $gray-line;
+        border-radius: 0.25rem;
+        margin: 1rem 0;
+    }
+
+    legend {
+        padding: 0 0.5rem;
+    }
+
+    div {
+        margin: 1rem 0;
+    }
+}
+
+::placeholder {
+    color: $text-light;
+}
+
+.form-general {
+    // Multi-input forms with seperate submit button.
+    fieldset {
+        max-width: 45rem;
+        border: 0;
+        padding: 0;
+        margin: 1rem 0;
+
+        input[type="search"],
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="url"] {
+            margin: 1rem 0;
+        }
+    }
+}
+
+.form-input {
+    // Class for singple-entry form with inside submit button
+    position: relative;
+
+    button {
+        background: none;
+        border: none;
+        color: lighten($text-light, 15%);
+        padding: 0;
+        position: absolute;
+        right: 3%;
+        top: 0;
+        width: 3rem;
+        font-size: 1.5rem;
+
+        @include respond-min($screen-medium) {
+            right: 1%;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: none;
+            color: $text-blue;
+            outline: none;
+        }
+    }
+
+    input:focus ~ button {
+        color: $text-blue;
+    }
+}

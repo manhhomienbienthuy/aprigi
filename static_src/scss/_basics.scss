@@ -1,0 +1,148 @@
+// Basic elements
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    @include sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    background: $white;
+    color: $text-default;
+    line-height: 2;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    // don't active mobile styles for larger screens
+    @include respond-min($screen-medium) {
+        min-width: $screen-medium;
+    }
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+a {
+    color: $text-blue;
+    text-decoration: none;
+
+    &:visited {
+        color: $text-blue;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: lighten($text-blue, 10%);
+        text-decoration: underline;
+    }
+
+    .active & {
+        color: lighten($text-blue, 10%);
+    }
+}
+
+::selection {
+    background: $selection-bg;
+}
+
+ul li,
+ol li {
+    margin-top: 1em;
+}
+
+dl {
+    margin: 2em 0 0.7em ;
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        margin: 0.2em 0 1.2em 1.5em;
+        padding: 0;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    border-bottom: 1px solid $gray-line;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5,
+h6 {
+    font-size: 1rem;
+}
+
+tt,
+code,
+kbd,
+pre,
+samp {
+    @include monospace;
+    color: $text-default;
+    background: $gray-bg;
+    border-radius: 0.25rem;
+    padding: 0.2em 0.4em;
+}
+
+blockquote {
+    padding: 0.7em 1.2em;
+    margin: 1.25em 0 1.2em;
+    border-left: 0.3em solid $gray-line;
+    color: $text-light;
+}
+
+mark {
+    padding: 0.25em 0.5em;
+    color: $text-default;
+    background: $highlight-bg;
+}
+
+.container {
+    @include clearfix;
+    padding: 0.5rem;
+
+    @include respond-min($screen-medium) {
+        margin: 0 auto;
+        max-width: 1400px;
+        width: 85%;
+    }
+}

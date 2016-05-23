@@ -1,0 +1,39 @@
+.button {
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0 1em;
+    border-radius: 0.25em;
+
+    &:focus,
+    &:active {
+        outline: thin dotted;
+        outline: 0.4em auto -webkit-focus-ring-color;
+        outline-offset: -0.125em;
+    }
+}
+
+.button-primary {
+    color: $white;
+    background: $text-blue;
+    border-color: $text-blue;
+
+    &:hover,
+    &:focus {
+        background: lighten($text-blue, 10%);
+        border-color: lighten($text-blue, 10%);
+    }
+}
+
+.button-secondary {
+    color: $text-blue;
+    background: $white;
+    border-color: $text-blue;
+
+    &:hover,
+    &:focus {
+        background: $gray-bg;
+    }
+}
