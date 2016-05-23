@@ -1,4 +1,4 @@
-APP_LIST ?=
+APP_LIST ?= savings
 
 install:
 	pip install -r ../requirements/development.txt
@@ -21,3 +21,6 @@ isort:
 
 isort-check:
 	@$(foreach app,$(APP_LIST),isort -c -rc "../$(app)";)
+
+flake8:
+	@$(foreach app,$(APP_LIST),flake8 "../$(app)";)
