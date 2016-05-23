@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="{% block html_language_code %}en{% endblock %}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Copyright" content="Aprigi">
+    <meta name="keywords" content="Aprigi, Bank, Money saving, Python, Django">
+    <meta name="description" content="Aprigi, the app for my April girl">
+
+    {# Favicons #}
+    <link rel="apple-touch-icon" href="{% static 'img/icon-touch.png' %}">
+    <link rel="icon" size="192x192" href="{% static 'img/icon-touch.png' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+    <meta name="msapplication-TileImage" content="{% static 'img/icon-tile.png' %}">
+
+    <title>{% block title %}The app for my April girl{% endblock %} | Aprigi</title>
+
+    <link rel="stylesheet" href="{% static 'css/vpyeu.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  </head>
+
+  <body class="{% block body_class %}{% endblock %}">
+    {% include "includes/warning.html" %}
+    {% include "includes/header.html" %}
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include "includes/footer.html" %}
+    <script data-main="{% static 'js/vpyeu.js' %}" src="{% static 'js/lib/require.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+table {
+    border-collapse: collapse;
+
+    caption {
+        font-size: 0.9em;
+        font-style: italic;
+        line-height: 1.3;
+    }
+
+    td {
+        padding: 0.5em 1em;
+        border: 1px solid $gray-line;
+    }
+
+    th {
+        @extend td;
+        background: $gray-bg;
+    }
+}

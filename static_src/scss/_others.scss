@@ -1,0 +1,37 @@
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.warning {
+    text-align: center;
+    background: $highlight-bg;
+    padding: 1rem 0;
+}
+
+$back-top-top-radius: 1.25rem;
+.back-to-top {
+    display: none;
+    width: $back-top-top-radius * 2;
+    height: $back-top-top-radius * 2;
+    border-radius: $back-top-top-radius;
+    position: fixed;
+    z-index: 10;
+    right: 20px;
+    bottom: 20px;
+    background: darken($gray-bg, 70%);
+    text-align: center;
+    opacity: 0.4;
+
+    i {
+        margin-top: $back-top-top-radius / 5;
+        color: $white;
+        font-size: $back-top-top-radius * 1.25;
+    }
+}
