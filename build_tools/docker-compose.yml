@@ -1,0 +1,18 @@
+version: '2'
+services:
+  postgres:
+    image: postgres
+    env_file: .env
+  web:
+    build:
+      context: ../
+      dockerfile: ./build_tools/web-dev-dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ..:/code
+    depends_on:
+      - postgres
