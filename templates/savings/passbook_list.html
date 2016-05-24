@@ -8,44 +8,14 @@
 
     <p>You have total {{ object_list | length }} passbooks</p>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Number</th>
-          <th>Account number</th>
-          <th>Amount</th>
-          <th>Period</th>
-          <th>Start date</th>
-          <th>Stop date</th>
-          <th>Open/Close</th>
-        </tr>
-      </thead>
+    <div class="two-columns">
+      <div class="main-content">
+        {% include "savings/passbook_list_table.html" %}
+      </div>
 
-      <tbody>
-        {% load humanize %}
-        {% for passbook in object_list %}
-          <tr{% if not passbook.is_open %} class="grayout"{% endif %}>
-            <td>{{ passbook.number }}</td>
-            <td>{{ passbook.account_number }}</td>
-            <td class="right">{{ passbook.amount | intcomma }}$</td>
-            <td>
-              {{ passbook.period }}
-              {% if passbook.period_type == passbook.MONTH %}
-                months
-              {% elif passbook.period_type == passbook.WEEK %}
-                weeks
-              {% endif %}
-            </td>
-            <td>{{ passbook.start_date }}</td>
-            <td>{{ passbook.stop_date }}</td>
-            <td>{{ passbook.is_open }}</td>
-          </tr>
-        {% empty %}
-          <tr>
-            <td class="centering" colspan="7">No passbooks available</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+      <div class="sidebar">
+        {% include "savings/passbook_list_sidebar.html" %}
+      </div>
+    </div>
   </div>
 {% endblock %}
