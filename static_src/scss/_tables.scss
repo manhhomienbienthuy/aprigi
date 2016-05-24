@@ -1,19 +1,25 @@
 table {
     border-collapse: collapse;
-
-    caption {
-        font-size: 0.9em;
-        font-style: italic;
-        line-height: 1.3;
-    }
+    font-size: 0.9rem;
 
     td {
         padding: 0.5em 1em;
         border: 1px solid $gray-line;
     }
 
+    thead tr,
     th {
         @extend td;
         background: $gray-bg;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
+
+    tbody tr:nth-child(even) {
+        background: $gray-bg;
+    }
+
+    tr.grayout {
+        color: $text-light;
     }
 }
