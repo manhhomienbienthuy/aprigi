@@ -15,23 +15,23 @@
     padding: 1rem 0;
 }
 
-$back-top-top-radius: 1.25rem;
+$back-top-top-size: 2.5rem;
 .back-to-top {
     display: none;
-    width: $back-top-top-radius * 2;
-    height: $back-top-top-radius * 2;
-    border-radius: $back-top-top-radius;
+    width: $back-top-top-size;
+    height: $back-top-top-size;
+    border-radius: 50%;
     position: fixed;
     z-index: 10;
-    right: 20px;
-    bottom: 20px;
+    right: 1rem;
+    bottom: 1rem;
     background: darken($gray-bg, 70%);
     text-align: center;
     opacity: 0.4;
 
     i {
-        margin-top: $back-top-top-radius / 5;
+        margin-top: $back-top-top-size / 10;
         color: $white;
-        font-size: $back-top-top-radius * 1.25;
+        font-size: $back-top-top-size / 1.6;
     }
 }

@@ -1,6 +1,4 @@
 form {
-    font-size: 1rem;
-
     // Global input styles
     input[type="search"],
     input[type="text"],
@@ -22,8 +20,8 @@ form {
         cursor: auto;
         display: block;
         font-weight: normal;;
-        margin: 1rem 0;
-        padding: 0.5rem 1rem;
+        margin: 1em 0;
+        padding: 0.5em 1em;
         text-indent: 0;
         vertical-align: middle;
         width: 100%;
@@ -45,30 +43,30 @@ form {
 
     input[type=checkbox],
     input[type=radio] {
-        margin-right: 0.5rem;
+        margin-right: 0.5em;
         outline: none;
     }
 
     select {
         border: 1px solid $gray-line;
         background: white;
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
-        font-size: 1rem;
+        padding: 0.5em 1em;
+        border-radius: 0.25em;
+        font-size: 1em;
     }
 
     fieldset {
         border: 1px solid $gray-line;
-        border-radius: 0.25rem;
-        margin: 1rem 0;
+        border-radius: 0.25em;
+        margin: 1em 0;
     }
 
     legend {
-        padding: 0 0.5rem;
+        padding: 0 0.5em;
     }
 
     div {
-        margin: 1rem 0;
+        margin: 1em 0;
     }
 }
 
@@ -79,17 +77,17 @@ form {
 .form-general {
     // Multi-input forms with seperate submit button.
     fieldset {
-        max-width: 45rem;
+        max-width: 45em;
         border: 0;
         padding: 0;
-        margin: 1rem 0;
+        margin: 1em 0;
 
         input[type="search"],
         input[type="text"],
         input[type="email"],
         input[type="password"],
         input[type="url"] {
-            margin: 1rem 0;
+            margin: 1em 0;
         }
     }
 }
@@ -106,8 +104,8 @@ form {
         position: absolute;
         right: 3%;
         top: 0;
-        width: 3rem;
-        font-size: 1.5rem;
+        width: 3em;
+        font-size: 1.5em;
 
         @include respond-min($screen-medium) {
             right: 1%;

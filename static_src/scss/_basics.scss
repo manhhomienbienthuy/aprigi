@@ -20,7 +20,7 @@ body {
     font-weight: normal;
     background: $white;
     color: $text-default;
-    line-height: 2;
+    line-height: 1.75;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -29,6 +29,10 @@ body {
     @include respond-min($screen-medium) {
         min-width: $screen-medium;
     }
+}
+
+::selection {
+    background: $selection-bg;
 }
 
 main {
@@ -49,14 +53,6 @@ a {
         color: lighten($text-blue, 10%);
         text-decoration: underline;
     }
-
-    .active & {
-        color: lighten($text-blue, 10%);
-    }
-}
-
-::selection {
-    background: $selection-bg;
 }
 
 ul li,

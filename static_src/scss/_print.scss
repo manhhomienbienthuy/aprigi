@@ -56,4 +56,14 @@
     }
 
     // Custom Print Styles
+
+    // Display none list
+    .navigation-button,
+    .back-to-top {
+        display: none !important;
+    }
+
+    .logo {
+        text-indent: 0 !important;
+    }
 }

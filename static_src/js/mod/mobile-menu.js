@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery'], ($) => {
     class MobileMenuExport {
         constructor(menu) {
             this.menu = $(menu);
@@ -9,7 +9,7 @@ define(['jquery'], function($) {
             this.menu.addClass('mobile-navigation');
             this.button = $('<div class="navigation-button"><i class="fa fa-bars"></i></div>');
             this.button.insertBefore(this.menu);
-            this.button.on( 'click', (event) => {
+            this.button.on('click', () => {
                 this.menu.toggleClass('active');
                 this.button.toggleClass('active');
             });
