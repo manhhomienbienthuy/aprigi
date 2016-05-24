@@ -36,14 +36,9 @@ $back-top-top-size: 2.5rem;
     }
 }
 
-.centering {
-    text-align: center;
-}
-
-.left {
-    text-align: left;
-}
-
-.right {
-    text-align: right;
+$text-align: center left right justify;
+@each $style in $text-align {
+    .#{$style} {
+        text-align: #{$style};
+    }
 }

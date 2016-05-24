@@ -1,0 +1,67 @@
+.two-columns {
+    @include clearfix;
+    display: flex;
+    flex-flow: row wrap;
+    margin: -1rem 0 0 -1rem;
+
+    .main-content {
+        margin: 1rem 0 0 1rem;
+
+        @include respond-min($screen-medium) {
+            flex: 7 0;
+        }
+    }
+
+    .sidebar {
+        margin: 1rem 0 0 1rem;
+        flex: 1 auto;
+        background: $gray-bg;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            border: none;
+            font-size: 1rem;
+            padding-left: 1em;
+        }
+
+        h1 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin: 0;
+            background: $text-blue;
+            color: $white;
+            padding-left: 1em;
+        }
+
+        ul {
+            margin: 0.5em 0;
+            padding: 0 1em 1em;
+            border-bottom: 1px solid $gray-line;
+
+            &:last-child {
+                border: none;
+            }
+
+            li {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                a {
+                    color: $text-light;
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        color: $text-blue;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
