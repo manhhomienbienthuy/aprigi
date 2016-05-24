@@ -23,7 +23,7 @@ gulp.task('stylesheet', () => {
         .src('../static_src/scss/vpyeu.scss')
         .pipe(sass())
         .pipe(autoprefixer({browsers: ['last 2 versions', '> 1%', 'iOS 7']}))
-        .pipe(csslint())
+        .pipe(csslint('.csslintrc.json'))
         .pipe(csslint.reporter())
         .pipe(shorthand())
         .pipe(combine())
