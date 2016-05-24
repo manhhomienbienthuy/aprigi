@@ -1,13 +1,15 @@
 <header role="banner" id="top">
   <div class="container">
-    <a href="/" class="logo">Aprigi</a>
+    <a href="{% url 'homepage' %}" class="logo">Aprigi</a>
     <p class="meta">
       The app for my April girl, from naa with love
     </p>
 
     <div class="navigation">
       <ul>
-        <li class="active"><a href="#!">App 1</a></li>
+        <li{% if 'savings' in request.path %} class="active"{% endif %}>
+          <a href="{% url 'savings:index' %}">Savings</a>
+        </li>
         <li><a href="#!">App 2</a></li>
       </ul>
     </div>
