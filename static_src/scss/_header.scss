@@ -18,7 +18,7 @@ header#top {
         display: block;
         float: left;
         font-weight: bold;
-        margin: 0.625rem;
+        margin: 10/16 + rem;
         overflow: hidden;
         text-decoration: none;
         text-indent: 100%;
@@ -39,7 +39,7 @@ header#top {
         display: none;
 
         @include respond-min($screen-large) {
-            width: 12.5rem;
+            width: 12rem;
             display: block;
         };
     }
@@ -138,7 +138,7 @@ header#top {
             }
 
             @include respond-min($screen-medium) {
-                padding: 1.3125rem 1rem;
+                padding: 21/16 + rem 1rem;
             }
         }
     }

@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery'], ($) => {
     class ScrollTopExport{
         constructor(window, body) {
             this.body = $(body);
@@ -12,7 +12,7 @@ define(['jquery'], function($) {
             this.body.append(this.button);
 
             this.window.scroll(() => {
-                if ($(window).scrollTop() > this.offset) {
+                if (this.window.scrollTop() > this.offset) {
                     this.button.fadeIn('medium');
                 } else {
                     this.button.fadeOut('medium');
