@@ -23,3 +23,7 @@ table {
         color: $text-light;
     }
 }
+
+.responsive-table {
+    overflow-x: auto;
+}

@@ -6,6 +6,7 @@
 
     .main-content {
         margin: 1rem 0 0 1rem;
+        min-width: 0;
 
         @include respond-min($screen-medium) {
             flex: 7 0;
@@ -45,21 +46,21 @@
             &:last-child {
                 border: none;
             }
+        }
 
-            li {
-                list-style: none;
-                margin: 0;
-                padding: 0;
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
 
-                a {
-                    color: $text-light;
+            a {
+                color: $text-light;
 
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: $text-blue;
-                        text-decoration: none;
-                    }
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $text-blue;
+                    text-decoration: none;
                 }
             }
         }
