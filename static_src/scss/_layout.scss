@@ -9,7 +9,7 @@
         min-width: 0;
 
         @include respond-min($screen-medium) {
-            flex: 7 0 0%;
+            flex: 7 0 0;
         }
     }
 

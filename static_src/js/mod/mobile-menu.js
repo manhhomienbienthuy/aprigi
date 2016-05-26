@@ -1,3 +1,5 @@
+'use strict';
+
 define(['jquery'], ($) => {
     class MobileMenuExport {
         constructor(menu) {
