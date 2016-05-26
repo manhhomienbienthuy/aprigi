@@ -102,13 +102,8 @@ form {
         padding: 0;
         position: absolute;
         right: 3%;
-        top: 0;
-        width: 3em;
-        font-size: 1.5em;
-
-        @include respond-min($screen-medium) {
-            right: 1%;
-        }
+        top: 25%;
+        line-height: 1.5em;
 
         &:hover,
         &:focus,
