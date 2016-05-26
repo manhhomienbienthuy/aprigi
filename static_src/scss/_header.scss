@@ -27,7 +27,7 @@ header {
 
         @include respond-min($screen-medium) {
             margin-left: 0;
-        };
+        }
     }
 
     .meta {
@@ -41,7 +41,7 @@ header {
         @include respond-min($screen-large) {
             width: 12rem;
             display: block;
-        };
+        }
     }
 
     .navigation-button {
@@ -60,7 +60,7 @@ header {
 
         @include respond-min($screen-medium) {
             display: none;
-        };
+        }
 
         &.active,
         &:active {

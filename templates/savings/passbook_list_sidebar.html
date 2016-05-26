@@ -2,16 +2,25 @@
 
 <h2>By status</h2>
 <ul>
-  <li><a href="#!">All</a></li>
-  <li><a href="#!">Open</a></li>
-  <li><a href="#!">Close</a></li>
+  <li><a href="?">All</a></li>
+  <li><a href="?is_open=1">Open</a></li>
+  <li><a href="?is_open=0">Close</a></li>
 </ul>
 
 <h2>Upcoming</h2>
 <ul>
-  <li><a href="#!">All</a></li>
-  <li><a href="#!">Today</a></li>
-  <li><a href="#!">This week</a></li>
-  <li><a href="#!">This month</a></li>
-  <li><a href="#!">This year</a></li>
+  <li><a href="?">All</a></li>
+  <li><a href="?upcoming=today">Today</a></li>
+  <li><a href="?upcoming=thisweek">Within 7 days</a></li>
+  <li><a href="?upcoming=thismonth">This month</a></li>
+  <li><a href="?upcoming={% now 'Y' %}-12-31">This year</a></li>
+  <li>
+    <form class="form-input" action="?" method="get">
+      <input name="upcoming" placeholder="yyyy-mm-dddd" type="date">
+      <button type="submit">
+        <i class="fa fa-search"></i>
+        <span class="visuallyhidden">Search</span>
+      </button>
+    </form>
+  </li>
 </ul>
