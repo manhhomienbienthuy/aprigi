@@ -1,3 +1,5 @@
+'use strict';
+
 define(['jquery'], ($) => {
     class ScrollTopExport{
         constructor(window, body) {
