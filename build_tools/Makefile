@@ -17,10 +17,13 @@ docker:
 	sudo docker-compose up
 
 isort:
-	@$(foreach app,$(APP_LIST),isort -rc "../$(app)";)
+	@$(foreach app,$(APP_LIST),isort -rc ../$(app);)
 
 isort-check:
-	@$(foreach app,$(APP_LIST),isort -c -rc "../$(app)";)
+	@$(foreach app,$(APP_LIST),isort -c -rc ../$(app);)
 
 flake8:
-	@$(foreach app,$(APP_LIST),flake8 "../$(app)";)
+	@$(foreach app,$(APP_LIST),flake8 --exclude=migrations ../$(app);)
+
+autopep8:
+	@$(foreach app,$(APP_LIST),autopep8 --in-place ../$(app)/*.py;)
