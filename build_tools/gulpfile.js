@@ -67,14 +67,14 @@ gulp.task('javascript', [
 gulp.task('images', () => {
     // At this time, it simply copy all images file
     return gulp
-        .src('../static_src/img/*.{jpg,jpeg,png,gif,ico}')
+        .src('../static_src/img/*.{jpg,jpeg,png,gif,ico,svg}')
         .pipe(gulp.dest('../static/img'));
 });
 
 gulp.task('watch', () => {
     gulp.watch('../static_src/scss/*.scss', ['stylesheet']);
     gulp.watch('../static_src/js/**/*.js', ['javascript']);
-    gulp.watch('../static_src/images/*.{jpg,jpeg,png,gif,ico}', ['images']);
+    gulp.watch('../static_src/images/*.{jpg,jpeg,png,gif,ico,svg}', ['images']);
 });
 
 

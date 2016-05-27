@@ -13,7 +13,8 @@ header {
 
     .logo {
         font-size: 2rem;
-        background: url(#{$img-path}logo-small.png) 0 0 no-repeat;
+        background: url(#{$img-path}logo.svg) 0 0 no-repeat;
+        background-size: 110px 36px;
         color: $text-blue;
         display: block;
         float: left;
