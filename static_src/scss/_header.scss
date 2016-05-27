@@ -18,12 +18,12 @@ header {
         display: block;
         float: left;
         font-weight: bold;
-        margin: 10/16 + rem;
+        margin: (60-36)/32 + rem;
         overflow: hidden;
         text-decoration: none;
         text-indent: 100%;
-        width: 163px;
-        height: 40px;
+        width: 110px;
+        height: 36px;
 
         @include respond-min($screen-medium) {
             margin-left: 0;
