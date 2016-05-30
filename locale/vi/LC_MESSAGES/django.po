@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-30 11:43+0700\n"
+"POT-Creation-Date: 2016-05-30 15:15+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,6 +113,19 @@ msgstr ""
 #: templates/savings/passbook_list.html:9
 msgid "Passbook list"
 msgstr "Danh sách sổ tiết kiệm"
+
+#: templates/savings/passbook_list.html:18
+msgid ""
+"\n"
+"        You have total %(counter)s passbook.\n"
+"      "
+msgid_plural ""
+"\n"
+"        You have total %(counter)s passbooks.\n"
+"      "
+msgstr[0] ""
+"\n"
+"Bạn có %(counter)s sổ tiết kiệm."
 
 #: templates/savings/passbook_list_sidebar.html:3
 msgid "Filter"

@@ -14,7 +14,13 @@
 {% block content %}
   <div class="container">
 
-    <p>You have total {{ object_list | length }} passbooks</p>
+    <p>
+      {% blocktrans count counter=object_list|length %}
+        You have total {{ counter }} passbook.
+      {% plural %}
+        You have total {{ counter }} passbooks.
+      {% endblocktrans %}
+    </p>
 
     <div class="two-columns">
       <div class="main-content">
