@@ -36,3 +36,22 @@ footer {
         color: $text-light;
     }
 }
+
+.language-switcher {
+    ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+        margin: 0 0 0 -0.5rem;
+
+        li {
+            margin: 0 0 0 0.5rem;
+        }
+
+        i {
+            color: $text-blue;
+        }
+    }
+}

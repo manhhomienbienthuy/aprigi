@@ -29,7 +29,8 @@ class Passbook(models.Model):
     notes = models.CharField(_('notes'), max_length=200)
 
     class Meta:
-        pass
+        verbose_name = _('Passbook')
+        verbose_name_plural = _('Passbooks')
 
     def __str__(self):
         return self.number

@@ -4,12 +4,13 @@ requirejs.config({
     paths: {
         'jquery': '//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min',
         'mobile-menu': 'mod/mobile-menu',
-        'scroll-top': 'mod/scroll-top'
+        'scroll-top': 'mod/scroll-top',
+        'language-switcher': 'mod/language-switcher'
     }
 });
 
 define(() => {
-    var mods = ['mobile-menu'];
+    var mods = ['mobile-menu', 'language-switcher'];
 
     function getPageHeight() {
         var body = document.body;

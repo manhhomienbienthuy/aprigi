@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-30 10:05+0700\n"
+"POT-Creation-Date: 2016-05-30 11:43+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: aprigi/settings.py:127
+msgid "English"
+msgstr ""
+
+#: aprigi/settings.py:128
+msgid "Vietnamese"
+msgstr ""
 
 #: savings/models.py:14 templates/savings/passbook_list_table.html:7
 msgid "number"
@@ -58,6 +66,14 @@ msgstr "còn/hết hạn"
 msgid "notes"
 msgstr "ghi chú"
 
+#: savings/models.py:32
+msgid "Passbook"
+msgstr "Sổ tiết kiệm"
+
+#: savings/models.py:33
+msgid "Passbooks"
+msgstr "Sổ tiết kiệm"
+
 #: templates/admin/base_site.html:3
 msgid "Aprigi site admin"
 msgstr ""
@@ -81,10 +97,8 @@ msgid ""
 "        with the content will be limited. Please turn JavaScript on\n"
 "        for the full experience."
 msgstr ""
-"Trong khi\n"
-" JavaScript không phải là bắt buộc với website này, tương tác của bạn"
-" sẽ bị hạn chế. Hãy bật JavaScript để"
-" có trải nghiệm tốt nhất."
+"Trong khi JavaScript không phải là bắt buộc với website này, tương tác của "
+"bạn sẽ bị hạn chế. Hãy bật JavaScript để có trải nghiệm tốt nhất."
 
 #: templates/includes/warning.html:19
 msgid ""
@@ -92,9 +106,8 @@ msgid ""
 "          browser is <em>ancient</em>. Upgrade to a different browser\n"
 "          to experience a better web."
 msgstr ""
-"Trình duyệt của bạn\n"
-" đã quá cũ. Hãy cập nhật trình duyệt mới\n"
-" để trải nghiệm website tốt hơn."
+"Trình duyệt của bạn đã quá cũ. Hãy cập nhật trình duyệt mới để trải nghiệm "
+"website tốt hơn."
 
 #: templates/savings/passbook_list.html:4
 #: templates/savings/passbook_list.html:9
