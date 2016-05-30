@@ -1,25 +1,27 @@
-<h1>Filter</h1>
+{% load i18n %}
 
-<h2>By status</h2>
+<h1>{% trans "Filter" %}</h1>
+
+<h2>{% trans "By status" %}</h2>
 <ul>
-  <li><a href="?">All</a></li>
-  <li><a href="?is_open=1">Open</a></li>
-  <li><a href="?is_open=0">Close</a></li>
+  <li><a href="?">{% trans "All" %}</a></li>
+  <li><a href="?is_open=1">{% trans "Passbook open" %}</a></li>
+  <li><a href="?is_open=0">{% trans "Passbook close" %}</a></li>
 </ul>
 
-<h2>Upcoming</h2>
+<h2>{% trans "Upcoming" %}</h2>
 <ul>
-  <li><a href="?">All</a></li>
-  <li><a href="?upcoming=today">Today</a></li>
-  <li><a href="?upcoming=thisweek">Within 7 days</a></li>
-  <li><a href="?upcoming=thismonth">This month</a></li>
-  <li><a href="?upcoming={% now 'Y' %}-12-31">This year</a></li>
+  <li><a href="?">{% trans "All" %}</a></li>
+  <li><a href="?upcoming=today">{% trans "Today" %}</a></li>
+  <li><a href="?upcoming=thisweek">{% trans "One week" %}</a></li>
+  <li><a href="?upcoming=thismonth">{% trans "This month" %}</a></li>
+  <li><a href="?upcoming={% now 'Y' %}-12-31">{% trans "This year" %}</a></li>
   <li>
     <form class="form-input" action="?" method="get">
       <input name="upcoming" placeholder="yyyy-mm-dddd" type="date" required>
       <button type="submit">
         <i class="fa fa-search"></i>
-        <span class="visuallyhidden">Search</span>
+        <span class="visuallyhidden">{% trans "Search" %}</span>
       </button>
     </form>
   </li>

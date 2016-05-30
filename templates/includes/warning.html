@@ -1,10 +1,14 @@
+{% load i18n %}
+
 <noscript>
   <div class="warning">
     <div class="container">
-      <p><strong>Notice:</strong> While JavaScript is not essential
-        for this website, your interaction with the content will be
-        limited. Please turn JavaScript on for the full
-        experience.</p>
+      <p>
+        <strong>{% trans "Notice" %}:</strong> {% blocktrans %}While
+        JavaScript is not essential for this website, your interaction
+        with the content will be limited. Please turn JavaScript on
+        for the full experience.{% endblocktrans %}
+      </p>
     </div>
   </div>
 </noscript>
@@ -12,9 +16,10 @@
 <!--[if lt IE 11]>
     <div class="warning">
       <div class="container">
-        <p><strong>Notice:</strong> Your browser
-          is <em>ancient</em>. Upgrade to a different browser to
-          experience a better web.</p>
+        <p><strong>{% trans "Notice" %}:</strong> {% blocktrans %}Your
+          browser is <em>ancient</em>. Upgrade to a different browser
+          to experience a better web.{% endblocktrans %}
+        </p>
       </div>
     </div>
 <![endif]-->

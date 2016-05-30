@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <header role="banner" id="top">
   <div class="container">
     <a href="{% url 'homepage' %}" class="logo">Aprigi</a>
@@ -8,7 +10,7 @@
     <div class="navigation">
       <ul>
         <li{% if 'savings' in request.path %} class="active"{% endif %}>
-          <a href="{% url 'savings:index' %}">Savings</a>
+          <a href="{% url 'savings:index' %}">{% trans "Savings" %}</a>
         </li>
         <li><a href="#!">App 2</a></li>
       </ul>

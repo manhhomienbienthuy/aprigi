@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -110,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -120,6 +121,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
+USE_THOUSAND_SEPARATOR = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -134,18 +140,29 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 MEDIA_URL = '/media/'
 
+CSRF_COOKIE_HTTPONLY = True
+
 CSRF_COOKIE_SECURE = os.environ.get('USE_SSL', False)
+
 SESSION_COOKIE_SECURE = os.environ.get('USE_SSL', False)
 
 DEFAULT_FROM_EMAIL = SERVER_EMAIL = 'naa@sfc.wide.ad.jp'
+
 ADMINS = [
     ('Anh Tranngoc', 'naa@sfc.wide.ad.jp'),
 ]
+
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
+
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 25))
+
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', False)

@@ -1,24 +1,25 @@
+{% load i18n %}
+
 <div class="responsive-table">
   <table>
     <thead>
       <tr>
-        <th>Number</th>
-        <th>Account number</th>
-        <th>Amount</th>
-        <th>Period</th>
-        <th>Start date</th>
-        <th>Stop date</th>
-        <th>Open/Close</th>
+        <th>{% trans "number" %}</th>
+        <th>{% trans "account number" %}</th>
+        <th>{% trans "amount" %}</th>
+        <th>{% trans "period" %}</th>
+        <th>{% trans "start date" %}</th>
+        <th>{% trans "stop date" %}</th>
+        <th>{% trans "is open" %}</th>
       </tr>
     </thead>
 
     <tbody>
-      {% load humanize %}
       {% for passbook in object_list %}
         <tr{% if not passbook.is_open %} class="grayout"{% endif %}>
           <td>{{ passbook.number }}</td>
           <td>{{ passbook.account_number }}</td>
-          <td class="right">{{ passbook.amount | intcomma }}$</td>
+          <td class="right">{{ passbook.amount }}</td>
           <td>
             {{ passbook.period }}
             {% if passbook.period_type == passbook.MONTH %}
