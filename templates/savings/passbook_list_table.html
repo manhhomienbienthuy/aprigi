@@ -45,7 +45,7 @@
               <i class="fa fa-times-circle"></i>
             {% endif %}
           </td>
-          <td>{{ passbook.interest }}</td>
+          <td>{{ passbook.interest|default_if_none:"-" }}</td>
         </tr>
       {% empty %}
         <tr>

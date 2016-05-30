@@ -48,7 +48,7 @@ class PassbookTest(TestCase):
         )
 
     def test_interest_closed_passbook(self):
-        self.assertEqual(self.closed_passbook.interest(), 0)
+        self.assertEqual(self.closed_passbook.interest(), None)
 
     def test_interest_month_passbook(self):
         self.assertEqual(self.month_passbook.interest(), 41667)
