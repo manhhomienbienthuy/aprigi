@@ -50,7 +50,7 @@ a {
     &:hover,
     &:active,
     &:focus {
-        color: lighten($text-blue, 10%);
+        color: darken($text-blue, 20%);
         text-decoration: underline;
     }
 }
@@ -113,7 +113,7 @@ pre,
 samp {
     @include monospace;
     color: $text-default;
-    background: $gray-bg;
+    background: $bg-gray;
     border-radius: 0.25rem;
     padding: 0.2em 0.4em;
 }

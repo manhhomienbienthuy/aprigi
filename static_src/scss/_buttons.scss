@@ -4,7 +4,7 @@
     cursor: pointer;
     user-select: none;
     border: 1px solid transparent;
-    padding: 0 1em;
+    padding: 0.25em 1em;
     border-radius: 0.25em;
 
     &:focus,
@@ -17,23 +17,23 @@
 
 .button-primary {
     color: $white;
-    background: $text-blue;
-    border-color: $text-blue;
+    background: $bg-default;
 
     &:hover,
-    &:focus {
-        background: lighten($text-blue, 10%);
-        border-color: lighten($text-blue, 10%);
+    &:focus,
+    &:active {
+        background: $bg-blue;
     }
 }
 
 .button-secondary {
     color: $text-blue;
     background: $white;
-    border-color: $text-blue;
+    border-image: $bg-default 1;
+    padding: 0.1875em 0.9375em;
 
     &:hover,
     &:focus {
-        background: $gray-bg;
+        background: $bg-gray;
     }
 }

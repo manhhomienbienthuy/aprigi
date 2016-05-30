@@ -10,13 +10,13 @@ table {
     thead tr,
     th {
         @extend td;
-        background: $gray-bg;
+        background: $bg-gray;
         font-weight: normal;
         text-transform: uppercase;
     }
 
     tbody tr:nth-child(even) {
-        background: $gray-bg;
+        background: $bg-gray;
     }
 
     .grayout {
