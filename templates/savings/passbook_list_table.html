@@ -22,11 +22,18 @@
           <td>{{ passbook.account_number }}</td>
           <td class="right">{{ passbook.amount }}</td>
           <td>
-            {{ passbook.period }}
             {% if passbook.period_type == passbook.MONTH %}
-              months
+              {% blocktrans count counter=passbook.period %}
+                {{ counter }} month
+              {% plural %}
+                {{ counter }} months
+              {% endblocktrans %}
             {% elif passbook.period_type == passbook.WEEK %}
-              weeks
+              {% blocktrans count counter=passbook.period %}
+                {{ counter }} week
+              {% plural %}
+                {{ counter }} weeks
+              {% endblocktrans %}
             {% endif %}
           </td>
           <td>{{ passbook.start_date }}</td>
