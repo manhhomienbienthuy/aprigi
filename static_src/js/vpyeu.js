@@ -8,18 +8,21 @@ requirejs.config({
     }
 });
 
-var mods = ['mobile-menu'];
+define(() => {
+    var mods = ['mobile-menu'];
 
-function getPageHeight() {
-    var body = document.body;
-    var html = document.documentElement;
+    function getPageHeight() {
+        var body = document.body;
+        var html = document.documentElement;
 
-    return Math.max(body.scrollHeight, body.offsetHeight,
-                    html.clientHeight, html.scrollHeight, html.offsetHeight);
-}
+        return Math.max(body.scrollHeight, body.offsetHeight,
+                        html.clientHeight, html.scrollHeight,
+                        html.offsetHeight);
+    }
 
-if (getPageHeight() > window.innerHeight * 2) {
-    mods.push('scroll-top');
-}
+    if (getPageHeight() > window.innerHeight * 2) {
+        mods.push('scroll-top');
+    }
 
-requirejs(mods);
+    requirejs(mods);
+});
