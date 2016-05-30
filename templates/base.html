@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-{% load staticfiles %}
-<html lang="{% block html_language_code %}en{% endblock %}">
+{% load staticfiles i18n %}
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
