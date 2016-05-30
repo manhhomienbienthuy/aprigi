@@ -4,8 +4,8 @@ from .models import Passbook
 
 
 class PassbookAdmin(admin.ModelAdmin):
-    list_display = ('number', 'account_number', 'amount', 'period',
-                    'start_date', 'stop_date', 'is_open')
+    list_display = ('number', 'account_number', 'amount', 'period', 'rate',
+                    'start_date', 'stop_date', 'is_open', 'interest')
     list_filter = ['is_open', 'period', 'start_date', 'stop_date']
 
 

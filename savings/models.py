@@ -34,3 +34,11 @@ class Passbook(models.Model):
 
     def __str__(self):
         return self.number
+
+    def interest(self):
+        if not self.is_open or self.period_type not in (self.WEEK, self.MONTH):
+            return 0
+        if self.period_type == self.WEEK:
+            return round(self.amount * self.rate / 100 / 365 * self.period * 7)
+        return round(self.amount * self.rate / 100 / 12 * self.period)
+    interest.short_description = _('interest (expected)')

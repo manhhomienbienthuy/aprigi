@@ -11,6 +11,7 @@
         <th>{% trans "start date" %}</th>
         <th>{% trans "stop date" %}</th>
         <th>{% trans "is open" %}</th>
+        <th>{% trans "interest (expected)" %}
       </tr>
     </thead>
 
@@ -36,7 +37,8 @@
             {% else %}
               <i class="fa fa-times-circle"></i>
             {% endif %}
-           </td>
+          </td>
+          <td>{{ passbook.interest }}</td>
         </tr>
       {% empty %}
         <tr>

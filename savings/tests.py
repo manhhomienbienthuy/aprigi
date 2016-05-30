@@ -6,6 +6,57 @@ from django.test import TestCase
 from .models import Passbook
 
 
+class PassbookTest(TestCase):
+
+    def setUp(self):
+        self.today = datetime.today()
+        self.month_passbook = Passbook.objects.create(
+            number="001",
+            account_number="001",
+            amount=10000000,
+            period_type=2,
+            period=1,
+            rate=5.0,
+            start_date=self.today,
+            stop_date=self.today + timedelta(days=31),
+            is_open=True,
+            notes="Note"
+        )
+        self.week_passbook = Passbook.objects.create(
+            number="002",
+            account_number="002",
+            amount=10000000,
+            period_type=1,
+            period=1,
+            rate=5.0,
+            start_date=self.today,
+            stop_date=self.today + timedelta(days=7),
+            is_open=True,
+            notes="Note"
+        )
+        self.closed_passbook = Passbook.objects.create(
+            number="003",
+            account_number="003",
+            amount=10000000,
+            period_type=2,
+            period=1,
+            rate=5.0,
+            start_date=self.today,
+            stop_date=self.today,
+            is_open=False,
+            notes="Note"
+        )
+
+    def test_interest_closed_passbook(self):
+        self.assertEqual(self.closed_passbook.interest(), 0)
+
+    def test_interest_month_passbook(self):
+        self.assertEqual(self.month_passbook.interest(), 41667)
+
+    def test_interest_week_passbook(self):
+        self.assertEqual(self.week_passbook.interest(), 9589)
+
+
 class PassbookViewTest(TestCase):
 
     def setUp(self):
@@ -85,8 +136,12 @@ class PassbookViewTest(TestCase):
             notes="Note"
         )
 
-    def test_passbook_view(self):
+    def test_i18n_view(self):
         response = self.client.get('/savings/')
+        self.assertRedirects(response, '/en/savings/')
+
+    def test_passbook_view(self):
+        response = self.client.get('/en/savings/')
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'],
@@ -101,7 +156,7 @@ class PassbookViewTest(TestCase):
         )
 
     def test_passbook_view_filter_open(self):
-        response = self.client.get('/savings/?is_open=1')
+        response = self.client.get('/en/savings/?is_open=1')
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'],
@@ -115,7 +170,7 @@ class PassbookViewTest(TestCase):
         )
 
     def test_passbook_view_filter_close(self):
-        response = self.client.get('/savings/?is_open=0')
+        response = self.client.get('/en/savings/?is_open=0')
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'],
@@ -125,7 +180,7 @@ class PassbookViewTest(TestCase):
         )
 
     def test_passbook_view_filter_today(self):
-        response = self.client.get('/savings/?upcoming=today')
+        response = self.client.get('/en/savings/?upcoming=today')
         expected_object_list = [self.today_passbook]
         if self.today.month < (self.today + timedelta(days=1)).month:
             expected_object_list.append(self.this_month_passbook)
@@ -134,7 +189,7 @@ class PassbookViewTest(TestCase):
             response.context['object_list'], expected_object_list)
 
     def test_passbook_view_filter_thisweek(self):
-        response = self.client.get('/savings/?upcoming=thisweek')
+        response = self.client.get('/en/savings/?upcoming=thisweek')
         expected_object_list = [
             self.today_passbook,
             self.this_week_passbook,
@@ -146,7 +201,7 @@ class PassbookViewTest(TestCase):
             response.context['object_list'], expected_object_list)
 
     def test_passbook_view_filter_thismonth(self):
-        response = self.client.get('/savings/?upcoming=thismonth')
+        response = self.client.get('/en/savings/?upcoming=thismonth')
         expected_object_list = [self.today_passbook]
         if self.today.month == (self.today + timedelta(days=1)).month:
             expected_object_list.append(self.this_week_passbook)
@@ -157,7 +212,7 @@ class PassbookViewTest(TestCase):
 
     def test_passbook_view_filter_by_date(self):
         response = self.client.get(
-            "/savings/?upcoming=%s-12-31" % (self.today.year + 2))
+            "/en/savings/?upcoming=%s-12-31" % (self.today.year + 2))
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'],
@@ -171,7 +226,7 @@ class PassbookViewTest(TestCase):
         )
 
     def test_passbook_view_filter_by_invalid_date(self):
-        response = self.client.get('/savings/?upcoming=2016-31-12')
+        response = self.client.get('/en/savings/?upcoming=2016-31-12')
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'],

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-30 15:15+0700\n"
+"POT-Creation-Date: 2016-05-30 15:50+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,6 +74,10 @@ msgstr "Sổ tiết kiệm"
 msgid "Passbooks"
 msgstr "Sổ tiết kiệm"
 
+#: savings/models.py:44 templates/savings/passbook_list_table.html:14
+msgid "interest (expected)"
+msgstr "Tiền lãi (dự kiến)"
+
 #: templates/admin/base_site.html:3
 msgid "Aprigi site admin"
 msgstr ""
@@ -115,6 +119,7 @@ msgid "Passbook list"
 msgstr "Danh sách sổ tiết kiệm"
 
 #: templates/savings/passbook_list.html:18
+#, python-format
 msgid ""
 "\n"
 "        You have total %(counter)s passbook.\n"
