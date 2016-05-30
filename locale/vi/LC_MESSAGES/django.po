@@ -106,8 +106,8 @@ msgid ""
 "          browser is <em>ancient</em>. Upgrade to a different browser\n"
 "          to experience a better web."
 msgstr ""
-"Trình duyệt của bạn đã quá cũ. Hãy cập nhật trình duyệt mới để trải nghiệm "
-"website tốt hơn."
+"Trình duyệt của bạn đã <em>quá cũ</em>. Hãy cập nhật trình duyệt mới để trải "
+"nghiệm website tốt hơn."
 
 #: templates/savings/passbook_list.html:4
 #: templates/savings/passbook_list.html:9
