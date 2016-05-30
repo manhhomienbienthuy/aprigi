@@ -74,7 +74,7 @@ gulp.task('images', () => {
 gulp.task('watch', () => {
     gulp.watch('../static_src/scss/*.scss', ['stylesheet']);
     gulp.watch('../static_src/js/**/*.js', ['javascript']);
-    gulp.watch('../static_src/images/*.{jpg,jpeg,png,gif,ico,svg}', ['images']);
+    gulp.watch('../static_src/img/*.{jpg,jpeg,png,gif,ico,svg}', ['images']);
 });
 
 

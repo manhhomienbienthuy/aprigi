@@ -16,7 +16,7 @@
     .sidebar {
         margin: 1rem 0 0 1rem;
         flex: 1 0 12.5%;
-        background: $gray-bg;
+        background: $bg-gray;
 
         h1,
         h2,
@@ -33,7 +33,7 @@
             font-size: 1rem;
             text-transform: uppercase;
             margin: 0;
-            background: $text-blue;
+            background: $bg-default;
             color: $white;
             padding-left: 1em;
         }

@@ -2,12 +2,14 @@
 $text-default: #474747;
 $text-light: #888;
 $white: #fff; // Confusing, but in some cases, this can be set to a dark color
-$text-blue: #2e5e86;
+$text-blue: #5595db;
+$bg-blue: #44bbf3;
+$bg-green: #63daca;
+$bg-gray: #f8f8f8;
 $gray-line: #eee;
-$gray-bg: #f8f8f8;
+$bg-default: linear-gradient(to right, $bg-blue, $bg-green 100%);
 $selection-bg: #b3d4fc;
 $highlight-bg: #ff7;
-
 $img-path: '../img/';
 $screen-medium: 48em;
 $screen-large: 70em;
@@ -40,5 +42,17 @@ $screen-large: 70em;
     }
     &:after {
         clear: both;
+    }
+}
+
+@mixin gradient-underline {
+    &:before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.125em;
+        background: $bg-default;
+        content: "";
     }
 }

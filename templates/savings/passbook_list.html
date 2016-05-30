@@ -2,9 +2,16 @@
 
 {% block title %}Passbook list | Savings{% endblock %}
 
+{% block page_header %}
+  <div class="page-header">
+    <div class="container">
+      <h1>Passbook list</h1>
+    </div>
+  </div>
+{% endblock %}
+
 {% block content %}
   <div class="container">
-    <h1 class="page-header">Passbook list</h1>
 
     <p>You have total {{ object_list | length }} passbooks</p>
 
