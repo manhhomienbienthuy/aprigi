@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-30 15:50+0700\n"
+"POT-Creation-Date: 2016-05-30 16:26+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -176,6 +176,34 @@ msgstr ""
 #: templates/savings/passbook_list_sidebar.html:24
 msgid "Search"
 msgstr ""
+
+#: templates/savings/passbook_list_table.html:26
+#, python-format
+msgid ""
+"\n"
+"                %(counter)s month\n"
+"              "
+msgid_plural ""
+"\n"
+"                %(counter)s months\n"
+"              "
+msgstr[0] ""
+"\n"
+"%(counter)s tháng"
+
+#: templates/savings/passbook_list_table.html:32
+#, python-format
+msgid ""
+"\n"
+"                %(counter)s week\n"
+"              "
+msgid_plural ""
+"\n"
+"                %(counter)s weeks\n"
+"              "
+msgstr[0] ""
+"\n"
+"%(counter)s tuần"
 
 #: venv/lib/python3.5/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
