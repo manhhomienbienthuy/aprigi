@@ -180,7 +180,8 @@ class PassbookViewTest(TestCase):
         )
 
     def test_passbook_view_filter_today(self):
-        response = self.client.get('/en/savings/?upcoming=today')
+        response = self.client.get('/en/savings/?upcoming=' +
+                                   self.today.strftime('%Y-%m-%d'))
         expected_object_list = [self.today_passbook]
         if self.today.month < (self.today + timedelta(days=1)).month:
             expected_object_list.append(self.this_month_passbook)

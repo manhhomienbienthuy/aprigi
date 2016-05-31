@@ -12,13 +12,14 @@
 <h2>{% trans "Upcoming" %}</h2>
 <ul>
   <li><a href="?">{% trans "All" %}</a></li>
-  <li><a href="?upcoming=today">{% trans "Today" %}</a></li>
+  <li><a href="?upcoming={% now 'Y-m-d' %}">{% trans "Today" %}</a></li>
   <li><a href="?upcoming=thisweek">{% trans "One week" %}</a></li>
   <li><a href="?upcoming=thismonth">{% trans "This month" %}</a></li>
   <li><a href="?upcoming={% now 'Y' %}-12-31">{% trans "This year" %}</a></li>
   <li>
     <form class="form-input" action="?" method="get">
-      <input name="upcoming" placeholder="yyyy-mm-dddd" type="date" required>
+      <input name="upcoming" placeholder="yyyy-mm-dddd" type="date"
+             value="{% now 'Y-m-d' %}" required>
       <button type="submit">
         <i class="fa fa-search"></i>
         <span class="visuallyhidden">{% trans "Search" %}</span>

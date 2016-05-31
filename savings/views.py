@@ -24,7 +24,7 @@ class PassbookView(ListView):
     def _upcoming_date(self, upcoming):
         if not upcoming:
             return None
-        if upcoming not in ('today', 'thisweek', 'thismonth'):
+        if upcoming not in ('thisweek', 'thismonth'):
             try:
                 return dateparse.parse_date(upcoming)
             except ValueError:
@@ -37,8 +37,4 @@ class PassbookView(ListView):
                 month=today.month,
                 day=end_date
             )
-        if upcoming == 'thisweek':
-            delta = timedelta(days=7)
-        else:
-            delta = timedelta(0)
-        return (today + delta).date()
+        return (today + timedelta(days=7)).date()
