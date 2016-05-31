@@ -7,13 +7,27 @@
   <div class="page-header">
     <div class="container">
       <h1>{% trans "Passbook list" %}</h1>
+
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'homepage' %}">
+          {% trans "Home" %}
+        </a></li>
+        <li><a href="{% url 'savings:index' %}">
+          {% trans "Savings" %}
+        </a></li>
+        <li><a href="{% url 'savings:passbook_list' %}">
+          {% trans "Passbook" %}
+        </a></li>
+        <li><a href="{% url 'savings:passbook_list' %}">
+          {% trans "Passbook list" %}
+        </a></li>
+      </ul>
     </div>
   </div>
 {% endblock %}
 
 {% block content %}
   <div class="container">
-
     <p>
       {% blocktrans count counter=object_list|length %}
         You have total {{ counter }} passbook.

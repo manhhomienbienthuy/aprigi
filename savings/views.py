@@ -2,7 +2,7 @@ from calendar import monthrange
 from datetime import timedelta
 
 from django.utils import dateparse, timezone
-from django.views.generic.list import ListView
+from django.views.generic import ListView
 
 from .models import Passbook
 

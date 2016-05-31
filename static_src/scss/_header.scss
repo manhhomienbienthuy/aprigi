@@ -154,3 +154,31 @@ header {
         margin: 0;
     }
 }
+
+.breadcrumbs {
+    @include clearfix;
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+        display: inline;
+        padding: 0 0.25em 0 0;
+
+        + li:before {
+            content: ">";
+            padding-right: 0.25em;
+        }
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $text-blue;
+        }
+    }
+}
