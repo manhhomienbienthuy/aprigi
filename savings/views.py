@@ -2,8 +2,9 @@ from calendar import monthrange
 from datetime import timedelta
 
 from django.utils import dateparse, timezone
-from django.views.generic import ListView
+from django.views.generic import CreateView, ListView
 
+from .forms import PassbookForm
 from .models import Passbook
 
 
@@ -38,3 +39,8 @@ class PassbookView(ListView):
                 day=end_date
             )
         return (today + timedelta(days=7)).date()
+
+
+class PassbookCreateView(CreateView):
+    form_class = PassbookForm
+    template_name = 'savings/passbook_form.html'

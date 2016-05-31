@@ -6,6 +6,7 @@
     border: 1px solid transparent;
     padding: 0.25em 1em;
     border-radius: 0.25em;
+    display: inline-block;
 
     &:focus,
     &:active {
@@ -23,6 +24,7 @@
     &:focus,
     &:active {
         background: $bg-blue;
+        text-decoration: none;
     }
 }
 
@@ -33,7 +35,9 @@
     padding: 0.1875em 0.9375em;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
         background: $bg-gray;
+        text-decoration: none;
     }
 }
