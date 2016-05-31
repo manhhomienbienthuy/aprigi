@@ -28,6 +28,14 @@
 
 {% block content %}
   <div class="container">
+    <div class="object-tools">
+      <a href="{% url 'savings:passbook_create' %}"
+         class="button button-secondary">
+        <i class="fa fa-plus"></i>
+        {% trans "Add new passbook" %}
+      </a>
+    </div>
+
     <p>
       {% blocktrans count counter=object_list|length %}
         You have total {{ counter }} passbook.

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-30 16:26+0700\n"
+"POT-Creation-Date: 2016-05-31 16:20+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,55 +26,64 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: savings/models.py:14 templates/savings/passbook_list_table.html:7
+#: savings/models.py:10
+msgid "Week"
+msgstr "Tuần"
+
+#: savings/models.py:11
+msgid "Month"
+msgstr "Tháng"
+
+#: savings/models.py:15 templates/savings/passbook_list_table.html:7
 msgid "number"
 msgstr "số sổ"
 
-#: savings/models.py:16 templates/savings/passbook_list_table.html:8
+#: savings/models.py:17 templates/savings/passbook_list_table.html:8
 msgid "account number"
 msgstr "số tài khoản"
 
-#: savings/models.py:19 templates/savings/passbook_list_table.html:9
+#: savings/models.py:20 templates/savings/passbook_list_table.html:9
 msgid "amount"
 msgstr "số tiền"
 
-#: savings/models.py:20
+#: savings/models.py:21
 msgid "period type"
 msgstr "Gửi theo tuần/tháng"
 
-#: savings/models.py:23 templates/savings/passbook_list_table.html:10
+#: savings/models.py:24 templates/savings/passbook_list_table.html:10
 msgid "period"
 msgstr "kỳ hạn"
 
-#: savings/models.py:24
+#: savings/models.py:25
 msgid "rate"
 msgstr "lãi suất"
 
-#: savings/models.py:25 templates/savings/passbook_list_table.html:11
+#: savings/models.py:26 templates/savings/passbook_list_table.html:11
 msgid "start date"
 msgstr "ngày gửi"
 
-#: savings/models.py:26 templates/savings/passbook_list_table.html:12
+#: savings/models.py:27 templates/savings/passbook_list_table.html:12
 msgid "stop date"
 msgstr "ngày hết hạn"
 
-#: savings/models.py:27 templates/savings/passbook_list_table.html:13
+#: savings/models.py:28 templates/savings/passbook_list_table.html:13
 msgid "is open"
 msgstr "còn/hết hạn"
 
-#: savings/models.py:29
+#: savings/models.py:30
 msgid "notes"
 msgstr "ghi chú"
 
-#: savings/models.py:32
+#: savings/models.py:33 templates/savings/passbook_form.html:17
+#: templates/savings/passbook_list.html:19
 msgid "Passbook"
 msgstr "Sổ tiết kiệm"
 
-#: savings/models.py:33
+#: savings/models.py:34
 msgid "Passbooks"
 msgstr "Sổ tiết kiệm"
 
-#: savings/models.py:44 templates/savings/passbook_list_table.html:14
+#: savings/models.py:45 templates/savings/passbook_list_table.html:14
 msgid "interest (expected)"
 msgstr "Tiền lãi (dự kiến)"
 
@@ -86,7 +95,9 @@ msgstr ""
 msgid "Aprigi administration"
 msgstr ""
 
-#: templates/includes/header.html:13 templates/savings/passbook_list.html:4
+#: templates/includes/header.html:13 templates/savings/passbook_form.html:14
+#: templates/savings/passbook_list.html:4
+#: templates/savings/passbook_list.html:16
 msgid "Savings"
 msgstr "Tiết kiệm"
 
@@ -113,12 +124,30 @@ msgstr ""
 "Trình duyệt của bạn đã <em>quá cũ</em>. Hãy cập nhật trình duyệt mới để trải "
 "nghiệm website tốt hơn."
 
+#: templates/savings/passbook_form.html:7
+#: templates/savings/passbook_form.html:20
+#: templates/savings/passbook_form.html:29
+#: templates/savings/passbook_form.html:53
+#: templates/savings/passbook_list.html:35
+msgid "Add new passbook"
+msgstr "Thêm sổ mới"
+
+#: templates/savings/passbook_form.html:11
+#: templates/savings/passbook_list.html:13
+msgid "Home"
+msgstr ""
+
+#: templates/savings/passbook_form.html:35
+msgid "Please correct the errors below"
+msgstr "Bạn đang gặp những lỗi sau"
+
 #: templates/savings/passbook_list.html:4
 #: templates/savings/passbook_list.html:9
+#: templates/savings/passbook_list.html:22
 msgid "Passbook list"
 msgstr "Danh sách sổ tiết kiệm"
 
-#: templates/savings/passbook_list.html:18
+#: templates/savings/passbook_list.html:40
 #, python-format
 msgid ""
 "\n"
@@ -173,7 +202,7 @@ msgstr ""
 msgid "This year"
 msgstr ""
 
-#: templates/savings/passbook_list_sidebar.html:24
+#: templates/savings/passbook_list_sidebar.html:25
 msgid "Search"
 msgstr ""
 

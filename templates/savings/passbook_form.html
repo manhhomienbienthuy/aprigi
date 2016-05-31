@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block page_header %}
+  <div class="page-header">
+    <div class="container">
+      <h1>{% trans "Add new passbook" %}</h1>
+
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'homepage' %}">
+          {% trans "Home" %}
+        </a></li>
+        <li><a href="{% url 'savings:index' %}">
+          {% trans "Savings" %}
+        </a></li>
+        <li><a href="{% url 'savings:passbook_list' %}">
+          {% trans "Passbook" %}
+        </a></li>
+        <li><a href="{% url 'savings:passbook_create' %}">
+          {% trans "Add new passbook" %}
+        </ul>
+        </a></li>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>{% trans "Add new passbook" %}</h1>
+
+    <form action="" method="post" class="form-general">
+      {% csrf_token %}
+
+      {% if form.errors %}
+        <p class="error">{% trans "Please correct the errors below" %}</p>
+        {{ form.non_field_errors }}
+      {% endif %}
+
+      {% for field in form %}
+        <div>
+          {{ field.label_tag }}
+          {% if field.errors %}
+            <span class="error">
+              {{ field.errors.0 }}
+            </span>
+          {% endif %}
+          {{ field }}
+        </div>
+      {% endfor %}
+
+      <button class="button button-primary">
+        <i class="fa fa-plus"></i>
+        {% trans "Add new passbook" %}
+      </button>
+    </form>
+  </div>
+{% endblock %}

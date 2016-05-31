@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -6,8 +7,8 @@ class Passbook(models.Model):
     WEEK = 1
     MONTH = 2
     PERIOD_TYPE_CHOICES = (
-        (WEEK, 'Week'),
-        (MONTH, 'Month'),
+        (WEEK, _('Week')),
+        (MONTH, _('Month')),
     )
     DEFAULT_PERIOD_TYPE = MONTH
 
@@ -42,3 +43,6 @@ class Passbook(models.Model):
             return round(self.amount * self.rate / 100 / 365 * self.period * 7)
         return round(self.amount * self.rate / 100 / 12 * self.period)
     interest.short_description = _('interest (expected)')
+
+    def get_absolute_url(self):
+        return reverse('savings:passbook_list')
