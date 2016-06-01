@@ -1,6 +1,7 @@
 from calendar import monthrange
 from datetime import timedelta
 
+from django.core.urlresolvers import reverse_lazy
 from django.utils import dateparse, timezone
 from django.views.generic import CreateView, ListView
 
@@ -44,3 +45,4 @@ class PassbookView(ListView):
 class PassbookCreateView(CreateView):
     form_class = PassbookForm
     template_name = 'savings/passbook_form.html'
+    success_url = reverse_lazy('savings:passbook_list')

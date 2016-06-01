@@ -1,18 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Vietnamese translation of aprigi project.
+# Copyright (C) 2016 Anh Tranngoc
+# This file is distributed under the same license as the aprigi package.
+# Anh Tranngoc <naa@sfc.wide.ad.jp>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-31 16:20+0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2016-06-01 08:23+0700\n"
+"PO-Revision-Date: 2016-05-31 16:20+0700\n"
+"Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
+"Language-Team: Vietnamese <vi@li.org>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,64 +26,64 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: savings/models.py:10
+#: savings/models.py:9
 msgid "Week"
 msgstr "Tuần"
 
-#: savings/models.py:11
+#: savings/models.py:10
 msgid "Month"
 msgstr "Tháng"
 
-#: savings/models.py:15 templates/savings/passbook_list_table.html:7
+#: savings/models.py:14 templates/savings/passbook_list_table.html:7
 msgid "number"
 msgstr "số sổ"
 
-#: savings/models.py:17 templates/savings/passbook_list_table.html:8
+#: savings/models.py:16 templates/savings/passbook_list_table.html:8
 msgid "account number"
 msgstr "số tài khoản"
 
-#: savings/models.py:20 templates/savings/passbook_list_table.html:9
+#: savings/models.py:19 templates/savings/passbook_list_table.html:9
 msgid "amount"
 msgstr "số tiền"
 
-#: savings/models.py:21
+#: savings/models.py:20
 msgid "period type"
 msgstr "Gửi theo tuần/tháng"
 
-#: savings/models.py:24 templates/savings/passbook_list_table.html:10
+#: savings/models.py:23 templates/savings/passbook_list_table.html:10
 msgid "period"
 msgstr "kỳ hạn"
 
-#: savings/models.py:25
+#: savings/models.py:24
 msgid "rate"
 msgstr "lãi suất"
 
-#: savings/models.py:26 templates/savings/passbook_list_table.html:11
+#: savings/models.py:25 templates/savings/passbook_list_table.html:11
 msgid "start date"
 msgstr "ngày gửi"
 
-#: savings/models.py:27 templates/savings/passbook_list_table.html:12
+#: savings/models.py:26 templates/savings/passbook_list_table.html:12
 msgid "stop date"
 msgstr "ngày hết hạn"
 
-#: savings/models.py:28 templates/savings/passbook_list_table.html:13
+#: savings/models.py:27 templates/savings/passbook_list_table.html:13
 msgid "is open"
 msgstr "còn/hết hạn"
 
-#: savings/models.py:30
+#: savings/models.py:29
 msgid "notes"
 msgstr "ghi chú"
 
-#: savings/models.py:33 templates/savings/passbook_form.html:17
+#: savings/models.py:32 templates/savings/passbook_form.html:17
 #: templates/savings/passbook_list.html:19
 msgid "Passbook"
 msgstr "Sổ tiết kiệm"
 
-#: savings/models.py:34
+#: savings/models.py:33
 msgid "Passbooks"
 msgstr "Sổ tiết kiệm"
 
-#: savings/models.py:45 templates/savings/passbook_list_table.html:14
+#: savings/models.py:44 templates/savings/passbook_list_table.html:14
 msgid "interest (expected)"
 msgstr "Tiền lãi (dự kiến)"
 
