@@ -23,6 +23,7 @@
     &:hover,
     &:focus,
     &:active {
+        color: $white;
         background: $bg-blue;
         text-decoration: none;
     }
@@ -37,6 +38,7 @@
     &:hover,
     &:focus,
     &:active {
+        color: $text-blue;
         background: $bg-gray;
         text-decoration: none;
     }
