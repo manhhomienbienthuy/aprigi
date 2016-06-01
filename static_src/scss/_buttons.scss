@@ -18,7 +18,7 @@
 
 .button-primary {
     color: $white;
-    background: $bg-default;
+    background: $bg-gradient;
 
     &:hover,
     &:focus,
@@ -31,7 +31,7 @@
 .button-secondary {
     color: $text-blue;
     background: $white;
-    border-image: $bg-default 1;
+    border-image: $bg-gradient 1;
     padding: 0.1875em 0.9375em;
 
     &:hover,
