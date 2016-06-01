@@ -14,6 +14,7 @@ form {
     input[type="datetime-local"],
     textarea {
         appearance: none;
+        color: $text-default;
         background: #fff;
         border: 1px solid $gray-line;
         border-radius: 0.25rem;

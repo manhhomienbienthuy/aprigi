@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from django.core.urlresolvers import reverse
 from django.utils import dateparse, timezone
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 
 from .forms import PassbookForm
 from .models import Passbook
@@ -43,8 +43,16 @@ class PassbookView(ListView):
 
 
 class PassbookCreateView(CreateView):
+    model = Passbook
     form_class = PassbookForm
-    template_name = 'savings/passbook_form.html'
+
+    def get_success_url(self):
+        return reverse('savings:passbook_list')
+
+
+class PassbookUpdateView(UpdateView):
+    model = Passbook
+    form_class = PassbookForm
 
     def get_success_url(self):
         return reverse('savings:passbook_list')
