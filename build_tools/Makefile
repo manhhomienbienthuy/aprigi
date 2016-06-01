@@ -1,20 +1,26 @@
 APP_LIST ?= savings
+LANG_LIST ?= vi
+
+all: docker
 
 install:
 	pip install -r ../requirements/development.txt
 	npm install
 
-collectstatics: frontend
+collectstatics: frontend-production
 	../manage.py collectstatic --noinput
 
 frontend:
 	gulp
 
-watch:
-	gulp watch
+frontend-production:
+	gulp --production
 
-docker:
+docker: frontend
 	sudo docker-compose up
+
+check-style: isort-check flake8
+fix-style: isort autopep8
 
 isort:
 	@$(foreach app,$(APP_LIST),isort -rc ../$(app);)
@@ -27,3 +33,9 @@ flake8:
 
 autopep8:
 	@$(foreach app,$(APP_LIST),autopep8 --in-place ../$(app)/*.py;)
+
+collecttranslation:
+	@$(foreach lang,$(LANG_LIST),../manage.py makemessages -l $(lang);)
+
+translate:
+	@$(foreach lang,$(LANG_LIST),../manage.py compilemessages -l $(lang);)
