@@ -40,15 +40,7 @@ main {
 }
 
 a {
-    color: $text-blue;
-    text-decoration: none;
-
-    &:hover,
-    &:active,
-    &:focus {
-        color: darken($text-blue, 20%);
-        text-decoration: underline;
-    }
+    @include link-blue;
 }
 
 ul li,
@@ -82,21 +74,18 @@ h6 {
 }
 
 h1 {
-    font-size: 2rem;
-}
-
-h2 {
     font-size: 1.75rem;
 }
 
-h3 {
+h2 {
     font-size: 1.5rem;
 }
 
-h4 {
+h3 {
     font-size: 1.25rem;
 }
 
+h4,
 h5,
 h6 {
     font-size: 1rem;

@@ -9,13 +9,19 @@ define(['jquery'], ($) => {
         }
 
         init() {
-            this.switcher.on('click', 'li a', (event) => {
-                event.preventDefault();
-                var $target = $(event.target);
-                if ($target.attr('class') !== 'current') {
-                    this.form.find('#language').val($target.data('language'));
-                    this.form.submit();
-                }
+            $(() => {
+                this.switcher.on('click', 'li a', (event) => {
+                    event.preventDefault();
+                    var $target = $(event.target);
+                    if ($target.attr('class') !== 'current') {
+                        var targetLanguage = $target.data('language');
+                        var currentNext = this.form.find('#next').val();
+                        this.form.find('#language').val(targetLanguage);
+                        this.form.find('#next').val('/' + targetLanguage +
+                                                    currentNext);
+                        this.form.submit();
+                    }
+                });
             });
         }
     }
