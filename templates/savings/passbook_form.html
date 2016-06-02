@@ -1,10 +1,25 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block title %}
+  {% if object %}
+    {% trans "Update passbook" %}
+  {% else %}
+    {% trans "Add new passbook" %}
+  {% endif %}
+  | {% trans "Savings" %}
+{% endblock %}
+
 {% block page_header %}
   <div class="page-header">
     <div class="container">
-      <h1>{% trans "Add new passbook" %}</h1>
+      <h1>
+        {% if object %}
+          {% trans "Update passbook" %}
+        {% else %}
+          {% trans "Add new passbook" %}
+        {% endif %}
+      </h1>
 
       <ul class="breadcrumbs">
         <li><a href="{% url 'homepage' %}">
@@ -16,17 +31,31 @@
         <li><a href="{% url 'savings:passbook_list' %}">
           {% trans "Passbook" %}
         </a></li>
-        <li><a href="{% url 'savings:passbook_create' %}">
-          {% trans "Add new passbook" %}
-        </ul>
-        </a></li>
+        <li>
+          {% if object %}
+            <a href="{% url 'savings:passbook_update' object.id %}">
+              {% trans "Update passbook" %}
+            </a>
+          {% else %}
+            <a href="{% url 'savings:passbook_create' %}">
+              {% trans "Add new passbook" %}
+            </a>
+          {% endif %}
+        </li>
+      </ul>
     </div>
   </div>
 {% endblock %}
 
 {% block content %}
   <div class="container">
-    <h1>{% trans "Add new passbook" %}</h1>
+    <h1>
+      {% if object %}
+        {% trans "Update passbook" %}
+      {% else %}
+        {% trans "Add new passbook" %}
+      {% endif %}
+    </h1>
 
     <form action="" method="post" class="form-general">
       {% csrf_token %}
@@ -49,8 +78,13 @@
       {% endfor %}
 
       <button class="button button-primary">
-        <i class="fa fa-plus"></i>
-        {% trans "Add new passbook" %}
+        {% if object %}
+          <i class="fa fa-pencil"></i>
+          {% trans "Update passbook" %}
+        {% else %}
+          <i class="fa fa-plus"></i>
+          {% trans "Add new passbook" %}
+        {% endif %}
       </button>
     </form>
   </div>

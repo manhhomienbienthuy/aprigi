@@ -281,3 +281,31 @@ class PassbookFormTest(TestCase):
         self.assertEqual(instance.stop_date, datetime(2016, 7, 1).date())
         self.assertEqual(instance.is_open, True)
         self.assertEqual(instance.notes, 'Note')
+
+
+class PassbookDeleteViewTest(TestCase):
+
+    def setUp(self):
+        today = datetime.today()
+        self.passbook = Passbook.objects.create(
+            number="001",
+            account_number="001",
+            amount=10000000,
+            period=1,
+            period_type=2,
+            rate=5.0,
+            start_date=today,
+            stop_date=today + timedelta(days=31),
+            is_open=True,
+            notes="Note"
+        )
+
+    def test_get_request(self):
+        response = self.client.get(reverse('savings:passbook_delete',
+                                           args=(self.passbook.id, )))
+        self.assertContains(response, 'Are you sure?')
+
+    def test_post_request(self):
+        response = self.client.post(reverse('savings:passbook_delete',
+                                            args=(self.passbook.id, )))
+        self.assertRedirects(response, reverse('savings:passbook_list'))
