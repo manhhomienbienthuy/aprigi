@@ -11,7 +11,8 @@
         <th>{% trans "start date" %}</th>
         <th>{% trans "stop date" %}</th>
         <th>{% trans "is open" %}</th>
-        <th>{% trans "interest (expected)" %}
+        <th>{% trans "interest (expected)" %}</th>
+        <th>{% trans "Action" %}</th>
       </tr>
     </thead>
 
@@ -46,6 +47,14 @@
             {% endif %}
           </td>
           <td>{{ passbook.interest|default_if_none:"-" }}</td>
+          <td>
+            <p><a href="{% url 'savings:passbook_update' passbook.id %}">
+              {% trans "Change" %}
+            </a></p>
+            <p><a href="{% url 'savings:passbook_delete' passbook.id %}">
+              {% trans "Delete" %}
+            </a></p>
+          </td>
         </tr>
       {% empty %}
         <tr>

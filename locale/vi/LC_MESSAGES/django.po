@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 08:23+0700\n"
+"POT-Creation-Date: 2016-06-02 09:43+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -34,15 +34,18 @@ msgstr "Tuần"
 msgid "Month"
 msgstr "Tháng"
 
-#: savings/models.py:14 templates/savings/passbook_list_table.html:7
+#: savings/models.py:14 templates/savings/passbook_confirm_delete.html:46
+#: templates/savings/passbook_list_table.html:7
 msgid "number"
 msgstr "số sổ"
 
-#: savings/models.py:16 templates/savings/passbook_list_table.html:8
+#: savings/models.py:16 templates/savings/passbook_confirm_delete.html:50
+#: templates/savings/passbook_list_table.html:8
 msgid "account number"
 msgstr "số tài khoản"
 
-#: savings/models.py:19 templates/savings/passbook_list_table.html:9
+#: savings/models.py:19 templates/savings/passbook_confirm_delete.html:54
+#: templates/savings/passbook_list_table.html:9
 msgid "amount"
 msgstr "số tiền"
 
@@ -50,7 +53,8 @@ msgstr "số tiền"
 msgid "period type"
 msgstr "Gửi theo tuần/tháng"
 
-#: savings/models.py:23 templates/savings/passbook_list_table.html:10
+#: savings/models.py:23 templates/savings/passbook_confirm_delete.html:58
+#: templates/savings/passbook_list_table.html:10
 msgid "period"
 msgstr "kỳ hạn"
 
@@ -58,15 +62,18 @@ msgstr "kỳ hạn"
 msgid "rate"
 msgstr "lãi suất"
 
-#: savings/models.py:25 templates/savings/passbook_list_table.html:11
+#: savings/models.py:25 templates/savings/passbook_confirm_delete.html:62
+#: templates/savings/passbook_list_table.html:11
 msgid "start date"
 msgstr "ngày gửi"
 
-#: savings/models.py:26 templates/savings/passbook_list_table.html:12
+#: savings/models.py:26 templates/savings/passbook_confirm_delete.html:66
+#: templates/savings/passbook_list_table.html:12
 msgid "stop date"
 msgstr "ngày hết hạn"
 
-#: savings/models.py:27 templates/savings/passbook_list_table.html:13
+#: savings/models.py:27 templates/savings/passbook_confirm_delete.html:70
+#: templates/savings/passbook_list_table.html:13
 msgid "is open"
 msgstr "còn/hết hạn"
 
@@ -74,7 +81,8 @@ msgstr "còn/hết hạn"
 msgid "notes"
 msgstr "ghi chú"
 
-#: savings/models.py:32 templates/savings/passbook_form.html:17
+#: savings/models.py:32 templates/savings/passbook_confirm_delete.html:21
+#: templates/savings/passbook_form.html:32
 #: templates/savings/passbook_list.html:19
 msgid "Passbook"
 msgstr "Sổ tiết kiệm"
@@ -95,49 +103,96 @@ msgstr ""
 msgid "Aprigi administration"
 msgstr ""
 
-#: templates/includes/header.html:13 templates/savings/passbook_form.html:14
+#: templates/includes/header.html:13
+#: templates/savings/passbook_confirm_delete.html:5
+#: templates/savings/passbook_confirm_delete.html:18
+#: templates/savings/passbook_form.html:10
+#: templates/savings/passbook_form.html:29
 #: templates/savings/passbook_list.html:4
 #: templates/savings/passbook_list.html:16
 msgid "Savings"
 msgstr "Tiết kiệm"
 
-#: templates/includes/warning.html:7 templates/includes/warning.html:19
+#: templates/includes/warning.html:7 templates/includes/warning.html:22
 msgid "Notice"
 msgstr "Lưu ý"
 
-#: templates/includes/warning.html:7
+#: templates/includes/warning.html:8
 msgid ""
-"While\n"
-"        JavaScript is not essential for this website, your interaction\n"
-"        with the content will be limited. Please turn JavaScript on\n"
-"        for the full experience."
+"\n"
+"          While JavaScript is not essential for this website, your\n"
+"          interaction with the content will be limited. Please turn\n"
+"          JavaScript on for the full experience.\n"
+"        "
 msgstr ""
+"\n"
 "Trong khi JavaScript không phải là bắt buộc với website này, tương tác của "
 "bạn sẽ bị hạn chế. Hãy bật JavaScript để có trải nghiệm tốt nhất."
 
-#: templates/includes/warning.html:19
+#: templates/includes/warning.html:23
 msgid ""
-"Your\n"
-"          browser is <em>ancient</em>. Upgrade to a different browser\n"
-"          to experience a better web."
+"\n"
+"            Your browser is <em>ancient</em>. Upgrade to a different\n"
+"            browser to experience a better web.\n"
+"          "
 msgstr ""
+"\n"
 "Trình duyệt của bạn đã <em>quá cũ</em>. Hãy cập nhật trình duyệt mới để trải "
 "nghiệm website tốt hơn."
 
-#: templates/savings/passbook_form.html:7
-#: templates/savings/passbook_form.html:20
-#: templates/savings/passbook_form.html:29
-#: templates/savings/passbook_form.html:53
-#: templates/savings/passbook_list.html:35
-msgid "Add new passbook"
-msgstr "Thêm sổ mới"
+#: templates/savings/passbook_confirm_delete.html:5
+#: templates/savings/passbook_confirm_delete.html:11
+#: templates/savings/passbook_confirm_delete.html:24
+msgid "Delete passbook"
+msgstr "Xóa sổ tiết kiệm"
 
-#: templates/savings/passbook_form.html:11
+#: templates/savings/passbook_confirm_delete.html:15
+#: templates/savings/passbook_form.html:26
 #: templates/savings/passbook_list.html:13
 msgid "Home"
 msgstr ""
 
-#: templates/savings/passbook_form.html:35
+#: templates/savings/passbook_confirm_delete.html:33
+msgid "Are you sure?"
+msgstr ""
+
+#: templates/savings/passbook_confirm_delete.html:35
+msgid ""
+"\n"
+"        Are you sure you want to delete the selected Passbook? All of\n"
+"        the following objects and their related items will be deleted.\n"
+"      "
+msgstr ""
+"\n"
+"Bạn có chắc mình muốn xóa sổ tiết kiệm này không. Nó và tất cả những thứ "
+"liên quan sẽ bị xóa hết."
+
+#: templates/savings/passbook_confirm_delete.html:77
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: templates/savings/passbook_confirm_delete.html:80
+msgid "No, take me back"
+msgstr "Không, quay trở lại"
+
+#: templates/savings/passbook_form.html:6
+#: templates/savings/passbook_form.html:18
+#: templates/savings/passbook_form.html:37
+#: templates/savings/passbook_form.html:54
+#: templates/savings/passbook_form.html:83
+msgid "Update passbook"
+msgstr "Sửa thông tin sổ"
+
+#: templates/savings/passbook_form.html:8
+#: templates/savings/passbook_form.html:20
+#: templates/savings/passbook_form.html:41
+#: templates/savings/passbook_form.html:56
+#: templates/savings/passbook_form.html:86
+#: templates/savings/passbook_list.html:35
+msgid "Add new passbook"
+msgstr "Thêm sổ mới"
+
+#: templates/savings/passbook_form.html:64
 msgid "Please correct the errors below"
 msgstr "Bạn đang gặp những lỗi sau"
 
@@ -206,7 +261,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: templates/savings/passbook_list_table.html:26
+#: templates/savings/passbook_list_table.html:15
+msgid "Action"
+msgstr ""
+
+#: templates/savings/passbook_list_table.html:27
 #, python-format
 msgid ""
 "\n"
@@ -220,7 +279,7 @@ msgstr[0] ""
 "\n"
 "%(counter)s tháng"
 
-#: templates/savings/passbook_list_table.html:32
+#: templates/savings/passbook_list_table.html:33
 #, python-format
 msgid ""
 "\n"
@@ -233,6 +292,16 @@ msgid_plural ""
 msgstr[0] ""
 "\n"
 "%(counter)s tuần"
+
+#: templates/savings/passbook_list_table.html:52
+#: venv/lib/python3.5/site-packages/django/forms/widgets.py:354
+msgid "Change"
+msgstr ""
+
+#: templates/savings/passbook_list_table.html:55
+#: venv/lib/python3.5/site-packages/django/forms/formsets.py:384
+msgid "Delete"
+msgstr ""
 
 #: venv/lib/python3.5/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
@@ -725,10 +794,6 @@ msgstr[1] ""
 msgid "Order"
 msgstr ""
 
-#: venv/lib/python3.5/site-packages/django/forms/formsets.py:384
-msgid "Delete"
-msgstr ""
-
 #: venv/lib/python3.5/site-packages/django/forms/models.py:721
 #, python-format
 msgid "Please correct the duplicate data for %(field)s."
@@ -772,10 +837,6 @@ msgstr ""
 
 #: venv/lib/python3.5/site-packages/django/forms/widgets.py:353
 msgid "Currently"
-msgstr ""
-
-#: venv/lib/python3.5/site-packages/django/forms/widgets.py:354
-msgid "Change"
 msgstr ""
 
 #: venv/lib/python3.5/site-packages/django/forms/widgets.py:355

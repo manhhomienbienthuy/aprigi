@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Delete passbook" %} | {% trans "Savings" %}
+{% endblock %}
+
+{% block page_header %}
+  <div class="page-header">
+    <div class="container">
+      <h1>{% trans "Delete passbook" %}</h1>
+
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'homepage' %}">
+          {% trans "Home" %}
+        </a></li>
+        <li><a href="{% url 'savings:index' %}">
+          {% trans "Savings" %}
+        </a></li>
+        <li><a href="{% url 'savings:passbook_list' %}">
+          {% trans "Passbook" %}
+        </a></li>
+        <li><a href="{% url 'savings:passbook_delete' object.id %}">
+          {% trans "Delete passbook" %}
+        </a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>{% trans "Are you sure?" %}</h1>
+    <p>
+      {% blocktrans %}
+        Are you sure you want to delete the selected Passbook? All of
+        the following objects and their related items will be deleted.
+      {% endblocktrans %}
+    </p>
+
+    <form action="" method="post" class="form-general">
+      {% csrf_token %}
+      <div>
+        <ul>
+          <li>
+            <strong>{% trans "number"|title %}:</strong>
+            {{ object.number }}
+          </li>
+          <li>
+            <strong>{% trans "account number"|title %}:</strong>
+            {{ object.account_number }}
+          </li>
+          <li>
+            <strong>{% trans "amount"|title %}:</strong>
+            {{ object.amount }}
+          </li>
+          <li>
+            <strong>{% trans "period"|title %}:</strong>
+            {{ object.period }}
+          </li>
+          <li>
+            <strong>{% trans "start date"|title %}:</strong>
+            {{ object.start_date }}
+          </li>
+          <li>
+            <strong>{% trans "stop date"|title %}:</strong>
+            {{ object.stop_date }}
+          </li>
+          <li>
+            <strong>{% trans "is open"|title %}:</strong>
+            {{ object.is_open }}
+          </li>
+        </ul>
+      </div>
+
+      <button class="button button-primary">
+        {% trans "Yes, I'm sure" %}
+      </button>
+      <a href="{% url 'savings:passbook_list' %}" class="button button-secondary">
+        {% trans "No, take me back" %}
+      </a>
+    </form>
+  </div>
+{% endblock %}
