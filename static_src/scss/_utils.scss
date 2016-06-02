@@ -1,6 +1,6 @@
 // Colours
-$text-default: #474747;
-$text-light: #888;
+$text-default: #555;
+$text-light: #999;
 $white: #fff; // Confusing, but in some cases, this can be set to a dark color
 $text-blue: #5595db;
 $bg-blue: #44bbf3;
@@ -55,5 +55,43 @@ $screen-large: 70em;
         height: 0.125em;
         background: $bg-gradient;
         content: "";
+    }
+}
+
+@mixin link-blue {
+    color: $text-blue;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: darken($text-blue, 20%);
+        text-decoration: underline;
+    }
+}
+
+@mixin link-gray {
+    color: $text-light;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $text-blue;
+        text-decoration: none;
+    }
+}
+
+// Use for create a line of links such as in footer
+@mixin links-inline ($space) {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 0 (-$space);
+
+    li {
+        margin: 0 0 0 $space;
     }
 }
