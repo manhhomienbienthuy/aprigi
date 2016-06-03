@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 09:43+0700\n"
+"POT-Creation-Date: 2016-06-03 07:57+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -83,7 +83,7 @@ msgstr "ghi chú"
 
 #: savings/models.py:32 templates/savings/passbook_confirm_delete.html:21
 #: templates/savings/passbook_form.html:32
-#: templates/savings/passbook_list.html:19
+#: templates/savings/passbook_list.html:21
 msgid "Passbook"
 msgstr "Sổ tiết kiệm"
 
@@ -108,8 +108,8 @@ msgstr ""
 #: templates/savings/passbook_confirm_delete.html:18
 #: templates/savings/passbook_form.html:10
 #: templates/savings/passbook_form.html:29
-#: templates/savings/passbook_list.html:4
-#: templates/savings/passbook_list.html:16
+#: templates/savings/passbook_list.html:5
+#: templates/savings/passbook_list.html:18
 msgid "Savings"
 msgstr "Tiết kiệm"
 
@@ -148,7 +148,7 @@ msgstr "Xóa sổ tiết kiệm"
 
 #: templates/savings/passbook_confirm_delete.html:15
 #: templates/savings/passbook_form.html:26
-#: templates/savings/passbook_list.html:13
+#: templates/savings/passbook_list.html:15
 msgid "Home"
 msgstr ""
 
@@ -188,7 +188,7 @@ msgstr "Sửa thông tin sổ"
 #: templates/savings/passbook_form.html:41
 #: templates/savings/passbook_form.html:56
 #: templates/savings/passbook_form.html:86
-#: templates/savings/passbook_list.html:35
+#: templates/savings/passbook_list.html:37
 msgid "Add new passbook"
 msgstr "Thêm sổ mới"
 
@@ -196,13 +196,13 @@ msgstr "Thêm sổ mới"
 msgid "Please correct the errors below"
 msgstr "Bạn đang gặp những lỗi sau"
 
-#: templates/savings/passbook_list.html:4
-#: templates/savings/passbook_list.html:9
-#: templates/savings/passbook_list.html:22
+#: templates/savings/passbook_list.html:5
+#: templates/savings/passbook_list.html:11
+#: templates/savings/passbook_list.html:24
 msgid "Passbook list"
 msgstr "Danh sách sổ tiết kiệm"
 
-#: templates/savings/passbook_list.html:40
+#: templates/savings/passbook_list.html:42
 #, python-format
 msgid ""
 "\n"
