@@ -5,20 +5,20 @@
 <h2>{% trans "By status" %}</h2>
 <ul>
   <li><a href="?">{% trans "All" %}</a></li>
-  <li><a href="?is_open=1">{% trans "Passbook open" %}</a></li>
-  <li><a href="?is_open=0">{% trans "Passbook close" %}</a></li>
+  <li><a href="?is_open=2">{% trans "Passbook open" %}</a></li>
+  <li><a href="?is_open=3">{% trans "Passbook close" %}</a></li>
 </ul>
 
 <h2>{% trans "Upcoming" %}</h2>
 <ul>
   <li><a href="?">{% trans "All" %}</a></li>
   <li><a href="?upcoming={% now 'Y-m-d' %}">{% trans "Today" %}</a></li>
-  <li><a href="?upcoming=thisweek">{% trans "One week" %}</a></li>
-  <li><a href="?upcoming=thismonth">{% trans "This month" %}</a></li>
+  <li><a href="?upcoming={{ thisweek }}">{% trans "One week" %}</a></li>
+  <li><a href="?upcoming={{ thismonth }}">{% trans "This month" %}</a></li>
   <li><a href="?upcoming={% now 'Y' %}-12-31">{% trans "This year" %}</a></li>
   <li>
     <form class="form-input" action="?" method="get">
-      <input name="upcoming" placeholder="yyyy-mm-dddd" type="date"
+      <input name="upcoming" placeholder="yyyy-mm-dd" type="date"
              value="{% now 'Y-m-d' %}" required>
       <button type="submit">
         <i class="fa fa-search"></i>

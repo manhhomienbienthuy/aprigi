@@ -165,7 +165,7 @@ class PassbookViewTest(TestCase):
         )
 
     def test_passbook_view_filter_open(self):
-        response = self.client.get(self.url + '?is_open=1')
+        response = self.client.get(self.url + '?is_open=2')
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'],
@@ -179,7 +179,7 @@ class PassbookViewTest(TestCase):
         )
 
     def test_passbook_view_filter_close(self):
-        response = self.client.get(self.url + '?is_open=0')
+        response = self.client.get(self.url + '?is_open=3')
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'],
@@ -194,28 +194,6 @@ class PassbookViewTest(TestCase):
         expected_object_list = [self.today_passbook]
         if self.today.month < (self.today + timedelta(days=1)).month:
             expected_object_list.append(self.this_month_passbook)
-        self.assertEqual(response.status_code, 200)
-        self.assertSequenceEqual(
-            response.context['object_list'], expected_object_list)
-
-    def test_passbook_view_filter_thisweek(self):
-        response = self.client.get(self.url + '?upcoming=thisweek')
-        expected_object_list = [
-            self.today_passbook,
-            self.this_week_passbook,
-        ]
-        if self.today.month < (self.today + timedelta(days=7)).month:
-            expected_object_list.append(self.this_month_passbook)
-        self.assertEqual(response.status_code, 200)
-        self.assertSequenceEqual(
-            response.context['object_list'], expected_object_list)
-
-    def test_passbook_view_filter_thismonth(self):
-        response = self.client.get(self.url + '?upcoming=thismonth')
-        expected_object_list = [self.today_passbook]
-        if self.today.month == (self.today + timedelta(days=1)).month:
-            expected_object_list.append(self.this_week_passbook)
-        expected_object_list.append(self.this_month_passbook)
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'], expected_object_list)
