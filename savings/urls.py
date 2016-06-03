@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import RedirectView
 
 from .views import (PassbookCreateView, PassbookDeleteView, PassbookUpdateView,
-                    PassbookView)
+                    PassbookView, PassbookWithdrawView)
 
 app_name = 'savings'
 
@@ -17,4 +17,6 @@ urlpatterns = [
         name='passbook_update'),
     url(r'^passbook/(?P<pk>\d+)/delete$', PassbookDeleteView.as_view(),
         name='passbook_delete'),
+    url(r'^passbook/withdraw$', PassbookWithdrawView.as_view(),
+        name='passbook_withdraw'),
 ]

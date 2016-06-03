@@ -13,3 +13,7 @@ class PassbookForm(forms.ModelForm):
 class PassbookSearchForm(forms.Form):
     is_open = forms.NullBooleanField()
     upcoming = forms.DateField(required=False)
+
+
+class PassbookWithdrawForm(forms.Form):
+    date = forms.DateField(required=True)

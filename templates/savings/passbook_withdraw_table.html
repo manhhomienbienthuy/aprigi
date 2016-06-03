@@ -1,0 +1,49 @@
+{% load i18n %}
+
+<div class="responsive-table">
+  <table>
+    <thead>
+      <tr>
+        <th>{% trans "number" %}</th>
+        <th>{% trans "account number" %}</th>
+        <th>{% trans "amount" %}</th>
+        <th>{% trans "period" %}</th>
+        <th>{% trans "start date" %}</th>
+        <th>{% trans "stop date" %}</th>
+        <th>{% trans "interest" %}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for passbook in object_list %}
+        <tr{% if not passbook.is_open %} class="grayout"{% endif %}>
+          <td>{{ passbook.number }}</td>
+          <td>{{ passbook.account_number }}</td>
+          <td class="right">{{ passbook.amount }}</td>
+          <td>
+            {% if passbook.period_type == passbook.MONTH %}
+              {% blocktrans count counter=passbook.period %}
+                {{ counter }} month
+              {% plural %}
+                {{ counter }} months
+              {% endblocktrans %}
+            {% elif passbook.period_type == passbook.WEEK %}
+              {% blocktrans count counter=passbook.period %}
+                {{ counter }} week
+              {% plural %}
+                {{ counter }} weeks
+              {% endblocktrans %}
+            {% endif %}
+          </td>
+          <td>{{ passbook.start_date }}</td>
+          <td>{{ passbook.stop_date }}</td>
+          <td>{{ passbook.interest_on_withdraw|default_if_none:"-" }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td class="center" colspan="7">No passbooks available</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
