@@ -42,3 +42,7 @@ class Passbook(models.Model):
             return round(self.amount * self.rate / 100 / 365 * self.period * 7)
         return round(self.amount * self.rate / 100 / 12 * self.period)
     interest.short_description = _('interest (expected)')
+
+    def interest_on_withdraw(self):
+        # Implement later
+        return 0

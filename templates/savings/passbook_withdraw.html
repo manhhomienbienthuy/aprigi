@@ -2,13 +2,13 @@
 {% load i18n %}
 
 {% block title %}
-  {% trans "Passbook list" %} | {% trans "Savings" %}
+  {% trans "Withdraw" %} | {% trans "Savings" %}
 {% endblock %}
 
 {% block page_header %}
   <div class="page-header">
     <div class="container">
-      <h1>{% trans "Passbook list" %}</h1>
+      <h1>{% trans "Withdraw" %}</h1>
 
       <ul class="breadcrumbs">
         <li><a href="{% url 'homepage' %}">
@@ -20,8 +20,8 @@
         <li><a href="{% url 'savings:passbook_list' %}">
           {% trans "Passbook" %}
         </a></li>
-        <li><a href="{% url 'savings:passbook_list' %}">
-          {% trans "Passbook list" %}
+        <li><a href="{% url 'savings:passbook_withdraw' %}">
+          {% trans "Withdraw" %}
         </a></li>
       </ul>
     </div>
@@ -31,16 +31,9 @@
 {% block content %}
   <div class="container">
     <div class="object-tools">
-      <a href="{% url 'savings:passbook_create' %}"
-         class="button button-secondary">
-        <i class="fa fa-plus"></i>
-        {% trans "Add new passbook" %}
-      </a>
-
-      <form class="form-input" action="{% url 'savings:passbook_withdraw' %}"
-            method="get">
+      <form class="form-input" action="" method="get">
         <input name="date" type="date" placeholder="yyyy-mm-dd"
-               value="{% now 'Y-m-d' %}">
+               value="{{ form.date.value }}">
         <button type="submit">
           <i class="fa fa-money"></i>
           <span class="visuallyhidden">{% trans "Withdraw" %}</span>
@@ -48,7 +41,7 @@
       </form>
     </div>
 
-    <h1>{% trans "Passbook list" %}</h1>
+    <h1>{% trans "Withraw" %}</h1>
     <p>
       {% blocktrans count counter=object_list|length %}
         You have total {{ counter }} passbook.
@@ -57,14 +50,18 @@
       {% endblocktrans %}
     </p>
 
-    <div class="two-columns">
-      <div class="main-content">
-        {% include "savings/passbook_list_table.html" %}
-      </div>
+    {% include "savings/passbook_withdraw_table.html" %}
 
-      <div class="sidebar">
-        {% include "savings/passbook_list_sidebar.html" %}
-      </div>
-    </div>
+    <p>{% trans "Are you sure?" %}</p>
+    <form class="form-general" action="" method="post">
+      {% csrf_token %}
+      {{ form.date.as_hidden }}
+      <button class="button button-primary">
+        {% trans "Yes, I'm sure" %}
+      </button>
+      <a href="{% url 'savings:passbook_list' %}" class="button button-secondary">
+        {% trans "No, take me back" %}
+      </a>
+    </form>
   </div>
 {% endblock %}

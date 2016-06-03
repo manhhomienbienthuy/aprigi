@@ -1,11 +1,13 @@
 from calendar import monthrange
 from datetime import timedelta
 
+from django.core.exceptions import SuspiciousOperation
 from django.core.urlresolvers import reverse
 from django.utils import timezone
-from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+from django.views.generic import (CreateView, DeleteView, FormView, ListView,
+                                  UpdateView)
 
-from .forms import PassbookForm, PassbookSearchForm
+from .forms import PassbookForm, PassbookSearchForm, PassbookWithdrawForm
 from .models import Passbook
 
 
@@ -29,9 +31,6 @@ class PassbookView(ListView):
         form = PassbookSearchForm()
         context = super().get_context_data()
         context.update(self._upcoming_date())
-        context.update({
-            'form': form,
-        })
         return context
 
     def _upcoming_date(self):
@@ -69,3 +68,32 @@ class PassbookDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('savings:passbook_list')
+
+
+class PassbookWithdrawView(FormView):
+    model = Passbook
+    form_class = PassbookWithdrawForm
+    template_name = 'savings/passbook_withdraw.html'
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context.update({
+            'object_list': self._get_passbook_list(),
+            'form': PassbookWithdrawForm(self.request.GET or None),
+        })
+        return context
+
+    def form_valid(self, form):
+        # Implement later
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('savings:passbook_list')
+
+    def _get_passbook_list(self):
+        object_list = self.model.objects.all().filter(is_open=True)
+        form = PassbookWithdrawForm(self.request.GET or None)
+        if not form.is_valid():
+            raise SuspiciousOperation("Invalid date input")
+        target_date = form.cleaned_data.get('date')
+        return object_list.filter(stop_date__lte=target_date)
