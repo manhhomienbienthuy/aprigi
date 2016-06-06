@@ -46,3 +46,16 @@ class Passbook(models.Model):
     def interest_on_withdraw(self):
         # Implement later
         return 0
+
+
+class Withdraw(models.Model):
+    amount = models.IntegerField(_('amount'))
+    date = models.DateField(_('withdrawn on'), auto_now_add=True)
+    is_open = models.BooleanField(_('is open'), default=True, db_index=True)
+
+    class Meta:
+        verbose_name = _('Withdraw')
+        verbose_name_plural = _('Withdraws')
+
+    def __str__(self):
+        return "{obj.amount} on {obj.date}".format(obj=self)
