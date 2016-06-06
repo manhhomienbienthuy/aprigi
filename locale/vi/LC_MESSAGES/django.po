@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-03 07:57+0700\n"
+"POT-Creation-Date: 2016-06-06 08:56+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -36,16 +36,20 @@ msgstr "Tháng"
 
 #: savings/models.py:14 templates/savings/passbook_confirm_delete.html:46
 #: templates/savings/passbook_list_table.html:7
+#: templates/savings/passbook_withdraw_table.html:7
 msgid "number"
 msgstr "số sổ"
 
 #: savings/models.py:16 templates/savings/passbook_confirm_delete.html:50
 #: templates/savings/passbook_list_table.html:8
+#: templates/savings/passbook_withdraw_table.html:8
 msgid "account number"
 msgstr "số tài khoản"
 
-#: savings/models.py:19 templates/savings/passbook_confirm_delete.html:54
+#: savings/models.py:19 savings/models.py:52
+#: templates/savings/passbook_confirm_delete.html:54
 #: templates/savings/passbook_list_table.html:9
+#: templates/savings/passbook_withdraw_table.html:9
 msgid "amount"
 msgstr "số tiền"
 
@@ -55,6 +59,7 @@ msgstr "Gửi theo tuần/tháng"
 
 #: savings/models.py:23 templates/savings/passbook_confirm_delete.html:58
 #: templates/savings/passbook_list_table.html:10
+#: templates/savings/passbook_withdraw_table.html:10
 msgid "period"
 msgstr "kỳ hạn"
 
@@ -64,15 +69,18 @@ msgstr "lãi suất"
 
 #: savings/models.py:25 templates/savings/passbook_confirm_delete.html:62
 #: templates/savings/passbook_list_table.html:11
+#: templates/savings/passbook_withdraw_table.html:11
 msgid "start date"
 msgstr "ngày gửi"
 
 #: savings/models.py:26 templates/savings/passbook_confirm_delete.html:66
 #: templates/savings/passbook_list_table.html:12
+#: templates/savings/passbook_withdraw_table.html:12
 msgid "stop date"
 msgstr "ngày hết hạn"
 
-#: savings/models.py:27 templates/savings/passbook_confirm_delete.html:70
+#: savings/models.py:27 savings/models.py:54
+#: templates/savings/passbook_confirm_delete.html:70
 #: templates/savings/passbook_list_table.html:13
 msgid "is open"
 msgstr "còn/hết hạn"
@@ -84,6 +92,7 @@ msgstr "ghi chú"
 #: savings/models.py:32 templates/savings/passbook_confirm_delete.html:21
 #: templates/savings/passbook_form.html:32
 #: templates/savings/passbook_list.html:21
+#: templates/savings/passbook_withdraw.html:21
 msgid "Passbook"
 msgstr "Sổ tiết kiệm"
 
@@ -94,6 +103,23 @@ msgstr "Sổ tiết kiệm"
 #: savings/models.py:44 templates/savings/passbook_list_table.html:14
 msgid "interest (expected)"
 msgstr "Tiền lãi (dự kiến)"
+
+#: savings/models.py:53
+msgid "withdrawn on"
+msgstr "rút ngày"
+
+#: savings/models.py:57 templates/savings/passbook_list.html:46
+#: templates/savings/passbook_withdraw.html:5
+#: templates/savings/passbook_withdraw.html:11
+#: templates/savings/passbook_withdraw.html:24
+#: templates/savings/passbook_withdraw.html:39
+#: templates/savings/passbook_withdraw.html:44
+msgid "Withdraw"
+msgstr "Rút tiền"
+
+#: savings/models.py:58
+msgid "Withdraws"
+msgstr "Rút tiền"
 
 #: templates/admin/base_site.html:3
 msgid "Aprigi site admin"
@@ -110,6 +136,8 @@ msgstr ""
 #: templates/savings/passbook_form.html:29
 #: templates/savings/passbook_list.html:5
 #: templates/savings/passbook_list.html:18
+#: templates/savings/passbook_withdraw.html:5
+#: templates/savings/passbook_withdraw.html:18
 msgid "Savings"
 msgstr "Tiết kiệm"
 
@@ -149,10 +177,12 @@ msgstr "Xóa sổ tiết kiệm"
 #: templates/savings/passbook_confirm_delete.html:15
 #: templates/savings/passbook_form.html:26
 #: templates/savings/passbook_list.html:15
+#: templates/savings/passbook_withdraw.html:15
 msgid "Home"
 msgstr ""
 
 #: templates/savings/passbook_confirm_delete.html:33
+#: templates/savings/passbook_withdraw.html:55
 msgid "Are you sure?"
 msgstr ""
 
@@ -168,10 +198,12 @@ msgstr ""
 "liên quan sẽ bị xóa hết."
 
 #: templates/savings/passbook_confirm_delete.html:77
+#: templates/savings/passbook_withdraw.html:60
 msgid "Yes, I'm sure"
 msgstr ""
 
 #: templates/savings/passbook_confirm_delete.html:80
+#: templates/savings/passbook_withdraw.html:63
 msgid "No, take me back"
 msgstr "Không, quay trở lại"
 
@@ -199,10 +231,12 @@ msgstr "Bạn đang gặp những lỗi sau"
 #: templates/savings/passbook_list.html:5
 #: templates/savings/passbook_list.html:11
 #: templates/savings/passbook_list.html:24
+#: templates/savings/passbook_list.html:51
 msgid "Passbook list"
 msgstr "Danh sách sổ tiết kiệm"
 
-#: templates/savings/passbook_list.html:42
+#: templates/savings/passbook_list.html:53
+#: templates/savings/passbook_withdraw.html:46
 #, python-format
 msgid ""
 "\n"
@@ -266,6 +300,7 @@ msgid "Action"
 msgstr ""
 
 #: templates/savings/passbook_list_table.html:27
+#: templates/savings/passbook_withdraw_table.html:25
 #, python-format
 msgid ""
 "\n"
@@ -280,6 +315,7 @@ msgstr[0] ""
 "%(counter)s tháng"
 
 #: templates/savings/passbook_list_table.html:33
+#: templates/savings/passbook_withdraw_table.html:31
 #, python-format
 msgid ""
 "\n"
@@ -302,6 +338,10 @@ msgstr ""
 #: venv/lib/python3.5/site-packages/django/forms/formsets.py:384
 msgid "Delete"
 msgstr ""
+
+#: templates/savings/passbook_withdraw_table.html:13
+msgid "interest"
+msgstr "tiền lãi"
 
 #: venv/lib/python3.5/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
