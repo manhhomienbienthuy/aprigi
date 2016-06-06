@@ -1,11 +1,16 @@
 from calendar import monthrange
 from datetime import datetime, timedelta
+from unittest import mock
 
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from .forms import PassbookForm
+from .forms import PassbookForm, PassbookSearchForm
 from .models import Passbook
+
+
+def faketoday():
+    return datetime(2016, 6, 6)
 
 
 class PassbookTest(TestCase):
@@ -120,7 +125,7 @@ class PassbookViewTest(TestCase):
         self.closed_passbook = Passbook.objects.create(
             number="001",
             account_number="001",
-            amount=10,
+            amount=10000000,
             period_type=2,
             period=1,
             rate=5.0,
@@ -132,7 +137,7 @@ class PassbookViewTest(TestCase):
         self.today_passbook = Passbook.objects.create(
             number="002",
             account_number="002",
-            amount=10,
+            amount=10000000,
             period_type=2,
             period=1,
             rate=5.0,
@@ -144,7 +149,7 @@ class PassbookViewTest(TestCase):
         self.this_week_passbook = Passbook.objects.create(
             number="003",
             account_number="003",
-            amount=10,
+            amount=10000000,
             period_type=2,
             period=1,
             rate=5.0,
@@ -156,7 +161,7 @@ class PassbookViewTest(TestCase):
         self.this_month_passbook = Passbook.objects.create(
             number="004",
             account_number="004",
-            amount=10,
+            amount=10000000,
             period_type=2,
             period=1,
             rate=5.0,
@@ -170,7 +175,7 @@ class PassbookViewTest(TestCase):
         self.next_month_passbook = Passbook.objects.create(
             number="005",
             account_number="005",
-            amount=10,
+            amount=10000000,
             period_type=2,
             period=1,
             rate=5.0,
@@ -182,7 +187,7 @@ class PassbookViewTest(TestCase):
         self.next_year_passbook = Passbook.objects.create(
             number="006",
             account_number="006",
-            amount=10,
+            amount=10000000,
             period_type=2,
             period=1,
             rate=5.0,
@@ -202,45 +207,67 @@ class PassbookViewTest(TestCase):
         response = self.client.get('/en/savings/')
         self.assertRedirects(response, self.url)
 
+    @mock.patch('django.utils.timezone.now', faketoday)
     def test_passbook_view(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
+        expected_object_list = [
+            self.closed_passbook,
+            self.today_passbook,
+            self.this_week_passbook,
+            self.this_month_passbook,
+            self.next_month_passbook,
+            self.next_year_passbook,
+        ]
         self.assertSequenceEqual(
             response.context['object_list'],
-            [
-                self.closed_passbook,
-                self.today_passbook,
-                self.this_week_passbook,
-                self.this_month_passbook,
-                self.next_month_passbook,
-                self.next_year_passbook,
-            ]
+            expected_object_list
         )
+        self.assertIsInstance(response.context['form'], PassbookSearchForm)
+        self.assertEqual(response.context['thisweek'], '2016-06-13')
+        self.assertEqual(response.context['thismonth'], '2016-06-30')
+        self.assertEqual(response.context['origin'], 50000000)
+        self.assertEqual(response.context['interest'], 208335)
 
+    @mock.patch('django.utils.timezone.now', faketoday)
     def test_passbook_view_filter_open(self):
         response = self.client.get(self.url + '?is_open=2')
         self.assertEqual(response.status_code, 200)
+        expected_object_list = [
+            self.today_passbook,
+            self.this_week_passbook,
+            self.this_month_passbook,
+            self.next_month_passbook,
+            self.next_year_passbook,
+        ]
         self.assertSequenceEqual(
             response.context['object_list'],
-            [
-                self.today_passbook,
-                self.this_week_passbook,
-                self.this_month_passbook,
-                self.next_month_passbook,
-                self.next_year_passbook,
-            ]
+            expected_object_list
         )
+        self.assertIsInstance(response.context['form'], PassbookSearchForm)
+        self.assertEqual(response.context['thisweek'], '2016-06-13')
+        self.assertEqual(response.context['thismonth'], '2016-06-30')
+        self.assertEqual(response.context['origin'], 50000000)
+        self.assertEqual(response.context['interest'], 208335)
 
+    @mock.patch('django.utils.timezone.now', faketoday)
     def test_passbook_view_filter_close(self):
         response = self.client.get(self.url + '?is_open=3')
         self.assertEqual(response.status_code, 200)
+        expected_object_list = [
+            self.closed_passbook,
+        ]
         self.assertSequenceEqual(
             response.context['object_list'],
-            [
-                self.closed_passbook,
-            ]
+            expected_object_list
         )
+        self.assertIsInstance(response.context['form'], PassbookSearchForm)
+        self.assertEqual(response.context['thisweek'], '2016-06-13')
+        self.assertEqual(response.context['thismonth'], '2016-06-30')
+        self.assertEqual(response.context['origin'], 0)
+        self.assertEqual(response.context['interest'], 0)
 
+    @mock.patch('django.utils.timezone.now', faketoday)
     def test_passbook_view_filter_today(self):
         response = self.client.get(self.url + '?upcoming=' +
                                    self.today.strftime('%Y-%m-%d'))
@@ -250,36 +277,57 @@ class PassbookViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
             response.context['object_list'], expected_object_list)
+        self.assertIsInstance(response.context['form'], PassbookSearchForm)
+        self.assertEqual(response.context['thisweek'], '2016-06-13')
+        self.assertEqual(response.context['thismonth'], '2016-06-30')
+        self.assertEqual(response.context['origin'], sum(
+            obj.amount for obj in expected_object_list))
+        self.assertEqual(response.context['interest'], sum(
+            obj.interest() or 0 for obj in expected_object_list))
 
+    @mock.patch('django.utils.timezone.now', faketoday)
     def test_passbook_view_filter_by_date(self):
         response = self.client.get(
             self.url + "?upcoming=%s-12-31" % (self.today.year + 2))
         self.assertEqual(response.status_code, 200)
+        expected_object_list = [
+            self.today_passbook,
+            self.this_week_passbook,
+            self.this_month_passbook,
+            self.next_month_passbook,
+            self.next_year_passbook,
+        ]
         self.assertSequenceEqual(
             response.context['object_list'],
-            [
-                self.today_passbook,
-                self.this_week_passbook,
-                self.this_month_passbook,
-                self.next_month_passbook,
-                self.next_year_passbook,
-            ]
+            expected_object_list
         )
+        self.assertIsInstance(response.context['form'], PassbookSearchForm)
+        self.assertEqual(response.context['thisweek'], '2016-06-13')
+        self.assertEqual(response.context['thismonth'], '2016-06-30')
+        self.assertEqual(response.context['origin'], 50000000)
+        self.assertEqual(response.context['interest'], 208335)
 
+    @mock.patch('django.utils.timezone.now', faketoday)
     def test_passbook_view_filter_by_invalid_date(self):
         response = self.client.get(self.url + '?upcoming=2016-31-12')
         self.assertEqual(response.status_code, 200)
+        expected_object_list = [
+            self.closed_passbook,
+            self.today_passbook,
+            self.this_week_passbook,
+            self.this_month_passbook,
+            self.next_month_passbook,
+            self.next_year_passbook,
+        ]
         self.assertSequenceEqual(
             response.context['object_list'],
-            [
-                self.closed_passbook,
-                self.today_passbook,
-                self.this_week_passbook,
-                self.this_month_passbook,
-                self.next_month_passbook,
-                self.next_year_passbook,
-            ]
+            expected_object_list
         )
+        self.assertIsInstance(response.context['form'], PassbookSearchForm)
+        self.assertEqual(response.context['thisweek'], '2016-06-13')
+        self.assertEqual(response.context['thismonth'], '2016-06-30')
+        self.assertEqual(response.context['origin'], 50000000)
+        self.assertEqual(response.context['interest'], 208335)
 
 
 class PassbookFormTest(TestCase):

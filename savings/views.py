@@ -29,6 +29,7 @@ class PassbookView(ListView):
     def get_context_data(self):
         context = super().get_context_data()
         context.update(self._upcoming_date())
+        context.update(self._origin_and_interest())
         submitted_date = self.request.GET.get(
             'upcoming', timezone.now().strftime('%Y-%m-%d'))
         context.update({
@@ -46,7 +47,17 @@ class PassbookView(ListView):
         )
         return {
             'thisweek': (today + timedelta(days=7)).strftime('%Y-%m-%d'),
-            'thismonth': end_of_month
+            'thismonth': end_of_month,
+        }
+
+    def _origin_and_interest(self):
+        origin = interest = 0
+        for passbook in self.object_list:
+            origin += passbook.amount if passbook.is_open else 0
+            interest += passbook.interest() or 0
+        return {
+            'origin': origin,
+            'interest': interest,
         }
 
 
