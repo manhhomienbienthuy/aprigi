@@ -40,3 +40,6 @@ collecttranslation:
 
 translate:
 	cd .. && $(foreach lang,$(LANG_LIST),./manage.py compilemessages -l $(lang);)
+
+test:
+	cd .. && ./manage.py test $(APP_LIST)
