@@ -4,6 +4,10 @@ from datetime import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+DAYS_PER_YEAR = 365
+DAYS_PER_WEEK = 7
+MONTHS_PER_YEAR = 12
+
 
 class Passbook(models.Model):
     WEEK = 1
@@ -42,46 +46,56 @@ class Passbook(models.Model):
         if not self.is_open or self.period_type not in (self.WEEK, self.MONTH):
             return None
         if self.period_type == self.WEEK:
-            return round(self.amount * self.rate / 100 / 365 * self.period * 7)
-        return round(self.amount * self.rate / 100 / 12 * self.period)
+            return round(self.amount * self.rate / 100 / DAYS_PER_YEAR *
+                         self.period * 7)
+        return round(self.amount * self.rate / 100 / MONTHS_PER_YEAR *
+                     self.period)
     interest.short_description = _('interest (expected)')
 
     def interest_on_withdraw(self, date):
         if not self.is_open or self.period_type not in (self.WEEK, self.MONTH):
             return None
-        rate_out_period = 0.6
-        days_per_year = 365
-        days_per_week = 7
-        months_per_year = 12
 
-        if self.period_type == self.WEEK:
-            base = days_per_year / days_per_week
-            interval = (date - self.start_date).days
-            interval_in_period = interval // (days_per_week * self.period)
-            interval_out_period = interval - \
-                interval_in_period * days_per_week * self.period
-        else:
-            base = months_per_year
-            interval = date.month - self.start_date.month + \
-                months_per_year * (date.year - self.start_date.year) - \
-                (date.day < self.start_date.day)
-            interval_in_period = interval // self.period
-            stop_year = self.start_date.year + \
-                (self.start_date.month + interval_in_period > 12)
-            stop_month = (self.start_date.month +
-                          interval_in_period * self.period) % 12
-            stop_month_range = monthrange(stop_year, stop_month)[1]
-            if self.start_date.day < stop_month_range:
-                stop_day = self.start_date.day
-            else:
-                stop_day = stop_month_range
-            interval_out_period = (
-                date - datetime(stop_year, stop_month, stop_day).date()).days
+        RATE_OUT_PERIOD = 0.6
+        base, interval_in_period, interval_out_period = self._get_info(date)
         total_after_period = self.amount * \
             (1 + self.rate / 100 / base * self.period) ** interval_in_period
         total = total_after_period * \
-            (1 + rate_out_period / 100 / days_per_year) ** interval_out_period
+            (1 + RATE_OUT_PERIOD / 100 / DAYS_PER_YEAR) ** interval_out_period
         return round(total - self.amount)
+
+    def _get_info(self, date):
+        if self.period_type == self.WEEK:
+            return self._get_info_week(date)
+        else:
+            return self._get_info_month(date)
+
+    def _get_info_week(self, date):
+        base = DAYS_PER_YEAR / DAYS_PER_WEEK
+        interval = (date - self.start_date).days
+        interval_in_period = interval // (DAYS_PER_WEEK * self.period)
+        interval_out_period = interval - \
+            interval_in_period * DAYS_PER_WEEK * self.period
+        return base, interval_in_period, interval_out_period
+
+    def _get_info_month(self, date):
+        base = MONTHS_PER_YEAR
+        interval = date.month - self.start_date.month + \
+            MONTHS_PER_YEAR * (date.year - self.start_date.year) - \
+            (date.day < self.start_date.day)
+        interval_in_period = interval // self.period
+        stop_year = self.start_date.year + \
+            (self.start_date.month + interval_in_period > MONTHS_PER_YEAR)
+        stop_month = (self.start_date.month +
+                      interval_in_period * self.period) % MONTHS_PER_YEAR
+        stop_month_range = monthrange(stop_year, stop_month)[1]
+        if self.start_date.day < stop_month_range:
+            stop_day = self.start_date.day
+        else:
+            stop_day = stop_month_range
+        interval_out_period = (
+            date - datetime(stop_year, stop_month, stop_day).date()).days
+        return base, interval_in_period, interval_out_period
 
 
 class Withdraw(models.Model):

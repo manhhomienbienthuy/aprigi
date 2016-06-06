@@ -74,6 +74,43 @@ class PassbookTest(TestCase):
         self.assertEqual(self.week_passbook.interest_on_withdraw(
             self.week_passbook.stop_date + timedelta(days=10)), 20825)
 
+    def test_get_info_week_passbook(self):
+        date = self.week_passbook.stop_date
+        self.assertEqual(
+            self.week_passbook._get_info(date),
+            self.week_passbook._get_info_week(date)
+        )
+        base, in_period, out_period = self.week_passbook._get_info(date)
+        self.assertEqual(base, 365 / 7)
+        self.assertEqual(in_period, 1)
+        self.assertEqual(out_period, 0)
+        date = self.week_passbook.stop_date + timedelta(days=10)
+        base, in_period, out_period = self.week_passbook._get_info(date)
+        self.assertEqual(base, 365 / 7)
+        self.assertEqual(in_period, 1)
+        self.assertEqual(out_period, 10)
+        date = self.week_passbook.stop_date + timedelta(days=20)
+        base, in_period, out_period = self.week_passbook._get_info(date)
+        self.assertEqual(base, 365 / 7)
+        self.assertEqual(in_period, 2)
+        self.assertEqual(out_period, 6)
+
+    def test_get_info_month_passbook(self):
+        date = self.month_passbook.stop_date
+        self.assertEqual(
+            self.month_passbook._get_info(date),
+            self.month_passbook._get_info_month(date)
+        )
+        base, in_period, out_period = self.month_passbook._get_info(date)
+        self.assertEqual(base, 12)
+        self.assertEqual(in_period, 1)
+        self.assertEqual(out_period, 0)
+        date = self.month_passbook.stop_date + timedelta(days=10)
+        base, in_period, out_period = self.month_passbook._get_info(date)
+        self.assertEqual(base, 12)
+        self.assertEqual(in_period, 1)
+        self.assertEqual(out_period, 10)
+
 
 class PassbookViewTest(TestCase):
 
