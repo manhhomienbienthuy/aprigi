@@ -1,7 +1,7 @@
 'use strict';
 
 define(['jquery'], ($) => {
-    class LanguageSwitcherExport {
+    class LanguageSwitchExport {
         constructor(switcher, form) {
             this.switcher = $(switcher);
             this.form = $(form);
@@ -26,6 +26,6 @@ define(['jquery'], ($) => {
         }
     }
 
-    return new LanguageSwitcherExport('.language-switcher ul',
+    return new LanguageSwitchExport('.language-switcher ul',
         '.language-switcher form');
 });
