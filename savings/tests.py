@@ -11,16 +11,16 @@ from .models import Passbook
 class PassbookTest(TestCase):
 
     def setUp(self):
-        self.today = datetime.today()
+        self.today = datetime.today().date()
         self.month_passbook = Passbook.objects.create(
             number="001",
             account_number="001",
             amount=10000000,
-            period=1,
+            period=2,
             period_type=2,
             rate=5.0,
             start_date=self.today,
-            stop_date=self.today + timedelta(days=31),
+            stop_date=self.today + timedelta(days=61),
             is_open=True,
             notes="Note"
         )
@@ -29,10 +29,10 @@ class PassbookTest(TestCase):
             account_number="002",
             amount=10000000,
             period_type=1,
-            period=1,
+            period=2,
             rate=5.0,
             start_date=self.today,
-            stop_date=self.today + timedelta(days=7),
+            stop_date=self.today + timedelta(days=14),
             is_open=True,
             notes="Note"
         )
@@ -53,10 +53,26 @@ class PassbookTest(TestCase):
         self.assertEqual(self.closed_passbook.interest(), None)
 
     def test_interest_month_passbook(self):
-        self.assertEqual(self.month_passbook.interest(), 41667)
+        self.assertEqual(self.month_passbook.interest(), 83333)
 
     def test_interest_week_passbook(self):
-        self.assertEqual(self.week_passbook.interest(), 9589)
+        self.assertEqual(self.week_passbook.interest(), 19178)
+
+    def test_interest_on_withdraw_closed_passbook(self):
+        self.assertEqual(self.closed_passbook.interest_on_withdraw(
+            self.closed_passbook.stop_date), None)
+
+    def test_interest_on_withdraw_month_passbook(self):
+        self.assertEqual(self.month_passbook.interest_on_withdraw(
+            self.month_passbook.stop_date), self.month_passbook.interest())
+        self.assertEqual(self.month_passbook.interest_on_withdraw(
+            self.month_passbook.stop_date + timedelta(days=10)), 84991)
+
+    def test_interest_on_withdraw_week_passbook(self):
+        self.assertEqual(self.week_passbook.interest_on_withdraw(
+            self.week_passbook.stop_date), self.week_passbook.interest())
+        self.assertEqual(self.week_passbook.interest_on_withdraw(
+            self.week_passbook.stop_date + timedelta(days=10)), 20825)
 
 
 class PassbookViewTest(TestCase):

@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n savings %}
 
 <div class="responsive-table">
   <table>
@@ -37,7 +37,9 @@
           </td>
           <td>{{ passbook.start_date }}</td>
           <td>{{ passbook.stop_date }}</td>
-          <td>{{ passbook.interest_on_withdraw|default_if_none:"-" }}</td>
+          <td>
+            {{ passbook|interest_on_withdraw:form.date.value|default_if_none:"-" }}
+          </td>
         </tr>
       {% empty %}
         <tr>

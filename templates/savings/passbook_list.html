@@ -40,7 +40,7 @@
       <form class="form-input" action="{% url 'savings:passbook_withdraw' %}"
             method="get">
         <input name="date" type="date" placeholder="yyyy-mm-dd"
-               value="{{ withdraw_form.date.value }}">
+               value="{{ form.upcoming.value }}">
         <button type="submit">
           <i class="fa fa-money"></i>
           <span class="visuallyhidden">{% trans "Withdraw" %}</span>
