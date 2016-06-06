@@ -5,23 +5,15 @@
     *,
     *:before,
     *:after {
-        background: transparent !important;
         color: #000 !important;
-        box-shadow: none !important;
+        background: transparent !important;
         text-shadow: none !important;
+        box-shadow: none !important;
     }
 
     a,
     a:visited {
         text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
     }
 
     pre,

@@ -9,30 +9,22 @@ $bg-gray: #f8f8f8;
 $bg-error: #fcc;
 $gray-line: #eee;
 $bg-gradient: linear-gradient(to right, $bg-blue, $bg-green 100%);
-$selection-bg: #b3d4fc;
+$bg-selection: #b3d4fc;
 $highlight-bg: #ff7;
 $img-path: '../img/';
 $screen-medium: 48em;
 $screen-large: 70em;
+
+// Font families
+$serif: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", sans-serif;
+$monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
 
 // Media queries mixins
 @mixin respond-min ($width) {
     @media screen and (min-width: $width) {
         @content;
   }
-}
-
-// Font family mixins
-@mixin serif {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
-}
-
-@mixin sans-serif {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", sans-serif
-}
-
-@mixin monospace {
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 @mixin clearfix {

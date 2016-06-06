@@ -1,10 +1,10 @@
 header {
     // Includes global navigation, logo
     @include clearfix;
-    border-bottom: 1px solid $gray-line;
-    line-height: 1.3;
-    font-size: 0.85rem;
     overflow: hidden;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    border-bottom: 1px solid $gray-line;
 
     .container {
         padding-top: 0;
@@ -12,19 +12,19 @@ header {
     }
 
     .logo {
-        font-size: 2rem;
-        background: url(#{$img-path}logo.svg) 0 0 no-repeat;
-        background-size: contain;
-        color: $text-blue;
         display: block;
-        float: left;
-        font-weight: bold;
-        margin: (60-36)/32 + rem;
-        overflow: hidden;
-        text-decoration: none;
-        text-indent: 100%;
         width: 110px;
         height: 36px;
+        float: left;
+        margin: (60-36)/32 + rem;
+        overflow: hidden;
+        text-indent: 100%;
+        font-size: 2rem;
+        font-weight: bold;
+        color: $text-blue;
+        text-decoration: none;
+        background: url(#{$img-path}logo.svg) 0 0 no-repeat;
+        background-size: contain;
 
         @include respond-min($screen-medium) {
             margin-left: 0;
@@ -32,31 +32,31 @@ header {
     }
 
     .meta {
+        display: none;
+        float: left;
+        width: auto;
+        margin: 0.75rem 0 0 0;
         color: $text-light;
         font-weight: normal;
-        width: auto;
-        float: left;
-        margin: 0.75rem 0 0 0;
-        display: none;
 
         @include respond-min($screen-large) {
-            width: 12rem;
             display: block;
+            width: 12rem;
         }
     }
 
     .navigation-button {
-        font-size: 1.25rem;
-        color: $text-blue;
-        cursor: pointer;
         display: block;
         float: right;
-        margin: 0.75rem;
-        text-align: center;
         width: 2.25rem;
         height: 2.25rem;
-        border-radius: 50%;
+        margin: 0.75rem;
         line-height: 2.25rem;
+        font-size: 1.25rem;
+        color: $text-blue;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
 
         @include respond-min($screen-medium) {
             display: none;
@@ -91,31 +91,32 @@ header {
         width: 100%;
 
         @include respond-min($screen-medium) {
-            width: auto;
             float: right;
+            width: auto;
         }
 
         ul {
             margin: 0.75rem 0 0;
             padding: 0;
+
             @include respond-min($screen-medium) {
                 margin: 0;
             }
         }
 
         li {
+            position: relative;
             display: block;
+            margin: 0 0.75rem;
             text-align: left;
             text-transform: uppercase;
-            margin: 0 0.75rem;
             border-top: 1px solid $gray-line;
-            position: relative;
 
             @include respond-min($screen-medium) {
-                margin: 0;
-                border: none;
                 float: left;
+                margin: 0;
                 text-align: left;
+                border: none;
             }
 
             &.active,
@@ -131,12 +132,12 @@ header {
         }
 
         a {
-            text-decoration: none;
-            text-transform: uppercase;
             display: block;
             padding: 0.75rem 0;
             color: $text-light;
             font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
 
             @include respond-min($screen-medium) {
                 padding: 21/16 + rem 1rem;
@@ -150,8 +151,8 @@ header {
     background: $bg-gradient;
 
     h1 {
-        font-size: 1.5rem;
         margin: 0;
+        font-size: 1.5rem;
     }
 }
 
@@ -161,9 +162,9 @@ header {
     margin: 0;
 
     li {
-        list-style: none;
         display: inline;
         padding: 0 0.25em 0 0;
+        list-style: none;
 
         + li:before {
             content: ">";

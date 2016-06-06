@@ -10,9 +10,9 @@ table {
     thead tr,
     th {
         @extend td;
-        background: $bg-gray;
         font-weight: normal;
         text-transform: uppercase;
+        background: $bg-gray;
     }
 
     tbody tr:nth-child(even) {

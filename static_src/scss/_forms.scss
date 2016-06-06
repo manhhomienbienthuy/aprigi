@@ -13,18 +13,18 @@ form {
     input[type="datetime"],
     input[type="datetime-local"],
     textarea {
+        display: block;
+        margin: 1em 0;
+        padding: 0.5em 1em;
+        width: 100%;
         appearance: none;
         color: $text-default;
+        font-weight: normal;;
+        text-indent: 0;
         background: #fff;
         border: 1px solid $gray-line;
         border-radius: 0.25rem;
         cursor: auto;
-        display: block;
-        font-weight: normal;;
-        margin: 1em 0;
-        padding: 0.5em 1em;
-        text-indent: 0;
-        width: 100%;
 
         &::-ms-clear {
             display: none;
@@ -48,17 +48,17 @@ form {
     }
 
     select {
+        padding: 0.5em 1em;
+        font-size: 1em;
         border: 1px solid $gray-line;
         background: white;
-        padding: 0.5em 1em;
         border-radius: 0.25em;
-        font-size: 1em;
     }
 
     fieldset {
+        margin: 1em 0;
         border: 1px solid $gray-line;
         border-radius: 0.25em;
-        margin: 1em 0;
     }
 
     legend {
@@ -77,10 +77,10 @@ form {
 .form-general {
     // Multi-input forms with seperate submit button.
     fieldset {
-        max-width: 45em;
-        border: 0;
-        padding: 0;
         margin: 1em 0;
+        max-width: 45em;
+        padding: 0;
+        border: 0;
 
         input[type="search"],
         input[type="text"],
@@ -97,20 +97,20 @@ form {
     position: relative;
 
     button {
-        background: none;
-        border: none;
-        color: lighten($text-light, 15%);
-        padding: 0;
         position: absolute;
         right: 3%;
         top: 25%;
+        padding: 0;
         line-height: 1.5em;
+        color: lighten($text-light, 15%);
+        background: none;
+        border: none;
 
         &:hover,
         &:focus,
         &:active {
-            background: none;
             color: $text-blue;
+            background: none;
             outline: none;
         }
     }

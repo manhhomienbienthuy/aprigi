@@ -24,18 +24,18 @@
         h4,
         h5,
         h6 {
-            border: none;
-            font-size: 1rem;
             padding-left: 1em;
+            font-size: 1rem;
+            border: none;
         }
 
         h1 {
-            font-size: 1rem;
-            text-transform: uppercase;
             margin: 0;
-            background: $bg-gradient;
-            color: $white;
             padding-left: 1em;
+            font-size: 1rem;
+            color: $white;
+            text-transform: uppercase;
+            background: $bg-gradient;
         }
 
         ul {
@@ -49,9 +49,9 @@
         }
 
         li {
-            list-style: none;
             margin: 0;
             padding: 0;
+            list-style: none;
 
             a {
                 color: $text-light;
