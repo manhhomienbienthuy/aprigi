@@ -28,15 +28,20 @@ class PassbookView(ListView):
         return object_list
 
     def get_context_data(self):
-        form = PassbookSearchForm()
         context = super().get_context_data()
         context.update(self._upcoming_date())
+        submitted_date = self.request.GET.get(
+            'upcoming', timezone.now().strftime('%Y-%m-%d'))
+        context.update({
+            'search_form': PassbookSearchForm({'upcoming': submitted_date}),
+            'withdraw_form': PassbookWithdrawForm(),
+        })
         return context
 
     def _upcoming_date(self):
         today = timezone.now()
         end_date_of_month = monthrange(today.year, today.month)[1]
-        end_of_month = "{year}-{month}-{day}".format(
+        end_of_month = "{year:04d}-{month:02d}-{day:02d}".format(
             year=today.year,
             month=today.month,
             day=end_date_of_month,
