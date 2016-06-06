@@ -7,10 +7,12 @@ $bg-blue: #44bbf3;
 $bg-green: #63daca;
 $bg-gray: #f8f8f8;
 $bg-error: #fcc;
-$gray-line: #eee;
-$bg-gradient: linear-gradient(to right, $bg-blue, $bg-green 100%);
 $bg-selection: #b3d4fc;
-$highlight-bg: #ff7;
+$bg-highlight: #ff7;
+$bg-gradient: linear-gradient(to right, $bg-blue, $bg-green 100%);
+$gray-line: #eee;
+
+// Other variables
 $img-path: '../img/';
 $screen-medium: 48em;
 $screen-large: 70em;
@@ -27,6 +29,7 @@ $monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 }
 
+// Clear after an element
 @mixin clearfix {
     &:before,
     &:after {
@@ -38,8 +41,9 @@ $monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
     }
 }
 
+// Gradient line under elements
 @mixin gradient-underline {
-    &:before {
+    &:after {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -50,6 +54,7 @@ $monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
     }
 }
 
+// Links in blue, use for normal links
 @mixin link-blue {
     color: $text-blue;
     text-decoration: none;
@@ -62,6 +67,7 @@ $monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
     }
 }
 
+// Links in gray, use for links in footer, ...
 @mixin link-gray {
     color: $text-light;
     text-decoration: none;
