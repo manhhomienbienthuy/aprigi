@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 from django.test import TestCase
 
-from .models import Passbook
+from .models import Passbook, Withdraw
 
 
 class PassbookTest(TestCase):
@@ -132,3 +132,64 @@ class PassbookTest(TestCase):
         self.assertEqual(base, 12)
         self.assertEqual(in_period, 2)
         self.assertEqual(out_period, 9)
+
+
+class WithdrawTest(TestCase):
+
+    def setUp(self):
+        self.today = datetime.today().date()
+        self.passbook = Passbook.objects.create(
+            number="001",
+            account_number="001",
+            amount=10000000,
+            period=2,
+            period_type=2,
+            rate=5.0,
+            start_date=self.today,
+            stop_date=self.today,
+            is_open=True,
+            notes="Note"
+        )
+        self.withdraw = Withdraw.objects.create(
+            amount=10000000,
+            date=self.today,
+            is_open=True
+        )
+
+    def test_update_passbook_does_not_change_withdraw(self):
+        self.passbook.is_open = False
+        self.passbook.save()
+        self.withdraw.refresh_from_db()
+        self.assertEqual(self.withdraw.is_open, True)
+
+    def test_create_closed_passbook_does_not_change_withdraws(self):
+        Passbook.objects.create(
+            number="002",
+            account_number="002",
+            amount=10000000,
+            period=2,
+            period_type=2,
+            rate=5.0,
+            start_date=self.today,
+            stop_date=self.today,
+            is_open=False,
+            notes="Note"
+        )
+        self.withdraw.refresh_from_db()
+        self.assertEqual(self.withdraw.is_open, True)
+
+    def test_create_open_passbook_close_withdraws(self):
+        Passbook.objects.create(
+            number="003",
+            account_number="003",
+            amount=10000000,
+            period=2,
+            period_type=2,
+            rate=5.0,
+            start_date=self.today,
+            stop_date=self.today,
+            is_open=True,
+            notes="Note"
+        )
+        self.withdraw.refresh_from_db()
+        self.assertEqual(self.withdraw.is_open, False)
