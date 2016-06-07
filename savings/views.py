@@ -14,7 +14,7 @@ class PassbookView(ListView):
     model = Passbook
 
     def get_queryset(self):
-        object_list = self.model.objects.all().order_by('start_date')
+        object_list = self.model.objects.all().order_by('-start_date')
         form = PassbookSearchForm(self.request.GET or None)
         if form.is_valid():
             is_open = form.cleaned_data.get('is_open')
