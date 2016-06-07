@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-07 10:09+0700\n"
+"POT-Creation-Date: 2016-06-07 15:41+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: aprigi/settings.py:126
+#: aprigi/settings.py:127
 msgid "English"
 msgstr ""
 
-#: aprigi/settings.py:127
+#: aprigi/settings.py:128
 msgid "Vietnamese"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr "Tiền lãi (dự kiến)"
 msgid "withdrawn on"
 msgstr "rút ngày"
 
-#: savings/models.py:107 templates/savings/passbook_list.html:46
+#: savings/models.py:107 templates/savings/passbook_list.html:57
 #: templates/savings/passbook_withdraw.html:5
 #: templates/savings/passbook_withdraw.html:11
 #: templates/savings/passbook_withdraw.html:24
@@ -133,6 +133,27 @@ msgstr ""
 #: templates/base.html:18
 msgid "The app for my April girl"
 msgstr "Dành tặng cô gái tháng Tư của tôi"
+
+#: templates/homepage.html:17 templates/savings/passbook_form.html:55
+#: templates/savings/passbook_list.html:36
+#, python-format
+msgid ""
+"\n"
+"            You have withdrawn $%(withdrawn)s\n"
+"            without creating any new passbook.\n"
+"          "
+msgstr ""
+"\n"
+"Bạn đã rút số tiền $%(withdrawn)s mà vẫn chưa gửi."
+
+#: templates/homepage.html:24 templates/savings/passbook_form.html:8
+#: templates/savings/passbook_form.html:20
+#: templates/savings/passbook_form.html:41
+#: templates/savings/passbook_form.html:67
+#: templates/savings/passbook_form.html:97
+#: templates/savings/passbook_list.html:48
+msgid "Add new passbook"
+msgstr "Thêm sổ mới"
 
 #: templates/includes/header.html:7
 msgid "The app for my April girl, from naa with love"
@@ -219,32 +240,23 @@ msgstr "Không, quay trở lại"
 #: templates/savings/passbook_form.html:6
 #: templates/savings/passbook_form.html:18
 #: templates/savings/passbook_form.html:37
-#: templates/savings/passbook_form.html:54
-#: templates/savings/passbook_form.html:83
+#: templates/savings/passbook_form.html:65
+#: templates/savings/passbook_form.html:94
 msgid "Update passbook"
 msgstr "Sửa thông tin sổ"
 
-#: templates/savings/passbook_form.html:8
-#: templates/savings/passbook_form.html:20
-#: templates/savings/passbook_form.html:41
-#: templates/savings/passbook_form.html:56
-#: templates/savings/passbook_form.html:86
-#: templates/savings/passbook_list.html:37
-msgid "Add new passbook"
-msgstr "Thêm sổ mới"
-
-#: templates/savings/passbook_form.html:64
+#: templates/savings/passbook_form.html:75
 msgid "Please correct the errors below"
 msgstr "Bạn đang gặp những lỗi sau"
 
 #: templates/savings/passbook_list.html:5
 #: templates/savings/passbook_list.html:11
 #: templates/savings/passbook_list.html:24
-#: templates/savings/passbook_list.html:51
+#: templates/savings/passbook_list.html:62
 msgid "Passbook list"
 msgstr "Danh sách sổ tiết kiệm"
 
-#: templates/savings/passbook_list.html:53
+#: templates/savings/passbook_list.html:64
 #: templates/savings/passbook_withdraw.html:46
 #, python-format
 msgid ""
@@ -259,7 +271,7 @@ msgstr[0] ""
 "\n"
 "Bạn có %(counter)s sổ tiết kiệm."
 
-#: templates/savings/passbook_list.html:60
+#: templates/savings/passbook_list.html:71
 #: templates/savings/passbook_withdraw.html:53
 #, python-format
 msgid ""
@@ -269,8 +281,8 @@ msgid ""
 "      "
 msgstr ""
 "\n"
-"Bạn có tất cả (gốc) là: <strong>$%(origin)s</strong><br>"
-"và tổng lãi là: <strong>$%(interest)s</strong>."
+"Bạn có tất cả (gốc) là: <strong>$%(origin)s</strong><br>và tổng lãi là: "
+"<strong>$%(interest)s</strong>."
 
 #: templates/savings/passbook_list_sidebar.html:3
 msgid "Filter"
