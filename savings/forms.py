@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import SuspiciousOperation
 from django.utils import timezone
 
-from .models import Passbook
+from .models import Passbook, Withdraw
 
 
 class PassbookForm(forms.ModelForm):
@@ -28,3 +28,14 @@ class PassbookWithdrawForm(forms.Form):
             raise SuspiciousOperation("Invalid date input")
         target_date = self.cleaned_data.get('date')
         return object_list.filter(stop_date__lte=target_date)
+
+    def do_withdraw(self):
+        object_list = self.get_passbook_list()
+        total = sum(passbook.amount + passbook.interest_on_withdraw(
+            self.cleaned_data['date']) for passbook in object_list)
+        object_list.update(is_open=False)
+        return Withdraw.objects.create(
+            amount=total,
+            date=self.cleaned_data['date'],
+            is_open=True,
+        )

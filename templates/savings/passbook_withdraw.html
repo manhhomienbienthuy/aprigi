@@ -49,6 +49,12 @@
         You have total {{ counter }} passbooks.
       {% endblocktrans %}
     </p>
+    <p>
+      {% blocktrans %}
+        With total amount of: <strong>${{ origin }}</strong><br>
+        and total interest of: <strong>${{ interest }}</strong>.
+      {% endblocktrans %}
+    </p>
 
     {% include "savings/passbook_withdraw_table.html" %}
 

@@ -8,6 +8,7 @@
         <th>{% trans "account number" %}</th>
         <th>{% trans "amount" %}</th>
         <th>{% trans "period" %}</th>
+        <th>{% trans "rate" %}</th>
         <th>{% trans "start date" %}</th>
         <th>{% trans "stop date" %}</th>
         <th>{% trans "interest" %}</th>
@@ -35,6 +36,7 @@
               {% endblocktrans %}
             {% endif %}
           </td>
+          <td>{{ passbook.rate }}%</td>
           <td>{{ passbook.start_date }}</td>
           <td>{{ passbook.stop_date }}</td>
           <td>
@@ -43,7 +45,7 @@
         </tr>
       {% empty %}
         <tr>
-          <td class="center" colspan="7">No passbooks available</td>
+          <td class="center" colspan="8">{% trans "No passbooks available" %}</td>
         </tr>
       {% endfor %}
     </tbody>
