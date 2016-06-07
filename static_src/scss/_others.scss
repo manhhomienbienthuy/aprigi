@@ -13,6 +13,10 @@
     padding: 1rem 0;
     text-align: center;
     background: $bg-highlight;
+
+    p {
+        margin: 0;
+    }
 }
 
 $back-top-top-size: 2.5rem;
@@ -50,4 +54,5 @@ $text-align: center left right justify;
 
 .object-tools {
     float: right;
+    margin-top: 1.5em;
 }

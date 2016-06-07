@@ -49,6 +49,17 @@
 
 {% block content %}
   <div class="container">
+    {% if withdrawn %}
+      <div class="warning">
+        <p>
+          {% blocktrans %}
+            You have withdrawn ${{ withdrawn }}
+            without creating any new passbook.
+          {% endblocktrans %}
+        </p>
+      </div>
+    {% endif %}
+
     <h1>
       {% if object %}
         {% trans "Update passbook" %}
