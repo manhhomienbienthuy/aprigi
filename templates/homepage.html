@@ -10,6 +10,27 @@
 
 {% block content %}
   <div class="container">
+    {% if withdrawn %}
+      <div class="warning">
+        <p>
+          {% blocktrans %}
+            You have withdrawn ${{ withdrawn }}
+            without creating any new passbook.
+          {% endblocktrans %}
+        </p>
+        <a href="/en/savings/passbook/create" class="button button-secondary">
+          <i class="fa fa-plus"></i>
+          {% trans "Add new passbook" %}
+        </a>
+      </div>
+    {% endif %}
+
+    <p>
+      Goal of the year: <strong>{{ current }} of {{ goal }}</strong>
+      ({{ goal_percentage }})
+    </p>
+    <progress value="{{ current }}" max="{{ goal }}"></progress>
+
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Phasellus ultricies eget metus vel pharetra. Maecenas sit
       amet magna id libero congue venenatis in sit amet neque. Integer

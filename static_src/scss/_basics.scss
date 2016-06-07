@@ -114,6 +114,33 @@ mark {
     background: $bg-highlight;
 }
 
+
+progress {
+    display: block;
+    width: 100%;
+    height: 1rem;
+    margin-bottom: 2em;
+    appearance: none;
+    background: $bg-gray;
+    border: 1px solid $bg-blue;
+    border-radius: 0.25em;
+
+    &::-webkit-progress-bar {
+        background: $bg-gray;
+        border-radius: 0.25em;
+    }
+
+    &::-webkit-progress-value {
+        background: $bg-gradient;
+        border-radius: 0.25em;
+    }
+
+    &::-moz-progress-bar {
+        background: $bg-gradient;
+        border-radius: 0.25em;
+    }
+}
+
 .container {
     @include clearfix;
     padding: 0.5rem;

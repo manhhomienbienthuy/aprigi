@@ -30,6 +30,17 @@
 
 {% block content %}
   <div class="container">
+    {% if withdrawn %}
+      <div class="warning">
+        <p>
+          {% blocktrans %}
+            You have withdrawn ${{ withdrawn }}
+            without creating any new passbook.
+          {% endblocktrans %}
+        </p>
+      </div>
+    {% endif %}
+
     <div class="object-tools">
       <a href="{% url 'savings:passbook_create' %}"
          class="button button-secondary">

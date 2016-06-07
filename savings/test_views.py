@@ -92,6 +92,11 @@ class PassbookViewTest(TestCase):
             is_open=True,
             notes="Note"
         )
+        Withdraw.objects.create(
+            amount=10000000,
+            date=self.today,
+            is_open=True
+        )
 
     def test_i18n_view(self):
         response = self.client.get('/savings/')
@@ -126,6 +131,7 @@ class PassbookViewTest(TestCase):
         self.assertEqual(response.context['thismonth'], '2016-06-30')
         self.assertEqual(response.context['origin'], 50000000)
         self.assertEqual(response.context['interest'], 208335)
+        self.assertEqual(response.context['withdrawn'], 10000000)
 
     def test_passbook_view_filter_open(self):
         response = self.client.get(self.url + '?is_open=2')
