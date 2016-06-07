@@ -2,6 +2,7 @@ from calendar import monthrange
 from datetime import datetime
 
 from django.db import models
+from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 DAYS_PER_YEAR = 365
@@ -109,3 +110,10 @@ class Withdraw(models.Model):
 
     def __str__(self):
         return "{obj.amount} on {obj.date}".format(obj=self)
+
+
+@receiver(models.signals.post_save, sender=Passbook,
+          dispatch_uid='update_withdraw')
+def update_withdraw(sender, instance, created, **kwargs):
+    if created and instance.is_open:
+        Withdraw.objects.filter(is_open=True).update(is_open=False)
