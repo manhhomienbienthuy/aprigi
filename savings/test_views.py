@@ -5,8 +5,8 @@ from unittest import mock
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from .forms import PassbookSearchForm
-from .models import Passbook
+from .forms import PassbookSearchForm, PassbookWithdrawForm
+from .models import Passbook, Withdraw
 
 
 def faketoday():
@@ -208,9 +208,52 @@ class PassbookDeleteViewTest(TestCase):
     def test_get_request(self):
         response = self.client.get(reverse('savings:passbook_delete',
                                            args=(self.passbook.id, )))
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Are you sure?')
 
     def test_post_request(self):
         response = self.client.post(reverse('savings:passbook_delete',
                                             args=(self.passbook.id, )))
         self.assertRedirects(response, reverse('savings:passbook_list'))
+
+
+class PassbookWithdrawViewTest(TestCase):
+
+    def setUp(self):
+        self.passbook = Passbook.objects.create(
+            number="001",
+            account_number="001",
+            amount=10000000,
+            period=1,
+            period_type=2,
+            rate=5.0,
+            start_date=datetime(2016, 5, 6).date(),
+            stop_date=datetime(2016, 6, 6).date(),
+            is_open=True,
+            notes="Note"
+        )
+
+    def test_get_request_without_querystring(self):
+        response = self.client.get(reverse('savings:passbook_withdraw'))
+        self.assertEqual(response.status_code, 400)
+
+    def test_get_request(self):
+        response = self.client.get(
+            reverse('savings:passbook_withdraw') + '?date=2016-06-07')
+        self.assertEqual(response.status_code, 200)
+        self.assertSequenceEqual(
+            response.context['object_list'], [self.passbook])
+        self.assertIsInstance(response.context['form'], PassbookWithdrawForm)
+        self.assertEqual(response.context['origin'], 10000000)
+        self.assertEqual(response.context['interest'], 41832)
+
+    def test_post_request(self):
+        response = self.client.post(
+            reverse('savings:passbook_withdraw'), {'date': '2016-06-07'})
+        self.passbook.refresh_from_db()
+        self.assertRedirects(response, reverse('savings:passbook_list'))
+        self.assertEqual(self.passbook.is_open, False)
+        withdraw = Withdraw.objects.latest('id')
+        self.assertEqual(withdraw.amount, 10041832)
+        self.assertEqual(withdraw.date, datetime(2016, 6, 7).date())
+        self.assertEqual(withdraw.is_open, True)

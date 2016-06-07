@@ -91,14 +91,22 @@ class PassbookWithdrawView(FormView):
     def get_context_data(self):
         context = super().get_context_data()
         form = self.form_class(self.request.GET or None)
+        object_list = form.get_passbook_list()
+        origin = interest = 0
+        for passbook in object_list:
+            origin += passbook.amount
+            interest += passbook.interest_on_withdraw(
+                form.cleaned_data['date'])
         context.update({
-            'object_list': form.get_passbook_list(),
+            'object_list': object_list,
             'form': form,
+            'origin': origin,
+            'interest': interest,
         })
         return context
 
     def form_valid(self, form):
-        # Implement later
+        form.do_withdraw()
         return super().form_valid(form)
 
     def get_success_url(self):
