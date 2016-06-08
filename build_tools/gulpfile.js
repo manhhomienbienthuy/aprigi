@@ -44,15 +44,16 @@ var config = {
             return this;
         }
     }.init(),
-    css: {browsers: ['last 2 versions', '> 1%', 'iOS 7']},
-    babel: {presets: [es2015]}
+    autoprefixer: {browsers: ['last 2 versions', '> 1%', 'iOS 7']},
+    babel: {presets: [es2015]},
+    uglify: {preserveComments: 'license'}
 };
 
 gulp.task('stylesheet', () => {
     return gulp
         .src(config.src.css_main)
         .pipe(gulpif(!production, sourcemaps.init()))
-        .pipe(sass(config.css))
+        .pipe(sass(config.autoprefixer))
         .pipe(autoprefixer())
         .pipe(csslint('.csslintrc.json'))
         .pipe(csslint.reporter())
