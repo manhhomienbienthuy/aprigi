@@ -1,3 +1,10 @@
+/**
+ * --------------------------------------------------------------------------
+ * Aprigi: Back-to-top button handler
+ * This file is distributed under the same license as the aprigi package.
+ * --------------------------------------------------------------------------
+ */
+
 'use strict';
 
 define(['jquery'], ($) => {
