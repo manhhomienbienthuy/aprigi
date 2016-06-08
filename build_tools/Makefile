@@ -19,20 +19,12 @@ frontend-production:
 docker: frontend
 	sudo docker-compose up
 
-check-style: isort-check flake8
-
-fix-style: isort autopep8
-
-isort:
-	$(foreach app,$(APP_LIST),isort -rc ../$(app);)
-
-isort-check:
+check-style:
 	$(foreach app,$(APP_LIST),isort -c -rc ../$(app);)
-
-flake8:
 	$(foreach app,$(APP_LIST),flake8 --exclude=migrations ../$(app);)
 
-autopep8:
+fix-style:
+	$(foreach app,$(APP_LIST),isort -rc ../$(app) --skip migrations;)
 	$(foreach app,$(APP_LIST),autopep8 --in-place ../$(app)/*.py;)
 
 collecttranslation:

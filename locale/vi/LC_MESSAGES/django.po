@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-07 15:41+0700\n"
+"POT-Creation-Date: 2016-06-08 08:07+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -26,90 +26,90 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: savings/models.py:16
+#: savings/models.py:18
 msgid "Week"
 msgstr "Tuần"
 
-#: savings/models.py:17
+#: savings/models.py:19
 msgid "Month"
 msgstr "Tháng"
 
-#: savings/models.py:21 templates/savings/passbook_confirm_delete.html:46
+#: savings/models.py:23 templates/savings/passbook_confirm_delete.html:46
 #: templates/savings/passbook_list_table.html:7
 #: templates/savings/passbook_withdraw_table.html:7
 msgid "number"
 msgstr "số sổ"
 
-#: savings/models.py:23 templates/savings/passbook_confirm_delete.html:50
+#: savings/models.py:25 templates/savings/passbook_confirm_delete.html:50
 #: templates/savings/passbook_list_table.html:8
 #: templates/savings/passbook_withdraw_table.html:8
 msgid "account number"
 msgstr "số tài khoản"
 
-#: savings/models.py:26 savings/models.py:102
+#: savings/models.py:28 savings/models.py:104
 #: templates/savings/passbook_confirm_delete.html:54
 #: templates/savings/passbook_list_table.html:9
 #: templates/savings/passbook_withdraw_table.html:9
 msgid "amount"
 msgstr "số tiền"
 
-#: savings/models.py:27
+#: savings/models.py:29
 msgid "period type"
 msgstr "Gửi theo tuần/tháng"
 
-#: savings/models.py:30 templates/savings/passbook_confirm_delete.html:58
+#: savings/models.py:32 templates/savings/passbook_confirm_delete.html:58
 #: templates/savings/passbook_list_table.html:10
 #: templates/savings/passbook_withdraw_table.html:10
 msgid "period"
 msgstr "kỳ hạn"
 
-#: savings/models.py:31 templates/savings/passbook_list_table.html:11
+#: savings/models.py:33 templates/savings/passbook_list_table.html:11
 #: templates/savings/passbook_withdraw_table.html:11
 msgid "rate"
 msgstr "lãi suất"
 
-#: savings/models.py:32 templates/savings/passbook_confirm_delete.html:62
+#: savings/models.py:34 templates/savings/passbook_confirm_delete.html:62
 #: templates/savings/passbook_list_table.html:12
 #: templates/savings/passbook_withdraw_table.html:12
 msgid "start date"
 msgstr "ngày gửi"
 
-#: savings/models.py:33 templates/savings/passbook_confirm_delete.html:66
+#: savings/models.py:35 templates/savings/passbook_confirm_delete.html:66
 #: templates/savings/passbook_list_table.html:13
 #: templates/savings/passbook_withdraw_table.html:13
 msgid "stop date"
 msgstr "ngày hết hạn"
 
-#: savings/models.py:34 savings/models.py:104
+#: savings/models.py:36 savings/models.py:106
 #: templates/savings/passbook_confirm_delete.html:70
 #: templates/savings/passbook_list_table.html:14
 msgid "is open"
 msgstr "còn/hết hạn"
 
-#: savings/models.py:36
+#: savings/models.py:38
 msgid "notes"
 msgstr "ghi chú"
 
-#: savings/models.py:39 templates/savings/passbook_confirm_delete.html:21
+#: savings/models.py:41 templates/savings/passbook_confirm_delete.html:21
 #: templates/savings/passbook_form.html:32
 #: templates/savings/passbook_list.html:21
 #: templates/savings/passbook_withdraw.html:21
 msgid "Passbook"
 msgstr "Sổ tiết kiệm"
 
-#: savings/models.py:40
+#: savings/models.py:42
 msgid "Passbooks"
 msgstr "Sổ tiết kiệm"
 
-#: savings/models.py:53 templates/savings/passbook_list_table.html:15
+#: savings/models.py:55 templates/savings/passbook_list_table.html:15
 msgid "interest (expected)"
 msgstr "Tiền lãi (dự kiến)"
 
-#: savings/models.py:103
+#: savings/models.py:105
 msgid "withdrawn on"
 msgstr "rút ngày"
 
-#: savings/models.py:107 templates/savings/passbook_list.html:57
+#: savings/models.py:109 templates/savings/passbook_list.html:57
 #: templates/savings/passbook_withdraw.html:5
 #: templates/savings/passbook_withdraw.html:11
 #: templates/savings/passbook_withdraw.html:24
@@ -118,7 +118,7 @@ msgstr "rút ngày"
 msgid "Withdraw"
 msgstr "Rút tiền"
 
-#: savings/models.py:108
+#: savings/models.py:110
 msgid "Withdraws"
 msgstr "Rút tiền"
 
