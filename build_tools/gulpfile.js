@@ -1,80 +1,97 @@
+'use strict';
+
 // Load basic plugins
-var gulp = require('gulp');
-var gulpif = require('gulp-if');
-var argv = require('yargs').argv;
-var production = !!argv.production; // --production
+var gulp        = require('gulp'),
+    gulpif      = require('gulp-if'),
+    argv        = require('yargs').argv,
+    production  = !!argv.production; // --production
 
 // Load plugins for stylesheet task
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var csslint = require('gulp-csslint');
-var shorthand = require('gulp-shorthand');
-var combine = require('gulp-combine-mq');
-var cssmin = require('gulp-clean-css');
+var sass          = require('gulp-sass'),
+    autoprefixer  = require('gulp-autoprefixer'),
+    csslint       = require('gulp-csslint'),
+    shorthand     = require('gulp-shorthand'),
+    combine       = require('gulp-combine-mq'),
+    cssmin        = require('gulp-clean-css'),
+    sourcemaps    = require('gulp-sourcemaps');
 
 // Load plugins for javascript task
-var eslint = require('gulp-eslint');
-var babel = require('gulp-babel');
-var es2015 = require('babel-preset-es2015');
-var uglify = require('gulp-uglify');
+var eslint  = require('gulp-eslint'),
+    babel   = require('gulp-babel'),
+    es2015  = require('babel-preset-es2015'),
+    uglify  = require('gulp-uglify');
+
+var config = {
+    src: {
+        base: '../static_src/',
+        init: function() {
+            this.js         = this.base + 'js/**/*.js';
+            this.js_copy    = this.base + 'js/lib/*.js';
+            this.js_compile = [this.js, '!' + this.js_copy];
+            this.css        = this.base + 'scss/*.scss';
+            this.css_main   = this.base + 'scss/vpyeu.scss';
+            this.img        = this.base + 'img/*.{jpg,jpeg,png,gif,ico,svg}';
+            return this;
+        }
+    }.init(),
+    dest: {
+        base: '../static/',
+        init: function() {
+            this.js       = this.base + 'js';
+            this.js_copy  = this.base + 'js/lib';
+            this.css      = this.base + 'css';
+            this.img      = this.base + 'img';
+            return this;
+        }
+    }.init(),
+    css: {browsers: ['last 2 versions', '> 1%', 'iOS 7']},
+    babel: {presets: [es2015]}
+};
 
 gulp.task('stylesheet', () => {
     return gulp
-        .src('../static_src/scss/vpyeu.scss')
-        .pipe(sass())
-        .pipe(autoprefixer({browsers: ['last 2 versions', '> 1%', 'iOS 7']}))
+        .src(config.src.css_main)
+        .pipe(gulpif(!production, sourcemaps.init()))
+        .pipe(sass(config.css))
+        .pipe(autoprefixer())
         .pipe(csslint('.csslintrc.json'))
         .pipe(csslint.reporter())
-        .pipe(shorthand())
-        .pipe(combine())
+        .pipe(gulpif(production, shorthand()))
+        .pipe(gulpif(production, combine()))
         .pipe(gulpif(production, cssmin()))
-        .pipe(gulp.dest('../static/css/'));
+        .pipe(gulpif(!production, sourcemaps.write('.')))
+        .pipe(gulp.dest(config.dest.css));
 });
 
-gulp.task('javascript-root', () => {
+gulp.task('javascript-compile', () => {
     return gulp
-        .src('../static_src/js/*.js')
+        .src(config.src.js_compile)
         .pipe(eslint('.eslintrc.json'))
         .pipe(eslint.format())
-        .pipe(babel({presets: [es2015]}))
+        .pipe(babel(config.babel))
         .pipe(gulpif(production, uglify()))
-        .pipe(gulp.dest('../static/js'));
+        .pipe(gulp.dest(config.dest.js));
 });
 
-gulp.task('javascript-mod', () => {
+gulp.task('javascript-copy', () => {
     return gulp
-        .src('../static_src/js/mod/*.js')
-        .pipe(eslint('.eslintrc.json'))
-        .pipe(eslint.format())
-        .pipe(babel({presets: [es2015]}))
-        .pipe(gulpif(production, uglify()))
-        .pipe(gulp.dest('../static/js/mod'));
+        .src(config.src.js_copy)
+        .pipe(gulp.dest(config.dest.js_copy));
 });
 
-gulp.task('javascript-lib', () => {
-    return gulp
-        .src('../static_src/js/lib/*.js')
-        .pipe(gulp.dest('../static/js/lib'));
-});
-
-gulp.task('javascript', [
-        'javascript-root',
-        'javascript-mod',
-        'javascript-lib'
-    ]
-);
+gulp.task('javascript', ['javascript-compile', 'javascript-copy']);
 
 gulp.task('images', () => {
     // At this time, it simply copy all images file
     return gulp
-        .src('../static_src/img/*.{jpg,jpeg,png,gif,ico,svg}')
-        .pipe(gulp.dest('../static/img'));
+        .src(config.src.img)
+        .pipe(gulp.dest(config.dest.img));
 });
 
 gulp.task('watch', () => {
-    gulp.watch('../static_src/scss/*.scss', ['stylesheet']);
-    gulp.watch('../static_src/js/**/*.js', ['javascript']);
-    gulp.watch('../static_src/img/*.{jpg,jpeg,png,gif,ico,svg}', ['images']);
+    gulp.watch(config.src.css, ['stylesheet']);
+    gulp.watch(config.src.js, ['javascript']);
+    gulp.watch(config.src.img, ['images']);
 });
 
 
