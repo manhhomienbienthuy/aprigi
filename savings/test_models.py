@@ -162,6 +162,15 @@ class WithdrawTest(TestCase):
         self.withdraw.refresh_from_db()
         self.assertEqual(self.withdraw.is_open, True)
 
+    def test_create_other_momdal_does_not_change_withdraws(self):
+        Withdraw.objects.create(
+            amount=10000000,
+            date=self.today,
+            is_open=True
+        )
+        self.withdraw.refresh_from_db()
+        self.assertEqual(self.withdraw.is_open, True)
+
     def test_create_closed_passbook_does_not_change_withdraws(self):
         Passbook.objects.create(
             number="002",

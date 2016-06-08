@@ -3,6 +3,7 @@ from datetime import datetime
 
 from django.db import models
 from django.dispatch import receiver
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 DAYS_PER_YEAR = 365
@@ -101,7 +102,7 @@ class Passbook(models.Model):
 
 class Withdraw(models.Model):
     amount = models.IntegerField(_('amount'))
-    date = models.DateField(_('withdrawn on'), auto_now_add=True)
+    date = models.DateField(_('withdrawn on'), default=timezone.now)
     is_open = models.BooleanField(_('is open'), default=True, db_index=True)
 
     class Meta:
