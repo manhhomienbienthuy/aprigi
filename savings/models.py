@@ -110,7 +110,7 @@ class Withdraw(models.Model):
         verbose_name_plural = _('Withdraws')
 
     def __str__(self):
-        return "{obj.amount} on {obj.date}".format(obj=self)
+        return "${obj.amount} on {obj.date}".format(obj=self)
 
 
 @receiver(models.signals.post_save, sender=Passbook,
@@ -118,3 +118,15 @@ class Withdraw(models.Model):
 def update_withdraw(sender, instance, created, **kwargs):
     if created and instance.is_open:
         Withdraw.objects.filter(is_open=True).update(is_open=False)
+
+
+class Objective(models.Model):
+    year = models.IntegerField(_('year'), unique=True, db_index=True)
+    amount = models.IntegerField(_('amount'), null=True)
+
+    class Meta:
+        verbose_name = _('Objective')
+        verbose_name_plural = _('Objectives')
+
+    def __str__(self):
+        return "${obj.amount} for the year {obj.year}".format(obj=self)
