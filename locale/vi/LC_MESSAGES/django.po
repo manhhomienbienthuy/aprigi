@@ -124,15 +124,15 @@ msgstr "Rút tiền"
 
 #: savings/models.py:124
 msgid "year"
-msgstr ""
+msgstr "năm"
 
 #: savings/models.py:128
 msgid "Objective"
-msgstr ""
+msgstr "Mục tiêu"
 
 #: savings/models.py:129
 msgid "Objectives"
-msgstr ""
+msgstr "Mục tiêu"
 
 #: templates/admin/base_site.html:3
 msgid "Aprigi site admin"
