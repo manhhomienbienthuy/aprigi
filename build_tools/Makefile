@@ -20,12 +20,12 @@ docker: frontend
 	sudo docker-compose up
 
 check-style:
-	$(foreach app,$(APP_LIST),isort -c -rc ../$(app);)
+	$(foreach app,$(APP_LIST),isort -c -rc ../$(app) --skip migrations;)
 	$(foreach app,$(APP_LIST),flake8 --exclude=migrations ../$(app);)
 
 fix-style:
 	$(foreach app,$(APP_LIST),isort -rc ../$(app) --skip migrations;)
-	$(foreach app,$(APP_LIST),autopep8 --in-place ../$(app)/*.py;)
+	$(foreach app,$(APP_LIST),autopep8 --in-place ../$(app)/*.py ../$(app)/templatetags/*.py;)
 
 collecttranslation:
 	cd .. && $(foreach lang,$(LANG_LIST),./manage.py makemessages -l $(lang);)

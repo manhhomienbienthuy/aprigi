@@ -1,16 +1,11 @@
 from calendar import monthrange
 from datetime import datetime, timedelta
-from unittest import mock
 
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
 from .forms import PassbookSearchForm, PassbookWithdrawForm
 from .models import Passbook, Withdraw
-
-
-def faketoday():
-    return datetime(2016, 6, 6)
 
 
 class PassbookViewTest(TestCase):
@@ -122,16 +117,6 @@ class PassbookViewTest(TestCase):
             ]
         )
         self.assertIsInstance(response.context['form'], PassbookSearchForm)
-
-    @mock.patch('django.utils.timezone.now', faketoday)
-    def test_passbook_view_context(self):
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context['thisweek'], '2016-06-13')
-        self.assertEqual(response.context['thismonth'], '2016-06-30')
-        self.assertEqual(response.context['origin'], 50000000)
-        self.assertEqual(response.context['interest'], 208335)
-        self.assertEqual(response.context['withdrawn'], 10000000)
 
     def test_passbook_view_filter_open(self):
         response = self.client.get(self.url + '?is_open=2')
