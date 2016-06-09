@@ -2,6 +2,7 @@
 $text-default: #555;
 $text-light: #999;
 $white: #fff; // Confusing, but in some cases, this can be set to a dark color
+$black: #000;
 $text-blue: #5595db;
 $bg-blue: #44bbf3;
 $bg-green: #63daca;
@@ -21,6 +22,7 @@ $screen-large: 70em;
 $serif: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 $sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", sans-serif;
 $monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+$condensed-font: Oswald, sans-serif;
 
 // Media queries mixins
 @mixin respond-min ($width) {

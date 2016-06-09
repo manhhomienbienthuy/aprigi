@@ -1,0 +1,111 @@
+.countdown {
+    margin: 0 auto;
+    width: 100%;
+    font-size: 1.25rem;
+
+    @include respond-min($screen-medium) {
+        width: 355/16 + rem;
+    }
+
+    .countdown-container {
+        height: 100/16 + rem;
+
+        @include respond-min($screen-medium) {
+            height: 130/16 + rem;
+        }
+    }
+
+    .time {
+        position: relative;
+        display: inline-block;
+        height: 70/16 + rem;
+        width: 3rem;
+        text-align: center;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0.8rem 0 darken($bg-gray, 30%);
+        perspective: 479/16 + rem;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+
+        @include respond-min($screen-medium) {
+            height: 95/16 + rem;
+            width: 65/16 + rem;
+        }
+    }
+
+    .count {
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        font-family: $condensed-font;
+        font-size: 1.5em;
+        line-height: 70/16 + rem;
+        color: $bg-gray;
+        text-align: center;
+        text-shadow: 0 0 0.8rem darken($bg-gray, 50%);
+        background: darken($bg-gray, 90%);
+        transform: translateZ(0);
+        transform-style: flat;
+
+        @include respond-min($screen-medium) {
+            font-size: 2em;
+            line-height: 2.4em;
+        }
+
+        &.top {
+            height: 50%;
+            border-top: 1px solid $text-default;
+            border-bottom: 1px $gray-line;
+            border-radius: 0.5rem 0.5rem 0 0;
+            transform-origin: 50% 100%;
+
+            &.curr {
+                z-index: 3;
+                transform: rotateX(0deg);
+            }
+        }
+
+        &.bottom {
+            height: 50%;
+            top: 50%;
+            line-height: 0;
+            background-image: linear-gradient($text-default, transparent);
+            border-top: 1px solid $black;
+            border-bottom: 1px solid $black;
+            border-radius: 0 0 0.5rem 0.5rem;
+            transform-origin: 50% 0;
+
+            &.next {
+                z-index: 2;
+                transform: rotateX(90deg);
+            }
+        }
+    }
+
+    .label {
+        position: absolute;
+        top: 72/16 + rem;
+        display: block;
+        width: 100%;
+        margin-top: 0.5rem;
+        font-size: 0.8em;
+
+        @include respond-min($screen-medium) {
+            top: 95/16 + rem;
+            font-size: normal;
+        }
+    }
+
+    .flip {
+        .count.curr.top {
+            transition: all 250ms ease-in-out;
+            transform: rotateX(-90deg);
+        }
+        .count.next.bottom {
+            transition: all 250ms ease-in-out 250ms;
+            transform: rotateX(0deg);
+        }
+    }
+}
