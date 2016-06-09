@@ -1,3 +1,7 @@
+$bg-bright: darken($bg-gray, 60%);
+$bg-medium: darken($bg-gray, 75%);
+$bg-dark: darken($bg-gray, 90%);
+
 .countdown {
     margin: 0 auto;
     width: 100%;
@@ -22,7 +26,7 @@
         width: 3rem;
         text-align: center;
         border-radius: 0.5rem;
-        box-shadow: 0 0 0.8rem 0 darken($bg-gray, 30%);
+        box-shadow: 0 0 0.8rem 0 $bg-bright;
         perspective: 479/16 + rem;
         backface-visibility: hidden;
         transform: translateZ(0);
@@ -44,8 +48,7 @@
         line-height: 70/16 + rem;
         color: $bg-gray;
         text-align: center;
-        text-shadow: 0 0 0.8rem darken($bg-gray, 50%);
-        background: darken($bg-gray, 90%);
+        background: $bg-dark;
         transform: translateZ(0);
         transform-style: flat;
 
@@ -71,8 +74,7 @@
             height: 50%;
             top: 50%;
             line-height: 0;
-            background-color: darken($bg-gray, 90%);
-            background-image: linear-gradient($text-default, transparent);
+            background: linear-gradient($bg-medium, $bg-dark);
             border-top: 1px solid $black;
             border-bottom: 1px solid $black;
             border-radius: 0 0 0.5rem 0.5rem;
