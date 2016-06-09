@@ -9,11 +9,19 @@
 'use strict';
 
 requirejs.config({
+    shim: {
+        'jquery': [],
+        'lodash': [],
+        'jquery.countdown': ['jquery']
+    },
     paths: {
         'jquery': '//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min',
+        'jquery.countdown': '//cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.1.0/jquery.countdown.min',
+        'lodash': '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min',
         'mobile-menu': 'mod/mobile-menu',
         'scroll-top': 'mod/scroll-top',
-        'language-switch': 'mod/language-switch'
+        'language-switch': 'mod/language-switch',
+        'countdown': 'mod/countdown'
     }
 });
 
@@ -29,8 +37,17 @@ define(() => {
                         html.offsetHeight);
     }
 
+    function hasClass(className) {
+         //return a boolean
+        return !!document.getElementsByClassName( className ).length;
+    }
+
     if (getPageHeight() > window.innerHeight * 2) {
         mods.push('scroll-top');
+    }
+
+    if (hasClass('countdown')) {
+        mods.push('countdown');
     }
 
     requirejs(mods);
