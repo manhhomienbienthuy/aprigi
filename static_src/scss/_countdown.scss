@@ -71,6 +71,7 @@
             height: 50%;
             top: 50%;
             line-height: 0;
+            background-color: darken($bg-gray, 90%);
             background-image: linear-gradient($text-default, transparent);
             border-top: 1px solid $black;
             border-bottom: 1px solid $black;
