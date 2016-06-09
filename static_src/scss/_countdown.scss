@@ -1,7 +1,6 @@
 .countdown {
     margin: 0 auto;
     width: 100%;
-    font-size: 1.25rem;
 
     @include respond-min($screen-medium) {
         width: 355/16 + rem;
@@ -9,6 +8,7 @@
 
     .countdown-container {
         height: 100/16 + rem;
+        font-size: 1.25rem;
 
         @include respond-min($screen-medium) {
             height: 130/16 + rem;

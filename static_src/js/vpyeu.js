@@ -39,7 +39,7 @@ define(() => {
 
     function hasClass(className) {
          //return a boolean
-        return !!document.getElementsByClassName( className ).length;
+        return !!document.getElementsByClassName(className).length;
     }
 
     if (getPageHeight() > window.innerHeight * 2) {
