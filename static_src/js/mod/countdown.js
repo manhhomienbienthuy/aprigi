@@ -12,8 +12,8 @@ define(['jquery', 'lodash', 'jquery.countdown'], ($, _) => {
         constructor(countdown, template) {
             this.countdown = $(countdown);
             this.template = _.template($(template).html());
-            this.currDate = '00:00:00:00:00';
-            this.nextDate = '00:00:00:00:00';
+            this.currentTime = '00:00:00:00:00';
+            this.nextTime = '00:00:00:00:00';
             this.parser = /([0-9]{2})/gi;
             this.target = this.countdown.attr('for');
             if (!this.target) {
@@ -28,7 +28,7 @@ define(['jquery', 'lodash', 'jquery.countdown'], ($, _) => {
 
         init() {
             // Build the layout
-            var initData = this.strfobj(this.currDate);
+            var initData = this.strfobj(this.currentTime);
             this.labels.forEach((label) => {
                 this.countdown.append(this.template({
                     curr: initData[label],
@@ -39,31 +39,34 @@ define(['jquery', 'lodash', 'jquery.countdown'], ($, _) => {
 
             // Starts the countdown
             this.countdown.countdown(this.target, (event) => {
-                var newDate = event.strftime('%w:%d:%H:%M:%S'),
-                    data;
-                if (newDate !== this.nextDate) {
-                    this.currDate = this.nextDate;
-                    this.nextDate = newDate;
-                    // Setup the data
-                    data = {
-                        'curr': this.strfobj(this.currDate),
-                        'next': this.strfobj(this.nextDate)
-                    };
-
-                    // Apply the new values to each node that changed
-                    this.diff(data.curr, data.next).forEach((label) => {
-                        var selector = '.%s'.replace(/%s/, label),
-                            $node = this.countdown.find(selector);
-                        // Update the node
-                        $node.removeClass('flip');
-                        $node.find('.curr').text(data.curr[label]);
-                        $node.find('.next').text(data.next[label]);
-                        // Wait for a repaint to then flip
-                        _.delay(($node) => {
-                            $node.addClass('flip');
-                        }, 50, $node);
-                    });
+                var newTime = event.strftime('%w:%d:%H:%M:%S');
+                if (newTime !== this.nextTime) {
+                    this.currentTime = this.nextTime;
+                    this.nextTime = newTime;
+                    this.applyChange();
                 }
+            });
+        }
+
+        applyChange() {
+            // Setup the data
+            var data = {
+                current: this.strfobj(this.currentTime),
+                next: this.strfobj(this.nextTime)
+            };
+
+            // Apply the new values to each node that changed
+            this.diff(data.current, data.next).forEach((label) => {
+                var selector = '.' + label;
+                var $node = this.countdown.find(selector);
+                // Update the node
+                $node.removeClass('flip');
+                $node.find('.curr').text(data.current[label]);
+                $node.find('.next').text(data.next[label]);
+                // Wait for a repaint to then flip
+                _.delay(($node) => {
+                    $node.addClass('flip');
+                }, 50, $node);
             });
         }
 
