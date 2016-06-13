@@ -53,8 +53,8 @@ gulp.task('stylesheet', () => {
     return gulp
         .src(config.src.css_main)
         .pipe(gulpif(!production, sourcemaps.init()))
-        .pipe(sass(config.autoprefixer))
-        .pipe(autoprefixer())
+        .pipe(sass())
+        .pipe(autoprefixer(config.autoprefixer))
         .pipe(csslint('.csslintrc.json'))
         .pipe(csslint.reporter())
         .pipe(gulpif(production, shorthand()))
