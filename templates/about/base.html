@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <div class="two-columns">
+      <div class="main-content">
+        <div class="about">
+          {% block about_content %}{% endblock %}
+        </div>
+      </div>
+
+      <div class="sidebar">
+        {% include "about/sidebar.html" %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
