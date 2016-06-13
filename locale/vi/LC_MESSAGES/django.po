@@ -1,5 +1,5 @@
 # Vietnamese translation of aprigi project.
-# Copyright (C) 2016 Aprigi
+# Copyright (C) 2016 Anh Tranngoc
 # This file is distributed under the same license as the aprigi package.
 # Anh Tranngoc <naa@sfc.wide.ad.jp>, 2016.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-13 11:26+0700\n"
+"POT-Creation-Date: 2016-06-13 11:37+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -232,11 +232,11 @@ msgstr "Liên hệ"
 #, python-format
 msgid ""
 "\n"
-"        Copyright © %(current_year)s Aprigi. All rights reserved.\n"
+"        Copyright © %(current_year)s Anh Tranngoc. All rights reserved.\n"
 "      "
 msgstr ""
 "\n"
-"© %(current_year)s bản quyền thuộc về Aprigi. Mọi quyền được bảo lưu."
+"© %(current_year)s bản quyền thuộc về Anh Tranngoc. Mọi quyền được bảo lưu."
 
 #: templates/includes/header.html:7
 msgid "The app for my April girl, from naa with love"
