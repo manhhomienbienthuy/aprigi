@@ -26,5 +26,6 @@ urlpatterns += i18n.i18n_patterns(
     url(r'^$', TemplateView.as_view(template_name='homepage.html'),
         name='homepage'),
     url(r'^savings/', include('savings.urls')),
+    url(r'^about/', include('about.urls')),
     url(r'^admin/', admin.site.urls),
 )

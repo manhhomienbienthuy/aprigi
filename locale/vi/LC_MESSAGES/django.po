@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-09 09:51+0700\n"
+"POT-Creation-Date: 2016-06-13 11:26+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -207,6 +207,36 @@ msgstr "phút"
 #: templates/homepage.html:49
 msgid "seconds"
 msgstr "giây"
+
+#: templates/includes/footer.html:6
+msgid "About this site"
+msgstr "Về trang này"
+
+#: templates/includes/footer.html:7
+msgid "About us"
+msgstr "Về chúng tôi"
+
+#: templates/includes/footer.html:8
+msgid "Terms of use"
+msgstr "Điều khoản sử dụng"
+
+#: templates/includes/footer.html:9
+msgid "Privacy policy"
+msgstr "Chính sách riêng tư"
+
+#: templates/includes/footer.html:10
+msgid "Contact us"
+msgstr "Liên hệ"
+
+#: templates/includes/footer.html:42
+#, python-format
+msgid ""
+"\n"
+"        Copyright © %(current_year)s Aprigi. All rights reserved.\n"
+"      "
+msgstr ""
+"\n"
+"© %(current_year)s bản quyền thuộc về Aprigi. Mọi quyền được bảo lưu."
 
 #: templates/includes/header.html:7
 msgid "The app for my April girl, from naa with love"
