@@ -1,2 +1,128 @@
-{% extends "base.html" %}
+{% extends "about/base.html" %}
 {% load i18n %}
+
+{% block title %}{% trans "About this site" %}{% endblock %}
+
+{% block page_header %}
+  <div class="page-header">
+    <div class="container">
+      <h1>{% trans "About this site" %}</h1>
+
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'homepage' %}">
+            {% trans "Home" %}
+        </a></li>
+        <li><a href="{% url 'about:index' %}">
+            {% trans "About" %}
+        </a></li>
+        <li><a href="{% url 'about:this_site' %}">
+            {% trans "About this site" %}
+        </a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block about_content %}
+  <h1>{% trans "About this site" %}</h1>
+
+  <p>
+    {% blocktrans %}
+      This website is operated by Anh Tranngoc based on the following
+      conditions. Please read and consent to these conditions before
+      using this website.
+    {% endblocktrans %}
+  </p>
+
+  <h2>{% trans "Copyright" %}</h2>
+  <p>
+    {% blocktrans %}
+      Anh Tranngoc holds the copyright to the content of this
+      website. This right is protected under Vietnamese law as well as
+      international treaties.
+    {% endblocktrans %}
+  </p>
+
+  <h2>{% trans "Hyperlinks" %}</h2>
+  <p>
+    {% blocktrans %}
+      This website may be linked to by any website, provided the
+      purpose and content of the linking website does not offend
+      public order or morals or violate any copyrights or other
+      rights.
+    {% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans %}
+      Third party websites (hereinafter "linked websites") whose
+      hyperlinks appear on this website, or linked websites which
+      contain hyperlinks to this website, are each managed and
+      operated independently. Therefore, please follow the terms of
+      service of each linked website during use.
+    {% endblocktrans %}
+  </p>
+
+  <h2>{% trans "Recommended environment" %}</h2>
+
+  <h3>{% trans "Web browser software" %}</h3>
+  <p>
+    {% blocktrans %}
+      We recommend you to install latest version of browser for a
+      better web experience. The following are the environments that
+      this website works well.
+    {% endblocktrans %}
+  </p>
+  <ul>
+    <li>Internet Explorer 11+</li>
+    <li>Microsoft Edge 13+</li>
+    <li>Firefox 45+</li>
+    <li>Chrome 29+</li>
+    <li>Safari 9.1+</li>
+  </ul>
+
+  <h3>{% trans "JavaScript use" %}</h3>
+  <p>
+    {% blocktrans %}
+      JavaScript is used in some of the web pages found on this
+      website. There are times when web browsers will malfunction or
+      display data incorrectly when JavaScript is disabled. Therefore,
+      please enable your browser to read JavaScript.
+    {% endblocktrans %}
+  </p>
+
+  <h3>{% trans "Access log use" %}</h3>
+  <p>
+    {% blocktrans %}
+      This website utilizes Google Analytics, an access analysis tool,
+      to retrieve and analyze access log data. As well as improving
+      the website's performance, the access log may be processed
+      without specifying individuals and uded for educational and
+      research activities.
+    {% endblocktrans %}
+  </p>
+
+  <h3>{% trans "Cookie use" %}</h3>
+  <p>
+    {% blocktrans %}
+      A portion of this website utilizes cookies (*) in order to
+      collect website usage statistics. Unless personal information is
+      entered into the website by visitors, it is impossible to
+      identify specific users. Statistical data obtained from the
+      cookies is used for website improvements and other similar
+      purposes.
+    {% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans %}
+      Although the website can be viewed without any problems even
+      when cookies are blocked, the connecting function to social
+      media (Twitter, Facebook, etc.) may be affected.
+    {% endblocktrans %}
+  </p>
+  <p><small>
+    {% blocktrans %}
+      (*) A data file which is transferred from a website to a user's
+      computer.
+    {% endblocktrans %}
+  </small></p>
+{% endblock %}

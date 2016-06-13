@@ -1,0 +1,9 @@
+{% load i18n %}
+
+<h1>{% trans "About" %}</h1>
+
+<h2><a href="{% url 'about:this_site' %}">{% trans "About this site" %}</a></h2>
+<h2><a href="{% url 'about:us' %}">{% trans "About us" %}</a></h2>
+<h2><a href="{% url 'about:terms' %}">{% trans "Terms of use" %}</a></h2>
+<h2><a href="{% url 'about:privacy' %}">{% trans "Privacy policy" %}</a></h2>
+<h2><a href="{% url 'about:contact' %}">{% trans "Contact us" %}</a></h2>

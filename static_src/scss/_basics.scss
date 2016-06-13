@@ -151,14 +151,3 @@ progress {
         width: 85%;
     }
 }
-
-.container-inner {
-    @include clearfix;
-    width: 48em;
-    max-width: 100%;
-    float: right;
-
-    @include respond-min($screen-medium) {
-        width: 820/16 + em;
-    }
-}

@@ -56,3 +56,14 @@ $text-align: center left right justify;
     float: right;
     margin-top: 1.5em;
 }
+
+.about {
+    h1, h2 {
+        color: $text-blue;
+    }
+
+    h2 {
+        @include gradient-underline;
+        position: relative;
+    }
+}
