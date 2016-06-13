@@ -1,9 +1,12 @@
-from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.test import TestCase
+
 
 class AboutTest(TestCase):
+
     def assertView(self, name):
-        self.assertContains(self.client.get(reverse('about:%s' %name)), 'Aprigi')
+        self.assertContains(self.client.get(
+            reverse('about:%s' % name)), 'Aprigi')
 
     def test_about_this_site(self):
         self.assertView('this_site')
