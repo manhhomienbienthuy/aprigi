@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-13 16:56+0700\n"
+"POT-Creation-Date: 2016-06-14 16:18+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -136,7 +136,7 @@ msgstr "Mục tiêu"
 
 #: templates/about/sidebar.html:3 templates/about/this_site.html:16
 msgid "About"
-msgstr ""
+msgstr "Giới thiệu"
 
 #: templates/about/sidebar.html:5 templates/about/this_site.html:4
 #: templates/about/this_site.html:9 templates/about/this_site.html:19
@@ -167,173 +167,6 @@ msgstr "Liên hệ"
 #: templates/savings/passbook_withdraw.html:15
 msgid "Home"
 msgstr ""
-
-#: templates/about/this_site.html:30
-msgid ""
-"\n"
-"      This website is operated by Anh Tranngoc based on the following\n"
-"      conditions. Please read and consent to these conditions before\n"
-"      using this website.\n"
-"    "
-msgstr ""
-"\n"
-"Trang web này được vận hành bởi Anh Tranngoc với những điều kiện sau. Xin "
-"vui lòng đọc và đồng ý với những điều kiện đó trước khi sử dụng trang web "
-"này."
-
-#: templates/about/this_site.html:37
-msgid "Copyright"
-msgstr "Quyền tác giả"
-
-#: templates/about/this_site.html:39
-msgid ""
-"\n"
-"      Anh Tranngoc holds the copyright to the content of this\n"
-"      website. This right is protected under Vietnamese law as well as\n"
-"      international treaties.\n"
-"    "
-msgstr ""
-"\n"
-"Anh Tranngoc giữ bản quyền nội dung trang web này. Quyền được được bảo hộ "
-"bởi pháp luật của Việt Nam cũng như các công ước quốc tế."
-
-#: templates/about/this_site.html:46
-msgid "Hyperlinks"
-msgstr "Siêu liên kết"
-
-#: templates/about/this_site.html:48
-msgid ""
-"\n"
-"      This website may be linked to by any website, provided the\n"
-"      purpose and content of the linking website does not offend\n"
-"      public order or morals or violate any copyrights or other\n"
-"      rights.\n"
-"    "
-msgstr ""
-"\n"
-"Trang web này có thể được liên kết tới bất kỳ trang web nào khác, miễn là "
-"nội dung và mục đích của trang web được liên kết không vi phạm đạo đức và "
-"các quy ước xã hội khác, không vi phạm quyền tác giả và các quyền khác."
-
-#: templates/about/this_site.html:56
-msgid ""
-"\n"
-"      Third party websites (hereinafter \"linked websites\") whose\n"
-"      hyperlinks appear on this website, or linked websites which\n"
-"      contain hyperlinks to this website, are each managed and\n"
-"      operated independently. Therefore, please follow the terms of\n"
-"      service of each linked website during use.\n"
-"    "
-msgstr ""
-"\n"
-"Những trang web bên thứ 3 mà liên kết của chúng xuất hiện ở trang web này, "
-"hoặc những trang web chứa liên kết đến trang web này được quản lý và vận "
-"hành một cách độc lập. Vì vậy, xin hãy tuần thủ những điều khoản sử dụng của "
-"mỗi trang khi bạn sử dụng chúng."
-
-#: templates/about/this_site.html:65
-msgid "Recommended environment"
-msgstr "Môi trường khuyến nghị"
-
-#: templates/about/this_site.html:67
-msgid "Web browser software"
-msgstr "Trình duyệt web"
-
-#: templates/about/this_site.html:69
-msgid ""
-"\n"
-"      We recommend you to install latest version of browser for a\n"
-"      better web experience. The following are the environments that\n"
-"      this website works well.\n"
-"    "
-msgstr ""
-"\n"
-"Chúng tôi khuyến nghị bạn nên cài đặt phiên bản mới nhất của trình duyệt để "
-"có trải nghiệm tốt hơn. Dưới đây là danh sách môi trường mà trang web này "
-"hoạt động tốt."
-
-#: templates/about/this_site.html:83
-msgid "JavaScript use"
-msgstr "Sử dụng JavaScript"
-
-#: templates/about/this_site.html:85
-msgid ""
-"\n"
-"      JavaScript is used in some of the web pages found on this\n"
-"      website. There are times when web browsers will malfunction or\n"
-"      display data incorrectly when JavaScript is disabled. Therefore,\n"
-"      please enable your browser to read JavaScript.\n"
-"    "
-msgstr ""
-"\n"
-"JavaScript được sử dụng ở một số nơi trong trang web này. Có những trường "
-"hợp dữ liệu có thể bị xử lý và hiển thị sai nếu JavaScript không được bật. "
-"Vì vậy, xin hãy bật JavaScript trên trình duyệt của bạn để có trải nghiệm "
-"tốt nhất."
-
-#: templates/about/this_site.html:93
-msgid "Access log use"
-msgstr "Sử dụng nhật ký truy cập"
-
-#: templates/about/this_site.html:95
-msgid ""
-"\n"
-"      This website utilizes Google Analytics, an access analysis tool,\n"
-"      to retrieve and analyze access log data. As well as improving\n"
-"      the website's performance, the access log may be processed\n"
-"      without specifying individuals and uded for educational and\n"
-"      research activities.\n"
-"    "
-msgstr ""
-"\n"
-"Trang web này sử dụng Google Analytics, một công cụ phân tính dữ liệu truy "
-"cập để nhận và phân tích việc truy cập trang. Ngoài việc dùng để cải thiện "
-"hiệu suất, những dữ liệu này có thể được sử dụng cho mục đích nghiên cứu mà "
-"không xác định danh tính cá nhân."
-
-#: templates/about/this_site.html:104
-msgid "Cookie use"
-msgstr "Sử dụng cookie"
-
-#: templates/about/this_site.html:106
-msgid ""
-"\n"
-"      A portion of this website utilizes cookies (*) in order to\n"
-"      collect website usage statistics. Unless personal information is\n"
-"      entered into the website by visitors, it is impossible to\n"
-"      identify specific users. Statistical data obtained from the\n"
-"      cookies is used for website improvements and other similar\n"
-"      purposes.\n"
-"    "
-msgstr ""
-"\n"
-"Một phần của trang web này sử dụng cookie (*) để thu thập thông tin thống kê "
-"về việc sử dụng trang web. Trừ khi các thông tin cá nhận được chính bạn cung "
-"cấp, không có cách nào có thể xác định được danh tính người sử dụng. Dữ liệu "
-"thống kê thu được từ cookie sẽ được dùng để cải thiện hiệu suất trang web và "
-"các mục đích tương tự."
-
-#: templates/about/this_site.html:116
-msgid ""
-"\n"
-"      Although the website can be viewed without any problems even\n"
-"      when cookies are blocked, the connecting function to social\n"
-"      media (Twitter, Facebook, etc.) may be affected.\n"
-"    "
-msgstr ""
-"\n"
-"Mặc dù trang web của thể sử dụng mà không cần đến cookie, những tính năng "
-"liên kết với mạng xác hội (Twitter, Facebook, v.v...) có thể bị ảnh hưởng."
-
-#: templates/about/this_site.html:123
-msgid ""
-"\n"
-"      (*) A data file which is transferred from a website to a user's\n"
-"      computer.\n"
-"    "
-msgstr ""
-"\n"
-"(*) Một tập tin dữ liệu được truyền từ trang web đến máy tính người dùng."
 
 #: templates/admin/base_site.html:3
 msgid "Aprigi site admin"
