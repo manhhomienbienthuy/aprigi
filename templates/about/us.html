@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}{% trans "About us" %}{% endblock %}
+
+{% block body-attributes %} class="about-me"{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <img class="avatar" src="{% static 'img/avatar.jpg' %}" alt="Anh Tranngoc">
+    <h1>Anh Tranngoc</h1>
+    <address>
+      <a href="http://manhhomienbienthuy.bitbucket.org/" target="_blank">
+        http://manhhomienbienthuy.bitbucket.org/
+      </a>
+      <br>
+      <a href="mailto:naa@sfc.wide.ad.jp">naa@sfc.wide.ad.jp</a>
+    </address>
+
+    {% get_current_language as LANGUAGE_CODE %}
+    {% with template="about/us_content."|add:LANGUAGE_CODE|add:".html" %}
+      {% include  template %}
+    {% endwith %}
+  </div>
+{% endblock %}
