@@ -22,11 +22,11 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald&text=0123456789">
   </head>
 
-  <body class="{% block body_class %}{% endblock %}">
+  <body{% block body-attributes %}{% endblock %}>
     {% include "includes/warning.html" %}
     {% include "includes/header.html" %}
 
-    {% block page_header %}{% endblock %}
+    {% block header %}{% endblock %}
 
     <main>
       {% block content %}{% endblock %}
