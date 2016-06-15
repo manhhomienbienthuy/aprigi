@@ -3,7 +3,7 @@
 
 {% block title %}{% trans "About this site" %}{% endblock %}
 
-{% block page_header %}
+{% block header %}
   <div class="page-header">
     <div class="container">
       <h1>{% trans "About this site" %}</h1>
@@ -23,6 +23,9 @@
   </div>
 {% endblock %}
 
-{% block about_content %}
-  <h1>{% trans "About this site" %}</h1>
+{% block about-content %}
+  {% get_current_language as LANGUAGE_CODE %}
+  {% with template="about/this_site_content."|add:LANGUAGE_CODE|add:".html" %}
+    {% include  template %}
+  {% endwith %}
 {% endblock %}
