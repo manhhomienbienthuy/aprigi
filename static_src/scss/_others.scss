@@ -67,3 +67,91 @@ $text-align: center left right justify;
         position: relative;
     }
 }
+
+.about-me {
+    background: url(#{$img-path}noise.jpg);
+
+    address a {
+        color: $text-light;
+        text-decoration: none;
+        border-bottom: 1px dotted $text-light;
+    }
+
+    .avatar {
+        float: right;
+        max-width: 15em;
+        border: 0.5em solid $white;
+        transform: rotate(-10deg);
+        box-shadow: 0 0.25em 0.5em 0 darken($bg-gray, 30%),
+                    0 0.4em 1.25em 0 darken($bg-gray, 25%);
+    }
+
+    h1 {
+        font-size: 2.75em;
+        font-weight: bold;
+        letter-spacing: -2/16 + rem;
+        border-bottom: 1px solid darken($gray-line, 40%);
+    }
+
+    .objective {
+        float: left;
+        max-width: 45em;
+
+        p {
+            font-family: $serif;
+            font-style: italic;
+            font-size: 1.25em;
+        }
+    }
+
+    .resume {
+        @include clearfix;
+
+        @include respond-min($screen-medium) {
+            margin: auto;
+            width: 50em;
+        }
+    }
+
+    dt {
+        float: left;
+        height: 6.25em;
+        width: 9em;
+        padding: 0 1.5rem 0 0;
+        font-size: 1.125em;
+        font-style: italic;
+        font-weight: bold;
+        text-align: right;
+        border-right: 1px solid darken($gray-line, 40%);
+    }
+
+    dd {
+        float: right;
+        text-align: left;
+
+        @include respond-min($screen-medium) {
+            width: 37.5em;
+        }
+    }
+
+    .clear {
+        float: none;
+        margin: 0;
+        height: 1em;
+        clear: both;
+    }
+
+    h2 {
+        margin: 0 0 0.4rem 0;
+        font-size: 1.25rem;
+        font-weight: bold;
+
+        span {
+            font-style: italic;
+            font-family: $serif;
+            font-size: 1rem;
+            color: $text-light;
+            font-weight: normal;
+        }
+    }
+}
