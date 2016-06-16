@@ -49,6 +49,13 @@
 
     // Custom Print Styles
 
+    // flexbox can not be print on Firefox
+    body,
+    .two-columns {
+        display: block;
+    }
+
+
     // Display none list
     .navigation-button,
     .back-to-top {
