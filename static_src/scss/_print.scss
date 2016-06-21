@@ -52,13 +52,14 @@
     // flexbox can not be print on Firefox
     body,
     .two-columns {
-        display: block;
+        display: block !important;
     }
 
 
     // Display none list
     .navigation-button,
-    .back-to-top {
+    .back-to-top,
+    .sidebar {
         display: none !important;
     }
 
