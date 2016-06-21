@@ -177,13 +177,13 @@ $text-align: center left right justify;
     align-items: center;
     justify-content: center;
 
+    a {
+        text-decoration: none;
+        outline: none;
+    }
+
     .contact-item {
         text-align: center;
-
-        a {
-            text-decoration: none;
-            outline: none;
-        }
 
         .fa-stack {
             font-size: 2em;
