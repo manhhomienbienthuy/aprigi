@@ -170,3 +170,47 @@ $text-align: center left right justify;
         }
     }
 }
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .contact-item {
+        width: 100/6 + %;
+        text-align: center;
+
+        a {
+            text-decoration: none;
+            outline: none;
+        }
+
+        .fa-stack {
+            font-size: 2em;
+            color: $text-light;
+            transition-duration: 0.3s;
+            transition-property: transform;
+            transition-timing-function: ease-out;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.8em;
+            opacity: 0;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            .fa-stack {
+                transform: translateY(-0.5rem);
+
+                & + p {
+                    opacity: 1;
+                    transition: all 0.3s ease-in-out;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

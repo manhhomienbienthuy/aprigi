@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-21 10:55+0700\n"
+"POT-Creation-Date: 2016-06-21 15:39+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -134,14 +134,14 @@ msgstr "Mục tiêu"
 msgid "Objectives"
 msgstr "Mục tiêu"
 
-#: templates/about/privacy.html:4 templates/about/privacy.html:9
-#: templates/about/privacy.html:19 templates/about/sidebar.html:8
-#: templates/includes/footer.html:9
-msgid "Privacy policy"
-msgstr "Chính sách riêng tư"
+#: templates/about/contact.html:4 templates/about/contact.html:9
+#: templates/about/contact.html:19 templates/about/contact.html:27
+#: templates/about/sidebar.html:9 templates/includes/footer.html:10
+msgid "Contact us"
+msgstr "Liên hệ"
 
-#: templates/about/privacy.html:13 templates/about/terms.html:13
-#: templates/about/this_site.html:13
+#: templates/about/contact.html:13 templates/about/privacy.html:13
+#: templates/about/terms.html:13 templates/about/this_site.html:13
 #: templates/savings/passbook_confirm_delete.html:15
 #: templates/savings/passbook_form.html:26
 #: templates/savings/passbook_list.html:15
@@ -149,10 +149,28 @@ msgstr "Chính sách riêng tư"
 msgid "Home"
 msgstr ""
 
-#: templates/about/privacy.html:16 templates/about/sidebar.html:3
-#: templates/about/terms.html:16 templates/about/this_site.html:16
+#: templates/about/contact.html:16 templates/about/privacy.html:16
+#: templates/about/sidebar.html:3 templates/about/terms.html:16
+#: templates/about/this_site.html:16
 msgid "About"
 msgstr "Giới thiệu"
+
+#: templates/about/contact.html:30
+msgid ""
+"\n"
+"      Feel free to email us to provide some feedbacks, give us\n"
+"      suggestions for new features, or to just say hello!\n"
+"    "
+msgstr ""
+"\n"
+"Hãy cứ thoải mái liên hệ với chúng tôi khi bạn có bất cứ phản hồi nào, hoặc "
+"khi bạn có đề xuất cho tính năng mới, hoặc đơn giản chỉ là nói chuyện phiếm!"
+
+#: templates/about/privacy.html:4 templates/about/privacy.html:9
+#: templates/about/privacy.html:19 templates/about/sidebar.html:8
+#: templates/includes/footer.html:9
+msgid "Privacy policy"
+msgstr "Chính sách riêng tư"
 
 #: templates/about/sidebar.html:5 templates/about/this_site.html:4
 #: templates/about/this_site.html:9 templates/about/this_site.html:19
@@ -170,10 +188,6 @@ msgstr "Về chúng tôi"
 #: templates/includes/footer.html:8
 msgid "Terms of use"
 msgstr "Điều khoản sử dụng"
-
-#: templates/about/sidebar.html:9 templates/includes/footer.html:10
-msgid "Contact us"
-msgstr "Liên hệ"
 
 #: templates/admin/base_site.html:3
 msgid "Aprigi site admin"

@@ -1,0 +1,77 @@
+{% extends "about/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Contact us" %}{% endblock %}
+
+{% block header %}
+  <div class="page-header">
+    <div class="container">
+      <h1>{% trans "Contact us" %}</h1>
+
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'homepage' %}">
+            {% trans "Home" %}
+        </a></li>
+        <li><a href="{% url 'about:index' %}">
+            {% trans "About" %}
+        </a></li>
+        <li><a href="{% url 'about:contact' %}">
+            {% trans "Contact us" %}
+        </a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block about-content %}
+  <h1>{% trans "Contact us" %}</h1>
+
+  <p>
+    {% blocktrans %}
+      Feel free to email us to provide some feedbacks, give us
+      suggestions for new features, or to just say hello!
+    {% endblocktrans %}
+  </p>
+
+  <div class="contact">
+    <div class="contact-item">
+      <a href="mailto:naa@sfc.wide.ad.jp">
+        <span class="fa-stack">
+          <i class="fa fa-circle-thin fa-stack-2x"></i>
+          <i class="fa fa-envelope-o fa-stack-1x"></i>
+        </span>
+        <p>naa@sfc.wide.ad.jp</p>
+      </a>
+    </div>
+
+    <div class="contact-item">
+      <a href="https://twitter.com/AnhTranngoc" target="_blank">
+        <span class="fa-stack">
+          <i class="fa fa-circle-thin fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+        <p>@AnhTranngoc</p>
+      </a>
+    </div>
+
+    <div class="contact-item">
+      <a href="https://github.com/manhhomienbienthuy" target="_blank">
+        <span class="fa-stack">
+          <i class="fa fa-circle-thin fa-stack-2x"></i>
+          <i class="fa fa-github-alt fa-stack-1x"></i>
+        </span>
+        <p>@manhhomienbienthuy</p>
+      </a>
+    </div>
+
+    <div class="contact-item">
+      <a href="https://www.facebook.com/manhhomienbienthuy" target="_blank">
+        <span class="fa-stack">
+          <i class="fa fa-circle-thin fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>
+        <p>Anh Tranngoc</p>
+      </a>
+    </div>
+  </div>
+{% endblock %}
