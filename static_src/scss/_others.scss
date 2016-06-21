@@ -173,11 +173,11 @@ $text-align: center left right justify;
 
 .contact {
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
 
     .contact-item {
-        width: 100/6 + %;
         text-align: center;
 
         a {
@@ -194,7 +194,10 @@ $text-align: center left right justify;
         }
 
         p {
-            margin: 0;
+            margin: auto;
+            width: 10em;
+            overflow: hidden;
+            text-overflow: ellipsis;
             font-size: 0.8em;
             opacity: 0;
         }
