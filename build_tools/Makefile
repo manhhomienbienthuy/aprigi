@@ -1,4 +1,4 @@
-APP_LIST ?= savings about
+APP_LIST ?= savings about expenses
 LANG_LIST ?= vi
 
 all: docker
