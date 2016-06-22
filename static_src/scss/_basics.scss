@@ -132,12 +132,12 @@ progress {
 
     &::-webkit-progress-value {
         background: $bg-gradient;
-        border-radius: 0.25em;
+        border-radius:  0 0.25em 0.25em 0;
     }
 
     &::-moz-progress-bar {
         background: $bg-gradient;
-        border-radius: 0.25em;
+        border-radius: 0 0.25em 0.25em 0;
     }
 }
 
