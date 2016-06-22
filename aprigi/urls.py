@@ -27,5 +27,6 @@ urlpatterns += i18n.i18n_patterns(
         name='homepage'),
     url(r'^savings/', include('savings.urls')),
     url(r'^about/', include('about.urls')),
+    url(r'^expenses/', include('expenses.urls')),
     url(r'^admin/', admin.site.urls),
 )
