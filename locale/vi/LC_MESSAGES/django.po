@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-21 15:39+0700\n"
+"POT-Creation-Date: 2016-06-23 10:40+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -18,13 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: aprigi/settings.py:127
+#: aprigi/settings.py:128
 msgid "English"
 msgstr ""
 
-#: aprigi/settings.py:128
+#: aprigi/settings.py:129
 msgid "Vietnamese"
 msgstr ""
+
+#: expenses/models.py:7 expenses/models.py:19 savings/models.py:28
+#: savings/models.py:104 savings/models.py:125
+#: templates/savings/passbook_confirm_delete.html:54
+#: templates/savings/passbook_list_table.html:9
+#: templates/savings/passbook_withdraw_table.html:9
+msgid "amount"
+msgstr "số tiền"
+
+#: expenses/models.py:8
+msgid "income on"
+msgstr "thu nhập vào"
+
+#: expenses/models.py:11
+msgid "Income"
+msgstr "Thu nhập"
+
+#: expenses/models.py:12
+msgid "Incomes"
+msgstr "Thu nhập"
+
+#: expenses/models.py:20
+msgid "expense on"
+msgstr "chi tiêu vào"
+
+#: expenses/models.py:22
+msgid "purpose"
+msgstr "mục đích"
+
+#: expenses/models.py:25
+msgid "Expense"
+msgstr "Chi tiêu"
+
+#: expenses/models.py:26
+msgid "Expenses"
+msgstr "Chi tiêu"
 
 #: savings/models.py:18
 msgid "Week"
@@ -45,13 +81,6 @@ msgstr "số sổ"
 #: templates/savings/passbook_withdraw_table.html:8
 msgid "account number"
 msgstr "số tài khoản"
-
-#: savings/models.py:28 savings/models.py:104 savings/models.py:125
-#: templates/savings/passbook_confirm_delete.html:54
-#: templates/savings/passbook_list_table.html:9
-#: templates/savings/passbook_withdraw_table.html:9
-msgid "amount"
-msgstr "số tiền"
 
 #: savings/models.py:29
 msgid "period type"
