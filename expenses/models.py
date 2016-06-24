@@ -10,11 +10,14 @@ class Balance(models.Model):
         (INCOME, _('Income')),
         (EXPENSE, _('Expense')),
     )
+
     amount = models.IntegerField(_('amount'))
     kind = models.IntegerField(_('kind'),
                                choices=BALANCE_KIND_CHOICES,
-                               default=INCOME)
-    date = models.DateField(_('balance changed on'), default=timezone.now)
+                               default=INCOME,
+                               db_index=True)
+    date = models.DateField(_('balance changed on'), default=timezone.now,
+                            db_index=True)
     notes = models.CharField(_('notes'), max_length=200)
 
     class Meta:
