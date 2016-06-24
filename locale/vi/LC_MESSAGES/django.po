@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-23 10:40+0700\n"
+"POT-Creation-Date: 2016-06-24 09:32+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -26,41 +26,40 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: expenses/models.py:7 expenses/models.py:19 savings/models.py:28
-#: savings/models.py:104 savings/models.py:125
-#: templates/savings/passbook_confirm_delete.html:54
+#: expenses/models.py:10
+msgid "Income"
+msgstr "Thu nhập"
+
+#: expenses/models.py:11 templates/includes/header.html:16
+msgid "Expense"
+msgstr "Chi tiêu"
+
+#: expenses/models.py:13 savings/models.py:28 savings/models.py:104
+#: savings/models.py:125 templates/savings/passbook_confirm_delete.html:54
 #: templates/savings/passbook_list_table.html:9
 #: templates/savings/passbook_withdraw_table.html:9
 msgid "amount"
 msgstr "số tiền"
 
-#: expenses/models.py:8
-msgid "income on"
-msgstr "thu nhập vào"
+#: expenses/models.py:14
+msgid "kind"
+msgstr "loại"
 
-#: expenses/models.py:11
-msgid "Income"
-msgstr "Thu nhập"
+#: expenses/models.py:17
+msgid "balance changed on"
+msgstr "số dư biến động vào"
 
-#: expenses/models.py:12
-msgid "Incomes"
-msgstr "Thu nhập"
+#: expenses/models.py:18 savings/models.py:38
+msgid "notes"
+msgstr "ghi chú"
 
-#: expenses/models.py:20
-msgid "expense on"
-msgstr "chi tiêu vào"
+#: expenses/models.py:21
+msgid "Balance"
+msgstr "Số dư"
 
 #: expenses/models.py:22
-msgid "purpose"
-msgstr "mục đích"
-
-#: expenses/models.py:25
-msgid "Expense"
-msgstr "Chi tiêu"
-
-#: expenses/models.py:26
-msgid "Expenses"
-msgstr "Chi tiêu"
+msgid "Balances"
+msgstr "Số dư"
 
 #: savings/models.py:18
 msgid "Week"
@@ -114,10 +113,6 @@ msgstr "ngày hết hạn"
 #: templates/savings/passbook_list_table.html:14
 msgid "is open"
 msgstr "còn/hết hạn"
-
-#: savings/models.py:38
-msgid "notes"
-msgstr "ghi chú"
 
 #: savings/models.py:41 templates/savings/passbook_confirm_delete.html:21
 #: templates/savings/passbook_form.html:32
@@ -229,6 +224,10 @@ msgstr ""
 #: templates/base.html:18
 msgid "The app for my April girl"
 msgstr "Dành tặng cô gái tháng Tư của tôi"
+
+#: templates/homepage.html:7
+msgid "Greetings, world!"
+msgstr "Xin chào, thế giới!"
 
 #: templates/homepage.html:17 templates/savings/passbook_form.html:55
 #: templates/savings/passbook_list.html:36

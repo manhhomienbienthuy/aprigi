@@ -3,27 +3,23 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 
-class Income(models.Model):
+class Balance(models.Model):
+    INCOME = 0
+    EXPENSE = 1
+    BALANCE_KIND_CHOICES = (
+        (INCOME, _('Income')),
+        (EXPENSE, _('Expense')),
+    )
     amount = models.IntegerField(_('amount'))
-    date = models.DateField(_('income on'), default=timezone.now)
+    kind = models.IntegerField(_('kind'),
+                               choices=BALANCE_KIND_CHOICES,
+                               default=INCOME)
+    date = models.DateField(_('balance changed on'), default=timezone.now)
+    notes = models.CharField(_('notes'), max_length=200)
 
     class Meta:
-        verbose_name = _('Income')
-        verbose_name_plural = _('Incomes')
+        verbose_name = _('Balance')
+        verbose_name_plural = _('Balances')
 
     def __str__(self):
-        return "income ${self.amount} on {self.date}".format(self=self)
-
-
-class Expense(models.Model):
-    amount = models.IntegerField(_('amount'))
-    date = models.DateField(_('expense on'),
-                            default=timezone.now, db_index=True)
-    purpose = models.CharField(_('purpose'), max_length=100)
-
-    class Meta:
-        verbose_name = _('Expense')
-        verbose_name_plural = _('Expenses')
-
-    def __str__(self):
-        return "expended ${self.amount} on {self.date}".format(self=self)
+        return '+-'[self.kind] + str(self.amount)
