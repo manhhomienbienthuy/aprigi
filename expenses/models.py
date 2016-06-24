@@ -26,3 +26,17 @@ class Balance(models.Model):
 
     def __str__(self):
         return '+-'[self.kind] + str(self.amount)
+
+    @classmethod
+    def current(cls):
+        return cls.total_income() - cls.total_expense()
+
+    @classmethod
+    def total_income(cls):
+        return cls.objects.filter(kind=cls.INCOME).aggregate(
+            models.Sum('amount')).get('amount__sum') or 0
+
+    @classmethod
+    def total_expense(cls):
+        return cls.objects.filter(kind=cls.EXPENSE).aggregate(
+            models.Sum('amount')).get('amount__sum') or 0

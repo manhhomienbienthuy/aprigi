@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-24 09:32+0700\n"
+"POT-Creation-Date: 2016-06-24 10:35+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -30,34 +30,37 @@ msgstr ""
 msgid "Income"
 msgstr "Thu nhập"
 
-#: expenses/models.py:11 templates/includes/header.html:16
+#: expenses/models.py:11 templates/expenses/balance_list.html:5
+#: templates/expenses/balance_list.html:18 templates/includes/header.html:16
 msgid "Expense"
 msgstr "Chi tiêu"
 
-#: expenses/models.py:13 savings/models.py:28 savings/models.py:104
-#: savings/models.py:125 templates/savings/passbook_confirm_delete.html:54
+#: expenses/models.py:14 savings/models.py:28 savings/models.py:104
+#: savings/models.py:125 templates/expenses/balance_list_table.html:7
+#: templates/savings/passbook_confirm_delete.html:54
 #: templates/savings/passbook_list_table.html:9
 #: templates/savings/passbook_withdraw_table.html:9
 msgid "amount"
 msgstr "số tiền"
 
-#: expenses/models.py:14
+#: expenses/models.py:15
 msgid "kind"
 msgstr "loại"
 
-#: expenses/models.py:17
+#: expenses/models.py:19 templates/expenses/balance_list_table.html:8
 msgid "balance changed on"
 msgstr "số dư biến động vào"
 
-#: expenses/models.py:18 savings/models.py:38
+#: expenses/models.py:21 savings/models.py:38
+#: templates/expenses/balance_list_table.html:9
 msgid "notes"
 msgstr "ghi chú"
 
-#: expenses/models.py:21
+#: expenses/models.py:24 templates/expenses/balance_list.html:21
 msgid "Balance"
 msgstr "Số dư"
 
-#: expenses/models.py:22
+#: expenses/models.py:25
 msgid "Balances"
 msgstr "Số dư"
 
@@ -166,6 +169,7 @@ msgstr "Liên hệ"
 
 #: templates/about/contact.html:13 templates/about/privacy.html:13
 #: templates/about/terms.html:13 templates/about/this_site.html:13
+#: templates/expenses/balance_list.html:15
 #: templates/savings/passbook_confirm_delete.html:15
 #: templates/savings/passbook_form.html:26
 #: templates/savings/passbook_list.html:15
@@ -224,6 +228,53 @@ msgstr ""
 #: templates/base.html:18
 msgid "The app for my April girl"
 msgstr "Dành tặng cô gái tháng Tư của tôi"
+
+#: templates/expenses/balance_list.html:5
+#: templates/expenses/balance_list.html:11
+#: templates/expenses/balance_list.html:24
+#: templates/expenses/balance_list.html:41
+msgid "Balance list"
+msgstr "Biến động số dư"
+
+#: templates/expenses/balance_list.html:37
+msgid "Add balance change"
+msgstr "Thêm biến động"
+
+#: templates/expenses/balance_list.html:43
+#, python-format
+msgid ""
+"\n"
+"        You currently have a balace of %(current_balance)s$.\n"
+"      "
+msgstr ""
+"\n"
+"Bạn đang có trong tay số dư %(current_balance)s$."
+
+#: templates/expenses/balance_list_sidebar.html:3
+#: templates/savings/passbook_list_sidebar.html:3
+msgid "Filter"
+msgstr ""
+
+#: templates/expenses/balance_list_table.html:10
+#: templates/savings/passbook_list_table.html:16
+msgid "Action"
+msgstr ""
+
+#: templates/expenses/balance_list_table.html:22
+#: templates/savings/passbook_list_table.html:54
+#: venv/lib/python3.5/site-packages/django/forms/widgets.py:354
+msgid "Change"
+msgstr ""
+
+#: templates/expenses/balance_list_table.html:25
+#: templates/savings/passbook_list_table.html:57
+#: venv/lib/python3.5/site-packages/django/forms/formsets.py:384
+msgid "Delete"
+msgstr ""
+
+#: templates/expenses/balance_list_table.html:32
+msgid "No changes in balance"
+msgstr "Không có biến động nào"
 
 #: templates/homepage.html:7
 msgid "Greetings, world!"
@@ -423,10 +474,6 @@ msgstr ""
 "Bạn có tất cả (gốc) là: <strong>$%(origin)s</strong><br>và tổng lãi là: "
 "<strong>$%(interest)s</strong>."
 
-#: templates/savings/passbook_list_sidebar.html:3
-msgid "Filter"
-msgstr ""
-
 #: templates/savings/passbook_list_sidebar.html:5
 msgid "By status"
 msgstr "Theo trạng thái"
@@ -468,10 +515,6 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: templates/savings/passbook_list_table.html:16
-msgid "Action"
-msgstr ""
-
 #: templates/savings/passbook_list_table.html:28
 #: templates/savings/passbook_withdraw_table.html:26
 #, python-format
@@ -501,16 +544,6 @@ msgid_plural ""
 msgstr[0] ""
 "\n"
 "%(counter)s tuần"
-
-#: templates/savings/passbook_list_table.html:54
-#: venv/lib/python3.5/site-packages/django/forms/widgets.py:354
-msgid "Change"
-msgstr ""
-
-#: templates/savings/passbook_list_table.html:57
-#: venv/lib/python3.5/site-packages/django/forms/formsets.py:384
-msgid "Delete"
-msgstr ""
 
 #: templates/savings/passbook_list_table.html:63
 #: templates/savings/passbook_withdraw_table.html:48

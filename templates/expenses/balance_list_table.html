@@ -1,0 +1,38 @@
+{% load i18n %}
+
+<div class="responsive-table">
+  <table>
+    <thead>
+      <tr>
+        <th>{% trans "amount" %}</th>
+        <th>{% trans "balance changed on" %}</th>
+        <th>{% trans "notes" %}</th>
+        <td>{% trans "Action" %}</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for balance in object_list %}
+        <tr>
+          <td class="right">{{ balance }}$</td>
+          <td>{{ balance.date }}</td>
+          <td>{{ balance.notes }}</td>
+          <td>
+            <p><a href="#!">
+              {% trans "Change" %}
+            </a></p>
+            <p><a href="#!">
+              {% trans "Delete" %}
+            </a></p>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td class="center" colspan="4">
+            {% trans "No changes in balance" %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

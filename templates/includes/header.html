@@ -12,7 +12,9 @@
         <li{% if 'savings' in request.path %} class="active"{% endif %}>
           <a href="{% url 'savings:index' %}">{% trans "Savings" %}</a>
         </li>
-        <li><a href="#!">App 2</a></li>
+        <li{% if 'expenses' in request.path %} class="active"{% endif %}>
+          <a href="{% url 'expenses:index' %}">{% trans "Expense" %}</a>
+        </li>
       </ul>
     </div>
   </div>

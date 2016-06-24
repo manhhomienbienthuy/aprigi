@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Balance list" %} | {% trans "Expense" %}
+{% endblock %}
+
+{% block header %}
+  <div class="page-header">
+    <div class="container">
+      <h1>{% trans "Balance list" %}</h1>
+
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'homepage' %}">
+          {% trans "Home" %}
+        </a></li>
+        <li><a href="{% url 'expenses:index' %}">
+          {% trans "Expense" %}
+        </a></li>
+        <li><a href="{% url 'expenses:balance_list' %}">
+          {% trans "Balance" %}
+        </a></li>
+        <li><a href="{% url 'expenses:balance_list' %}">
+          {% trans "Balance list" %}
+        </a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="object-tools">
+      <a href="{% url 'savings:passbook_create' %}"
+         class="button button-secondary">
+        <i class="fa fa-plus"></i>
+        {% trans "Add balance change" %}
+      </a>
+    </div>
+
+    <h1>{% trans "Balance list" %}</h1>
+    <p>
+      {% blocktrans %}
+        You currently have a balace of {{ current_balance }}$.
+      {% endblocktrans %}
+    </p>
+
+    <div class="two-columns">
+      <div class="main-content">
+        {% include "expenses/balance_list_table.html" %}
+      </div>
+
+      <div class="sidebar">
+        {% include "expenses/balance_list_sidebar.html" %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
