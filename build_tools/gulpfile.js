@@ -13,7 +13,8 @@ var sass          = require('gulp-sass'),
     shorthand     = require('gulp-shorthand'),
     combine       = require('gulp-combine-mq'),
     cssmin        = require('gulp-clean-css'),
-    sourcemaps    = require('gulp-sourcemaps');
+    sourcemaps    = require('gulp-sourcemaps'),
+    plumber       = require('gulp-plumber');
 
 // Load plugins for javascript task
 var eslint  = require('gulp-eslint'),
@@ -46,12 +47,19 @@ var config = {
     }.init(),
     autoprefixer: {browsers: ['last 2 versions', '> 1%', 'iOS 7']},
     babel: {presets: [es2015]},
-    uglify: {preserveComments: 'license'}
+    uglify: {preserveComments: 'license'},
+    plumber: {
+        errorHandler: function (error) {
+            console.log(error);
+            this.emit('end');
+        }
+    }
 };
 
 gulp.task('stylesheet', () => {
     return gulp
         .src(config.src.css_main)
+        .pipe(plumber(config.plumber))
         .pipe(gulpif(!production, sourcemaps.init()))
         .pipe(sass())
         .pipe(autoprefixer(config.autoprefixer))
@@ -67,6 +75,7 @@ gulp.task('stylesheet', () => {
 gulp.task('javascript-compile', () => {
     return gulp
         .src(config.src.js_compile)
+        .pipe(plumber(config.plumber))
         .pipe(eslint('.eslintrc.json'))
         .pipe(eslint.format())
         .pipe(babel(config.babel))
