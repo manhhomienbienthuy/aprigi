@@ -98,7 +98,7 @@ gulp.task('images', () => {
         .pipe(gulp.dest(config.dest.img));
 });
 
-gulp.task('watch', () => {
+gulp.task('watch', ['stylesheet', 'javascript', 'images'], () => {
     gulp.watch(config.src.css, ['stylesheet']);
     gulp.watch(config.src.js, ['javascript']);
     gulp.watch(config.src.img, ['images']);
