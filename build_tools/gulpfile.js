@@ -50,7 +50,7 @@ var config = {
     uglify: {preserveComments: 'license'},
     plumber: {
         errorHandler: function (error) {
-            console.log(error);
+            console.log(error.toString());
             this.emit('end');
         }
     }
