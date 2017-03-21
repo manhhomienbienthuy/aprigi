@@ -8,3 +8,4 @@ static
 static_root
 log
 *.mo
+docker/data
