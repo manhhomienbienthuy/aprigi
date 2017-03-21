@@ -90,6 +90,8 @@ class Passbook(models.Model):
             (self.start_date.month + interval_in_period > MONTHS_PER_YEAR)
         stop_month = (self.start_date.month +
                       interval_in_period * self.period) % MONTHS_PER_YEAR
+        if stop_month == 0:
+            stop_month = 12
         stop_month_range = monthrange(stop_year, stop_month)[1]
         if self.start_date.day < stop_month_range:
             stop_day = self.start_date.day
