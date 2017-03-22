@@ -68,7 +68,10 @@ const config = {
         ]
     },
     uglify: {
-        preserveComments: 'license'
+        preserveComments: (node, comment) => {
+            const regex = /^\/*!/mi;
+            return comment.line === 1 || regex.test(comment.value)
+        }
     },
     plumber: {
         errorHandler: (error) => {
@@ -77,6 +80,11 @@ const config = {
         }
     }
 };
+
+gulp.task('set-env', () => {
+    const env = production ? 'production' : 'development';
+    return process.env.NODE_ENV = env;
+});
 
 gulp.task('stylesheet', () => {
     return gulp
@@ -108,7 +116,7 @@ gulp.task('javascript-react', ['react-lint'], () => {
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(buffer())
-        .pipe(gulpif(production, uglify()))
+        .pipe(gulpif(production, uglify(config.uglify)))
         .pipe(gulp.dest(config.dest.react))
 });
 
@@ -119,7 +127,7 @@ gulp.task('javascript-compile', () => {
         .pipe(eslint('.eslintrc.json'))
         .pipe(eslint.format())
         .pipe(babel(config.babel))
-        .pipe(gulpif(production, uglify()))
+        .pipe(gulpif(production, uglify(config.uglify)))
         .pipe(gulp.dest(config.dest.js));
 });
 
@@ -150,4 +158,4 @@ gulp.task('watch', ['stylesheet', 'javascript', 'images'], () => {
 });
 
 
-gulp.task('default', ['stylesheet', 'javascript', 'images']);
+gulp.task('default', ['set-env', 'stylesheet', 'javascript', 'images']);
