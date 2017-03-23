@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n l10n %}
+
+{% block header %}
+  <div class="page-header">
+    <div class="container">
+      <h1>{% trans "Login" %}</h1>
+
+      <ul class="breadcrumbs">
+        <li><a href="{% url 'homepage' %}">
+          {% trans "Home" %}
+        </a></li>
+        <li><a href="{% url 'login' %}">
+          {% trans "Login" %}
+        </a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form method="post" action="{% url 'login' %}" class="form-general">
+      {% csrf_token %}
+
+      <input type="hidden" name="next" value="{{ next }}" />
+
+      {% if form.errors %}
+        <p class="error">
+          {% trans "Your username and password didn't match"% }
+        </p>
+      {% endif %}
+
+      {% if next %}
+        {% if user.is_authenticated %}
+          <p class="error">
+            {% blocktrans %}
+              Your account doesn't have access to this page.
+              To proceed, please login with an account that has access.
+            {% endblocktrans %}
+          </p>
+        {% else %}
+          <p class="error">
+            {% trans "Please login to see this page." %}
+          </p>
+        {% endif %}
+      {% endif %}
+
+      <div>
+        {{ form.username.label_tag }}
+        {{ form.username }}
+      </div>
+      <div>
+        {{ form.password.label_tag }}
+        {{ form.password }}
+      </div>
+
+      <div>
+        <button class="button button-primary" type="submit">
+          <i class="fa fa-sign-in"></i>
+          {% trans "Login" %}
+        </button>
+      </div>
+    </form>
+
+    <p><a href="{% url 'password_reset' %}">
+      {% trans "Lost password?" %}
+    </a></p>
+  </div>
+{% endblock %}

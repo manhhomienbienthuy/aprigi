@@ -39,7 +39,7 @@ const config = {
             this.css        = this.base + 'scss/*.scss';
             this.css_main   = this.base + 'scss/vpyeu.scss';
             this.img        = this.base + 'img/*.{jpg,jpeg,png,gif,ico,svg}';
-            this.react      = this.base + 'flux/**/*.js';
+            this.react      = this.base + 'flux/**/*.jsx';
             return this;
         }
     }.init(),
@@ -80,6 +80,12 @@ const config = {
         }
     }
 };
+config.browserify = {
+    entries: glob.sync(config.src.react),
+    extensions: [
+        ".jsx"
+    ]
+};
 
 gulp.task('set-env', () => {
     const env = production ? 'production' : 'development';
@@ -110,11 +116,10 @@ gulp.task('react-lint', () => {
 });
 
 gulp.task('javascript-react', ['react-lint'], () => {
-    const src = glob.sync(config.src.react)
-    return browserify({entries: src})
+    return browserify(config.browserify)
         .transform(babelify.configure(config.babel))
         .bundle()
-        .pipe(source('bundle.js'))
+        .pipe(source('aprigi.js'))
         .pipe(buffer())
         .pipe(gulpif(production, uglify(config.uglify)))
         .pipe(gulp.dest(config.dest.react))
