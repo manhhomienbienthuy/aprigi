@@ -1,6 +1,5 @@
-from datetime import datetime, timedelta
-
 from django.test import TestCase
+from django.utils.timezone import datetime, timedelta
 
 from .models import Passbook, Withdraw
 
