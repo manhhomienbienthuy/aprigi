@@ -1,6 +1,8 @@
 from calendar import monthrange
 from datetime import timedelta
 
+from django.contrib.auth.mixins import (LoginRequiredMixin,
+                                        PermissionRequiredMixin)
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.views.generic import (CreateView, DeleteView, FormView, ListView,
@@ -10,7 +12,7 @@ from .forms import PassbookForm, PassbookSearchForm, PassbookWithdrawForm
 from .models import Passbook
 
 
-class PassbookView(ListView):
+class PassbookView(LoginRequiredMixin, ListView):
     model = Passbook
 
     def get_queryset(self):
@@ -61,32 +63,44 @@ class PassbookView(ListView):
         }
 
 
-class PassbookCreateView(CreateView):
+class PassbookCreateView(LoginRequiredMixin,
+                         PermissionRequiredMixin,
+                         CreateView):
     model = Passbook
     form_class = PassbookForm
+    permission_required = 'savings.add_passbook'
 
     def get_success_url(self):
         return reverse('savings:passbook_list')
 
 
-class PassbookUpdateView(UpdateView):
+class PassbookUpdateView(LoginRequiredMixin,
+                         PermissionRequiredMixin,
+                         UpdateView):
     model = Passbook
     form_class = PassbookForm
+    permission_required = 'savings.change_passbook'
 
     def get_success_url(self):
         return reverse('savings:passbook_list')
 
 
-class PassbookDeleteView(DeleteView):
+class PassbookDeleteView(LoginRequiredMixin,
+                         PermissionRequiredMixin,
+                         DeleteView):
     model = Passbook
+    permission_required = 'savings.delete_passbook'
 
     def get_success_url(self):
         return reverse('savings:passbook_list')
 
 
-class PassbookWithdrawView(FormView):
+class PassbookWithdrawView(LoginRequiredMixin,
+                           PermissionRequiredMixin,
+                           FormView):
     form_class = PassbookWithdrawForm
     template_name = 'savings/passbook_withdraw.html'
+    permission_required = ('savings.change_passbook', 'savings.add_withdraw')
 
     def get_context_data(self):
         context = super().get_context_data()

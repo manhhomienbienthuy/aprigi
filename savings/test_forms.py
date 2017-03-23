@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from django.test import TestCase
+from django.utils.timezone import datetime
 
 from .forms import PassbookForm, PassbookWithdrawForm
 from .models import Passbook
