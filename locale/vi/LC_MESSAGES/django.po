@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-21 12:42+0700\n"
+"POT-Creation-Date: 2017-03-23 09:33+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -35,8 +35,8 @@ msgstr "Thu nhập"
 msgid "Expense"
 msgstr "Chi tiêu"
 
-#: expenses/models.py:14 savings/models.py:28 savings/models.py:104
-#: savings/models.py:125 templates/expenses/balance_list_table.html:7
+#: expenses/models.py:14 savings/models.py:28 savings/models.py:106
+#: savings/models.py:127 templates/expenses/balance_list_table.html:7
 #: templates/savings/passbook_confirm_delete.html:54
 #: templates/savings/passbook_list_table.html:9
 #: templates/savings/passbook_withdraw_table.html:9
@@ -111,7 +111,7 @@ msgstr "ngày gửi"
 msgid "stop date"
 msgstr "ngày hết hạn"
 
-#: savings/models.py:36 savings/models.py:106
+#: savings/models.py:36 savings/models.py:108
 #: templates/savings/passbook_confirm_delete.html:70
 #: templates/savings/passbook_list_table.html:14
 msgid "is open"
@@ -132,11 +132,11 @@ msgstr "Sổ tiết kiệm"
 msgid "interest (expected)"
 msgstr "Tiền lãi (dự kiến)"
 
-#: savings/models.py:105
+#: savings/models.py:107
 msgid "withdrawn on"
 msgstr "rút ngày"
 
-#: savings/models.py:109 templates/savings/passbook_list.html:57
+#: savings/models.py:111 templates/savings/passbook_list.html:57
 #: templates/savings/passbook_withdraw.html:5
 #: templates/savings/passbook_withdraw.html:11
 #: templates/savings/passbook_withdraw.html:24
@@ -145,19 +145,19 @@ msgstr "rút ngày"
 msgid "Withdraw"
 msgstr "Rút tiền"
 
-#: savings/models.py:110
+#: savings/models.py:112
 msgid "Withdraws"
 msgstr "Rút tiền"
 
-#: savings/models.py:124
+#: savings/models.py:126
 msgid "year"
 msgstr "năm"
 
-#: savings/models.py:128
+#: savings/models.py:130
 msgid "Objective"
 msgstr "Mục tiêu"
 
-#: savings/models.py:129
+#: savings/models.py:131
 msgid "Objectives"
 msgstr "Mục tiêu"
 
@@ -169,7 +169,7 @@ msgstr "Liên hệ"
 
 #: templates/about/contact.html:13 templates/about/privacy.html:13
 #: templates/about/terms.html:13 templates/about/this_site.html:13
-#: templates/expenses/balance_list.html:15
+#: templates/expenses/balance_list.html:15 templates/registration/login.html:11
 #: templates/savings/passbook_confirm_delete.html:15
 #: templates/savings/passbook_form.html:26
 #: templates/savings/passbook_list.html:15
@@ -368,6 +368,15 @@ msgstr "Dành tặng cô gái tháng Tư của tôi, from naa with love"
 msgid "Savings"
 msgstr "Tiết kiệm"
 
+#: templates/includes/header.html:21
+msgid "Logout"
+msgstr "Đăng xuất"
+
+#: templates/includes/header.html:25 templates/registration/login.html:7
+#: templates/registration/login.html:14 templates/registration/login.html:61
+msgid "Login"
+msgstr "Đăng nhập"
+
 #: templates/includes/warning.html:7 templates/includes/warning.html:22
 msgid "Notice"
 msgstr "Lưu ý"
@@ -394,6 +403,25 @@ msgstr ""
 "\n"
 "Trình duyệt của bạn đã <em>quá cũ</em>. Hãy cập nhật trình duyệt mới để trải "
 "nghiệm website tốt hơn."
+
+#: templates/registration/login.html:37
+msgid ""
+"\n"
+"              Your account doesn't have access to this page.\n"
+"              To proceed, please login with an account that has access.\n"
+"            "
+msgstr ""
+"\n"
+"Tài khoản của bạn không có quyền truy cập trang này.\n"
+"Hãy đăng nhập tài khoản khác để tiếp tục."
+
+#: templates/registration/login.html:44
+msgid "Please login to see this page."
+msgstr "Bạn phải đăng nhập mới xem được nội dung"
+
+#: templates/registration/login.html:67
+msgid "Lost password?"
+msgstr "Quên mật khẩu?"
 
 #: templates/savings/passbook_confirm_delete.html:5
 #: templates/savings/passbook_confirm_delete.html:11

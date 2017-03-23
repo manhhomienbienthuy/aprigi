@@ -15,6 +15,16 @@
         <li{% if 'expenses' in request.path %} class="active"{% endif %}>
           <a href="{% url 'expenses:index' %}">{% trans "Expense" %}</a>
         </li>
+
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout'%}?next={{ request.path }}">
+            {% trans "Logout" %}
+          </a></li>
+        {% else %}
+          <li><a href="{% url 'login'%}?next={{ request.path }}">
+            {% trans "Login" %}
+          </a></li>
+        {% endif %}
       </ul>
     </div>
   </div>

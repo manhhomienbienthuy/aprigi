@@ -174,3 +174,5 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 25))
 
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', False)
+
+LOGIN_REDIRECT_URL = '/'
