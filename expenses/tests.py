@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
@@ -29,6 +30,8 @@ class BalanceTest(TestCase):
 
 
 class BalanceViewTest(TestCase):
+    TEST_USERNAME = 'test'
+    TEST_PASSWORD = 'testpassword'
 
     def setUp(self):
         self.url = reverse('expenses:balance_list')
@@ -42,18 +45,28 @@ class BalanceViewTest(TestCase):
             kind=Balance.EXPENSE,
             notes="chi tieu"
         )
+        self.user = User.objects.create_user(
+            username=self.TEST_USERNAME,
+            password=self.TEST_PASSWORD
+        )
 
     def test_i18n_view(self):
+        self.client.login(username=self.TEST_USERNAME,
+                          password=self.TEST_PASSWORD)
         response = self.client.get('/expenses/')
         self.assertRedirects(response, '/en/expenses/', target_status_code=302)
         response = self.client.get('/expenses/balance/')
         self.assertRedirects(response, self.url)
 
     def test_index_view(self):
+        self.client.login(username=self.TEST_USERNAME,
+                          password=self.TEST_PASSWORD)
         response = self.client.get('/en/expenses/')
         self.assertRedirects(response, self.url)
 
     def test_balance_view(self):
+        self.client.login(username=self.TEST_USERNAME,
+                          password=self.TEST_PASSWORD)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(
