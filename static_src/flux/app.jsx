@@ -5,10 +5,3 @@
  * This file is distributed under the same license as the aprigi package.
  * Anh Tranngoc <naa@sfc.wide.ad.jp>, 2016.
  */
-
-'use strict';
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-// ReactDOM.render(xxx);
