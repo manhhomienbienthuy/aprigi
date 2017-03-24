@@ -17,11 +17,11 @@
         </li>
 
         {% if user.is_authenticated %}
-          <li><a href="{% url 'logout'%}?next={{ request.path | slice:"3:"}}">
+          <li><a href="{% url 'logout'%}?next={{ request.path }}">
             {% trans "Logout" %}
           </a></li>
         {% else %}
-          <li><a href="{% url 'login'%}?next={{ request.path  | slice:"3:"}}">
+          <li><a href="{% url 'login'%}?next={{ request.path }}">
             {% trans "Login" %}
           </a></li>
         {% endif %}

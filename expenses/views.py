@@ -1,9 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from .models import Balance
 
 
-class BalanceView(ListView):
+class BalanceView(LoginRequiredMixin, ListView):
     model = Balance
 
     def get_context_data(self):
