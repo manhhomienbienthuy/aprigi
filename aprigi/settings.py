@@ -22,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split()
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split()
 
 # Application definition
 
@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'aprigi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB', ''),
-        'USER': os.environ.get('POSTGRES_USER', ''),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
-        'HOST': os.environ.get('POSTGRES_HOST', '127.0.0.1'),
-        'PORT': int(os.environ.get('POSTGRES_PORT', 5432)),
+        'NAME': os.getenv('POSTGRES_DB', ''),
+        'USER': os.getenv('POSTGRES_USER', ''),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+        'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
+        'PORT': int(os.getenv('POSTGRES_PORT', 5432)),
     }
 }
 
@@ -155,9 +155,9 @@ MEDIA_URL = '/media/'
 
 CSRF_COOKIE_HTTPONLY = True
 
-CSRF_COOKIE_SECURE = os.environ.get('USE_SSL', False)
+CSRF_COOKIE_SECURE = os.getenv('USE_SSL', False)
 
-SESSION_COOKIE_SECURE = os.environ.get('USE_SSL', False)
+SESSION_COOKIE_SECURE = os.getenv('USE_SSL', False)
 
 DEFAULT_FROM_EMAIL = SERVER_EMAIL = 'naa@sfc.wide.ad.jp'
 
@@ -165,14 +165,14 @@ ADMINS = [
     ('Anh Tranngoc', 'naa@sfc.wide.ad.jp'),
 ]
 
-EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'localhost')
 
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 25))
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 25))
 
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', False)
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', False)
 
 LOGIN_REDIRECT_URL = '/'
