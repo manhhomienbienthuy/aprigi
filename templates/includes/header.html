@@ -7,7 +7,11 @@
       {% trans "The app for my April girl, from naa with love" %}
     </p>
 
-    <div class="navigation">
+    <div class="navigation-button">
+      <i class="fa fa-bars"></i>
+    </div>
+
+    <div class="navigation mobile-navigation active">
       <ul>
         <li{% if 'savings' in request.path %} class="active"{% endif %}>
           <a href="{% url 'savings:index' %}">{% trans "Savings" %}</a>

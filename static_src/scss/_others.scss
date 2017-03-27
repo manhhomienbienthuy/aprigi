@@ -25,7 +25,6 @@ $back-top-top-size: 2.5rem;
     z-index: 10;
     right: 1rem;
     bottom: 1rem;
-    display: none;
     width: $back-top-top-size;
     height: $back-top-top-size;
     line-height: $back-top-top-size;
@@ -33,10 +32,15 @@ $back-top-top-size: 2.5rem;
     background: darken($bg-gray, 70%);
     border-radius: 50%;
     opacity: 0.4;
+    transition: opacity .5s;
 
     i {
         color: $white;
         font-size: 1.5em;
+    }
+
+    &.hidden {
+        opacity: 0;
     }
 }
 
