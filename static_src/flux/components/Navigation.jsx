@@ -48,7 +48,6 @@ export default class Navigation extends React.Component {
     }
 
     render() {
-
         let menuClassName = 'navigation mobile-navigation';
         if (this.state.showMenu) {
             menuClassName += ' active';
@@ -66,7 +65,11 @@ export default class Navigation extends React.Component {
 
         return (
             <div className='container'>
-                <a href='' className='logo'>Aprigi</a>
+                <a
+                    href={window.location.pathname.slice(0, 4)}
+                    className='logo'>
+                    Aprigi
+                </a>
                 <p className='meta'>
                     {i18n.t('appMeta')}
                 </p>
