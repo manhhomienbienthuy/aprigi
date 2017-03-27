@@ -31,7 +31,7 @@ $back-top-top-size: 2.5rem;
     text-align: center;
     background: darken($bg-gray, 70%);
     border-radius: 50%;
-    opacity: 0.4;
+    opacity: .4;
     transition: opacity .5s;
 
     i {
@@ -52,7 +52,7 @@ $text-align: center left right justify;
 }
 
 .error {
-    padding: 0.25em;
+    padding: .25em;
     background: $bg-error;
 }
 
@@ -90,10 +90,10 @@ $text-align: center left right justify;
         float: right;
         max-width: 10em;
         margin: 1em 1em 0 0;
-        border: 0.5em solid $white;
+        border: .5em solid $white;
         transform: rotate(-10deg);
-        box-shadow: 0 0.25em 0.5em 0 darken($bg-gray, 30%),
-                    0 0.4em 1.25em 0 darken($bg-gray, 25%);
+        box-shadow: 0 .25em .5em 0 darken($bg-gray, 30%),
+                    0 .4em 1.25em 0 darken($bg-gray, 25%);
 
         @include respond-min($screen-medium) {
             max-width: 15em;
@@ -161,7 +161,7 @@ $text-align: center left right justify;
     }
 
     h2 {
-        margin: 0 0 0.4rem 0;
+        margin: 0 0 .4rem 0;
         font-size: 1.25rem;
         font-weight: bold;
 
@@ -192,7 +192,7 @@ $text-align: center left right justify;
         .fa-stack {
             font-size: 2em;
             color: $text-light;
-            transition-duration: 0.3s;
+            transition-duration: .3s;
             transition-property: transform;
             transition-timing-function: ease-out;
         }
@@ -202,7 +202,7 @@ $text-align: center left right justify;
             width: 10em;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-size: 0.8em;
+            font-size: .8em;
             opacity: 0;
         }
 
@@ -210,11 +210,11 @@ $text-align: center left right justify;
         &:focus,
         &:active {
             .fa-stack {
-                transform: translateY(-0.5rem);
+                transform: translateY(-.5rem);
 
                 & + p {
                     opacity: 1;
-                    transition: all 0.3s ease-in-out;
+                    transition: all .3s ease-in-out;
                     transform: scale(1.1);
                 }
             }

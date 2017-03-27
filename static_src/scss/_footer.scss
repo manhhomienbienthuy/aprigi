@@ -24,7 +24,7 @@ footer {
 
 .language-switcher {
     ul {
-        @include links-inline(0.5rem);
+        @include links-inline(.5rem);
 
         a {
             @include link-gray;

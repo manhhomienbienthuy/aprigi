@@ -54,8 +54,15 @@ export default class Navigation extends React.Component {
             menuClassName += ' active';
         }
 
-        const savingsClassName = window.location.pathname.includes('savings') ? 'active' : '';
-        const expensesClassName = window.location.pathname.includes('expenses') ? 'active' : '';
+        let savingsClassName;
+        if (window.location.pathname.includes('savings')) {
+            savingsClassName = 'active';
+        }
+
+        let expensesClassName;
+        if (window.location.pathname.includes('expenses')) {
+            expensesClassName = 'active';
+        }
 
         return (
             <div className='container'>
