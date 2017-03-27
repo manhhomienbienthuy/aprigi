@@ -54,7 +54,7 @@ export default class ScrollToTop extends React.Component {
 
     render() {
         if (getPageHeight() < window.innerHeight * 2) {
-            return;
+            return null;
         }
 
         let className = 'back-to-top';
