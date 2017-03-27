@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 11:26+0700\n"
+"POT-Creation-Date: 2017-03-27 12:35+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -31,7 +31,7 @@ msgid "Income"
 msgstr "Thu nhập"
 
 #: expenses/models.py:11 templates/expenses/balance_list.html:5
-#: templates/expenses/balance_list.html:18 templates/includes/header.html:16
+#: templates/expenses/balance_list.html:18 templates/includes/header.html:20
 msgid "Expense"
 msgstr "Chi tiêu"
 
@@ -360,7 +360,7 @@ msgstr ""
 msgid "The app for my April girl, from naa with love"
 msgstr "Dành tặng cô gái tháng Tư của tôi, from naa with love"
 
-#: templates/includes/header.html:13
+#: templates/includes/header.html:17
 #: templates/savings/passbook_confirm_delete.html:5
 #: templates/savings/passbook_confirm_delete.html:18
 #: templates/savings/passbook_form.html:10
@@ -372,11 +372,11 @@ msgstr "Dành tặng cô gái tháng Tư của tôi, from naa with love"
 msgid "Savings"
 msgstr "Tiết kiệm"
 
-#: templates/includes/header.html:21
+#: templates/includes/header.html:25
 msgid "Logout"
 msgstr "Đăng xuất"
 
-#: templates/includes/header.html:25 templates/registration/login.html:4
+#: templates/includes/header.html:29 templates/registration/login.html:4
 #: templates/registration/login.html:9 templates/registration/login.html:16
 #: templates/registration/login.html:63
 #: templates/registration/password_reset_complete.html:28

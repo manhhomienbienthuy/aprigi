@@ -12,8 +12,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ScrollToTop from './components/ScrollToTop';
+import Navigation from './components/Navigation';
 
 ReactDOM.render(
     <ScrollToTop />,
     document.getElementById('back-to-top-button')
+);
+
+ReactDOM.render(
+    <Navigation />,
+    document.getElementById('top')
 );

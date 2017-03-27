@@ -18,15 +18,13 @@ requirejs.config({
         'jquery': '//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min',
         'jquery.countdown': '//cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.1.0/jquery.countdown.min',
         'lodash': '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min',
-        'mobile-menu': 'mod/mobile-menu',
-        'scroll-top': 'mod/scroll-top',
         'language-switch': 'mod/language-switch',
         'countdown': 'mod/countdown'
     }
 });
 
 define(() => {
-    var mods = ['mobile-menu', 'language-switch'];
+    var mods = ['language-switch'];
 
     function hasClass(className) {
          //return a boolean
