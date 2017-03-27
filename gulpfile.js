@@ -71,16 +71,21 @@ const config = {
         preserveComments: (node, comment) => {
             const regex = /^\/*!/mi;
             return comment.line === 1 || regex.test(comment.value)
+        },
+        compress: {
+            unused: true,
+            dead_code: true
         }
     },
     plumber: {
-        errorHandler: (error) => {
+        errorHandler: function(error) {
             console.log(error.toString());
             this.emit('end');
         }
     }
 };
 config.browserify = {
+    debug: true,
     entries: glob.sync(config.src.react),
     extensions: [
         ".jsx"
@@ -119,6 +124,7 @@ gulp.task('javascript-react', ['react-lint'], () => {
     return browserify(config.browserify)
         .transform(babelify.configure(config.babel))
         .bundle()
+        .on('error', config.plumber.errorHandler)
         .pipe(source('aprigi.js'))
         .pipe(buffer())
         .pipe(gulpif(production, uglify(config.uglify)))
