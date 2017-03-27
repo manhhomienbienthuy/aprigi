@@ -1,17 +1,17 @@
 .button {
     display: inline-block;
-    padding: 0.25em 1em;
+    padding: .25em 1em;
     text-align: center;
     border: 1px solid transparent;
-    border-radius: 0.25em;
+    border-radius: .25em;
     cursor: pointer;
     user-select: none;
 
     &:focus,
     &:active {
         outline: thin dotted;
-        outline: 0.4em auto -webkit-focus-ring-color;
-        outline-offset: -0.125em;
+        outline: .4em auto -webkit-focus-ring-color;
+        outline-offset: -.125em;
     }
 }
 
@@ -29,7 +29,7 @@
 }
 
 .button-secondary {
-    padding: 0.1875em 0.9375em;
+    padding: .1875em .9375em;
     color: $text-blue;
     background: transparent;
     border-image: $bg-gradient 1;

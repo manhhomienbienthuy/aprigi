@@ -15,7 +15,7 @@ form {
     textarea {
         display: block;
         margin: 1em 0;
-        padding: 0.5em 1em;
+        padding: .5em 1em;
         width: 100%;
         appearance: none;
         color: $text-default;
@@ -23,7 +23,7 @@ form {
         text-indent: 0;
         background: #fff;
         border: 1px solid $gray-line;
-        border-radius: 0.25rem;
+        border-radius: .25rem;
         cursor: auto;
 
         &::-ms-clear {
@@ -43,26 +43,26 @@ form {
 
     input[type=checkbox],
     input[type=radio] {
-        margin-right: 0.5em;
+        margin-right: .5em;
         outline: none;
     }
 
     select {
-        padding: 0.5em 1em;
+        padding: .5em 1em;
         font-size: 1em;
         border: 1px solid $gray-line;
         background: white;
-        border-radius: 0.25em;
+        border-radius: .25em;
     }
 
     fieldset {
         margin: 1em 0;
         border: 1px solid $gray-line;
-        border-radius: 0.25em;
+        border-radius: .25em;
     }
 
     legend {
-        padding: 0 0.5em;
+        padding: 0 .5em;
     }
 
     div {

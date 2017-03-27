@@ -1,4 +1,4 @@
-// normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css/
+// normalize.css v4..0 | MIT License | github.com/necolas/normalize.css/
 // 1. Change the default font family in all browsers (opinionated).
 // 2. Prevent adjustments of font size after orientation changes in IE and iOS.
 
@@ -67,7 +67,7 @@ template, // 1
 
 // Links
 
-// Remove the gray background on active links in IE 10.
+// Remove the gray background on active links in IE 1.
 
 a {
     background-color: transparent;
@@ -117,7 +117,7 @@ dfn {
 
 h1 {
     font-size: 2em;
-    margin: 0.67em 0;
+    margin: .67em 0;
 }
 
 // Add the correct background and color in IE 9-.
@@ -145,11 +145,11 @@ sup {
 }
 
 sub {
-    bottom: -0.25em;
+    bottom: -.25em;
 }
 
 sup {
-    top: -0.5em;
+    top: -.5em;
 }
 
 // Embedded content
@@ -285,7 +285,7 @@ input:-moz-focusring {
 fieldset {
     border: 1px solid #c0c0c0;
     margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+    padding: .35em .625em .75em;
 }
 
 // 1. Correct the text wrapping in Edge and IE.
