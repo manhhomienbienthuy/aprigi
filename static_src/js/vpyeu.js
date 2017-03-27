@@ -24,7 +24,7 @@ requirejs.config({
 });
 
 define(() => {
-    var mods = ['language-switch'];
+    let mods = [];
 
     function hasClass(className) {
          //return a boolean

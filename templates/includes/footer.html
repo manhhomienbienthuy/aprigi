@@ -51,21 +51,29 @@
       <ul>
         <li><i class="fa fa-globe"></i></li>
         {% for language in languages %}
-          <li>
-            <a href="#!" data-language="{{ language.code }}"
-              {% if language.code == LANGUAGE_CODE %}class="current"{% endif %}>
-              {{ language.name_local }} ({{ language.code }})
-            </a>
-          </li>
+          {% if language.code == LANGUAGE_CODE %}
+            {% with url="#!" %}
+              <li>
+                <a href="{{ url }}">
+                  {{ language.name_local }} ({{ language.code }})
+                </a>
+              </li>
+            {% endwith %}
+          {% else %}
+            {% with current_prefix='/'|add:LANGUAGE_CODE|add:'/' %}
+            {% with current_path=request.path|cut:current_prefix %}
+            {% with url="/"|add:language.code|add:'/'|add:current_path %}
+              <li>
+                <a href="{{ url }}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}">
+                  {{ language.name_local }} ({{ language.code }})
+                </a>
+              </li>
+            {% endwith %}
+            {% endwith %}
+            {% endwith %}
+          {% endif %}
         {% endfor %}
       </ul>
-
-      <form action="{% url 'set_language' %}" method="post">
-        {% csrf_token %}
-        <input name="next" id="next" type="hidden"
-          value="{{ request.path|slice:'3:' }}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}">
-        <input name="language" id="language" type="hidden">
-      </form>
     </div>
   </div>
 </footer>
