@@ -2,7 +2,7 @@ header {
     // Includes global navigation, logo
     @include clearfix;
     overflow: hidden;
-    font-size: 0.85rem;
+    font-size: .85rem;
     line-height: 1.3;
     border-bottom: 1px solid $gray-line;
 
@@ -35,7 +35,7 @@ header {
         display: none;
         float: left;
         width: auto;
-        margin: 0.75rem 0 0 0;
+        margin: .75rem 0 0 0;
         color: $text-light;
         font-weight: normal;
 
@@ -50,7 +50,7 @@ header {
         float: right;
         width: 2.25rem;
         height: 2.25rem;
-        margin: 0.75rem;
+        margin: .75rem;
         line-height: 2.25rem;
         font-size: 1.25rem;
         color: $text-blue;
@@ -75,7 +75,7 @@ header {
     .mobile-navigation {
         max-height: 0;
         overflow: hidden;
-        transition: all 0.3s ease-in-out;
+        transition: all .3s ease-in-out;
 
         @include respond-min($screen-medium) {
             max-height: none;
@@ -96,7 +96,7 @@ header {
         }
 
         ul {
-            margin: 0.75rem 0 0;
+            margin: .75rem 0 0;
             padding: 0;
 
             @include respond-min($screen-medium) {
@@ -107,7 +107,7 @@ header {
         li {
             position: relative;
             display: block;
-            margin: 0 0.75rem;
+            margin: 0 .75rem;
             text-align: left;
             text-transform: uppercase;
             border-top: 1px solid $gray-line;
@@ -133,7 +133,7 @@ header {
 
         a {
             display: block;
-            padding: 0.75rem 0;
+            padding: .75rem 0;
             color: $text-light;
             font-weight: bold;
             text-decoration: none;
@@ -163,12 +163,12 @@ header {
 
     li {
         display: inline;
-        padding: 0 0.25em 0 0;
+        padding: 0 .25em 0 0;
         list-style: none;
 
         + li:before {
             content: ">";
-            padding-right: 0.25em;
+            padding-right: .25em;
         }
     }
 
