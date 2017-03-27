@@ -22,7 +22,13 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald&text=0123456789">
   </head>
 
-  <body{% block body-attributes %}{% endblock %}>
+  <body
+    {% block body-attributes %}
+      {% if user.is_authenticated %}
+        class="logged-in"
+      {% endif %}
+    {% endblock %}
+  >
     {% include "includes/warning.html" %}
     {% include "includes/header.html" %}
 
@@ -30,6 +36,7 @@
 
     <main>
       {% block content %}{% endblock %}
+      <div id="back-to-top-button"></div>
     </main>
 
     {% include "includes/footer.html" %}

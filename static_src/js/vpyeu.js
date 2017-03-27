@@ -28,22 +28,9 @@ requirejs.config({
 define(() => {
     var mods = ['mobile-menu', 'language-switch'];
 
-    function getPageHeight() {
-        var body = document.body;
-        var html = document.documentElement;
-
-        return Math.max(body.scrollHeight, body.offsetHeight,
-                        html.clientHeight, html.scrollHeight,
-                        html.offsetHeight);
-    }
-
     function hasClass(className) {
          //return a boolean
         return !!document.getElementsByClassName(className).length;
-    }
-
-    if (getPageHeight() > window.innerHeight * 2) {
-        mods.push('scroll-top');
     }
 
     if (hasClass('countdown')) {
