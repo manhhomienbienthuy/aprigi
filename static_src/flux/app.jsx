@@ -13,6 +13,7 @@ import ReactDOM from 'react-dom';
 
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 ReactDOM.render(
     <ScrollToTop />,
@@ -22,4 +23,9 @@ ReactDOM.render(
 ReactDOM.render(
     <Navigation />,
     document.getElementById('top')
+);
+
+ReactDOM.render(
+    <LanguageSwitcher />,
+    document.getElementById('js-language-switcher')
 );

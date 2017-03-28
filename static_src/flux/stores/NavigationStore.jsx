@@ -26,10 +26,9 @@ class NavigationStore extends EventEmitter {
             switch(action.type) {
                 case Const.TOGGLE_CLASS:
                     this._toggleClass();
+                    this._emitChange();
                     break;
             }
-
-            this._emitChange();
         });
     }
 
