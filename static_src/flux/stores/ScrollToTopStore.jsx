@@ -23,10 +23,9 @@ class ScrollToTopStore extends EventEmitter {
             switch(action.type) {
                 case Const.TOGGLE_HIDDEN:
                     this._toggleHidden();
+                    this._emitChange();
                     break;
             }
-
-            this._emitChange();
         });
     }
 

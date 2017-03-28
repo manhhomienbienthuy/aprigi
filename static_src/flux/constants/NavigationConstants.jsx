@@ -9,5 +9,5 @@
 
 export const NavigationConstants = {
     CHANGE_EVENT: 'navigationChangeEvent',
-    TOGGLE_CLASS: 'toggleClass'
+    TOGGLE_CLASS: 'navigationToggleClass'
 };
