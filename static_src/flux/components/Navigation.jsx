@@ -54,12 +54,12 @@ export default class Navigation extends React.Component {
         }
 
         let savingsClassName;
-        if (window.location.pathname.includes('savings')) {
+        if (window.location.pathname.indexOf('savings') !== -1) {
             savingsClassName = 'active';
         }
 
         let expensesClassName;
-        if (window.location.pathname.includes('expenses')) {
+        if (window.location.pathname.indexOf('expenses') !== -1) {
             expensesClassName = 'active';
         }
 
