@@ -30,6 +30,10 @@ const browserify = require('browserify'),
       glob       = require('glob'),
       transform  = require('vinyl-transform');
 
+// Load plugins for imagemins
+const imagemin = require('gulp-imagemin'),
+      pngquant = require('imagemin-pngquant');
+
 // Live reload for any changes
 const livereload = require('gulp-livereload');
 
@@ -40,7 +44,7 @@ const config = {
             this.js         = this.base + 'js/**/*.js';
             this.css        = this.base + 'scss/*.scss';
             this.react      = this.base + 'flux/**/*.jsx';
-            this.img        = this.base + 'img/*.{jpg,jpeg,png,gif,ico,svg}';
+            this.img        = this.base + 'img/**/*';
             return this;
         }
     }.init(),
@@ -88,7 +92,18 @@ const config = {
         ' * Anh Tranngoc <naa@sfc.wide.ad.jp>, 2016.',
         ' */',
         ''
-    ].join('\n')
+    ].join('\n'),
+    imagemin: {
+        plugins: [
+            imagemin.gifsicle(),
+            imagemin.jpegtran({progressive: true}),
+            pngquant(),
+            imagemin.svgo({svgoPlugins: [{removeViewBox: false}]})
+        ],
+        options: {
+            verbose: true
+        }
+    }
 };
 config.browserify = {
     debug: true,
@@ -162,7 +177,9 @@ gulp.task('images', () => {
     // At this time, it simply copy all images file
     return gulp
         .src(config.src.img)
+        .pipe(imagemin(config.imagemin.plugins, config.imagemin.options))
         .pipe(gulp.dest(config.dest.img))
+        .pipe(gulp.dest(config.src.img.slice(0, -5)))
         .pipe(livereload());
 });
 
