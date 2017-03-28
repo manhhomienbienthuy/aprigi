@@ -19,7 +19,8 @@ const sass          = require('gulp-sass'),
 // Load plugins for javascript task
 const eslint  = require('gulp-eslint'),
       babel   = require('gulp-babel'),
-      uglify  = require('gulp-uglify');
+      uglify  = require('gulp-uglify'),
+      header  = require('gulp-header');
 
 // Load plugins for React
 const browserify = require('browserify'),
@@ -29,17 +30,17 @@ const browserify = require('browserify'),
       glob       = require('glob'),
       transform  = require('vinyl-transform');
 
+// Live reload for any changes
+const livereload = require('gulp-livereload');
+
 const config = {
     src: {
         base: 'static_src/',
         init: function() {
             this.js         = this.base + 'js/**/*.js';
-            this.js_copy    = this.base + 'js/lib/*.js';
-            this.js_compile = [this.js, '!' + this.js_copy];
             this.css        = this.base + 'scss/*.scss';
-            this.css_main   = this.base + 'scss/vpyeu.scss';
-            this.img        = this.base + 'img/*.{jpg,jpeg,png,gif,ico,svg}';
             this.react      = this.base + 'flux/**/*.jsx';
+            this.img        = this.base + 'img/*.{jpg,jpeg,png,gif,ico,svg}';
             return this;
         }
     }.init(),
@@ -47,10 +48,9 @@ const config = {
         base: 'static/',
         init: function() {
             this.js       = this.base + 'js';
-            this.js_copy  = this.base + 'js/lib';
+            this.react    = this.base + 'js'
             this.css      = this.base + 'css';
             this.img      = this.base + 'img';
-            this.react    = this.base + 'js'
             return this;
         }
     }.init(),
@@ -68,10 +68,6 @@ const config = {
         ]
     },
     uglify: {
-        preserveComments: (node, comment) => {
-            const regex = /^\/*!/mi;
-            return comment.line === 1 || regex.test(comment.value)
-        },
         compress: {
             unused: true,
             dead_code: true
@@ -82,7 +78,17 @@ const config = {
             console.log(error.toString());
             this.emit('end');
         }
-    }
+    },
+    header: [
+        '/*!',
+        ' * Script for Aprigi',
+        ' * Description: The app for my April girl',
+        ' * Copyright (C) 2016-present Anh Tranngoc',
+        ' * This file is distributed under the same license as the aprigi package.',
+        ' * Anh Tranngoc <naa@sfc.wide.ad.jp>, 2016.',
+        ' */',
+        ''
+    ].join('\n')
 };
 config.browserify = {
     debug: true,
@@ -99,7 +105,7 @@ gulp.task('set-env', () => {
 
 gulp.task('stylesheet', () => {
     return gulp
-        .src(config.src.css_main)
+        .src(config.src.css)
         .pipe(plumber(config.plumber))
         .pipe(gulpif(!production, sourcemaps.init()))
         .pipe(sass())
@@ -110,7 +116,8 @@ gulp.task('stylesheet', () => {
         .pipe(gulpif(production, combine()))
         .pipe(gulpif(production, cssmin()))
         .pipe(gulpif(!production, sourcemaps.write('.')))
-        .pipe(gulp.dest(config.dest.css));
+        .pipe(gulp.dest(config.dest.css))
+        .pipe(livereload());
 });
 
 gulp.task('react-lint', () => {
@@ -128,40 +135,39 @@ gulp.task('javascript-react', ['react-lint'], () => {
         .pipe(source('aprigi.js'))
         .pipe(buffer())
         .pipe(gulpif(production, uglify(config.uglify)))
+        .pipe(header(config.header))
         .pipe(gulp.dest(config.dest.react))
+        .pipe(livereload());
 });
 
 gulp.task('javascript-compile', () => {
     return gulp
-        .src(config.src.js_compile)
+        .src(config.src.js)
         .pipe(plumber(config.plumber))
         .pipe(eslint('.eslintrc.json'))
         .pipe(eslint.format())
         .pipe(babel(config.babel))
         .pipe(gulpif(production, uglify(config.uglify)))
-        .pipe(gulp.dest(config.dest.js));
-});
-
-gulp.task('javascript-copy', () => {
-    return gulp
-        .src(config.src.js_copy)
-        .pipe(gulp.dest(config.dest.js_copy));
+        .pipe(header(config.header))
+        .pipe(gulp.dest(config.dest.js))
+        .pipe(livereload());
 });
 
 gulp.task('javascript', [
     'javascript-react',
-    'javascript-compile',
-    'javascript-copy'
+    'javascript-compile'
 ]);
 
 gulp.task('images', () => {
     // At this time, it simply copy all images file
     return gulp
         .src(config.src.img)
-        .pipe(gulp.dest(config.dest.img));
+        .pipe(gulp.dest(config.dest.img))
+        .pipe(livereload());
 });
 
 gulp.task('watch', ['stylesheet', 'javascript', 'images'], () => {
+    livereload.listen();
     gulp.watch(config.src.css, ['stylesheet']);
     gulp.watch(config.src.react, ['javascript-react']);
     gulp.watch(config.src.js, ['javascript']);

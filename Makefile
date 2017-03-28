@@ -11,10 +11,11 @@ collectstatics: frontend-production
 	./manage.py collectstatic --noinput
 
 frontend:
-	gulp
+	node_modules/gulp/bin/gulp.js
 
 frontend-production:
-	gulp --production
+	rm -rf static
+	node_modules/gulp/bin/gulp.js --production
 
 docker: frontend
 	sudo docker-compose up
