@@ -28,7 +28,7 @@ export default class ScrollToTop extends React.Component {
         window.addEventListener('scroll', this.onScrollHandler);
     }
 
-    componentWillUnMount() {
+    componentWillUnmount() {
         window.removeEventListener('scroll', this.onScrollHandler);
     }
 
