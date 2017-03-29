@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-27 12:35+0700\n"
+"POT-Creation-Date: 2017-03-29 11:37+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -321,30 +321,6 @@ msgstr ""
 #: templates/homepage.html:41
 msgid "You don't have any objective for this year"
 msgstr "Bạn chưa đặt mục tiêu cho năm nay"
-
-#: templates/homepage.html:46
-msgid "Next year begins in"
-msgstr "Năm mới sẽ đến trong"
-
-#: templates/homepage.html:49
-msgid "weeks"
-msgstr "tuần"
-
-#: templates/homepage.html:49
-msgid "days"
-msgstr "ngày"
-
-#: templates/homepage.html:49
-msgid "hours"
-msgstr "giờ"
-
-#: templates/homepage.html:49
-msgid "minutes"
-msgstr "phút"
-
-#: templates/homepage.html:49
-msgid "seconds"
-msgstr "giây"
 
 #: templates/includes/footer.html:42
 #, python-format

@@ -1,5 +1,6 @@
 .countdown {
     text-align: center;
+    line-height: 1;
 
     .countdown-container {
         display: inline-block;
@@ -9,7 +10,7 @@
 
         > div {
             display: inline-block;
-            padding: 1rem;
+            padding: 10/16 + rem;
             margin-bottom: .5rem;
             border-radius: .25rem;
             color: $white;
@@ -19,6 +20,7 @@
             display: inline-block;
             padding: 1rem;
             border-radius: .25rem;
+            font-weight: 500;
             background: darken($bg-blue, 15%);
         }
 
