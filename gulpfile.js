@@ -106,7 +106,7 @@ const config = {
     }
 };
 config.browserify = {
-    debug: true,
+    debug: !production,
     entries: glob.sync(config.src.react),
     extensions: [
         ".jsx"
@@ -149,8 +149,10 @@ gulp.task('javascript-react', ['react-lint'], () => {
         .on('error', config.plumber.errorHandler)
         .pipe(source('aprigi.js'))
         .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(gulpif(production, uglify(config.uglify)))
         .pipe(header(config.header))
+        .pipe(gulpif(!production, sourcemaps.write('.')))
         .pipe(gulp.dest(config.dest.react))
         .pipe(livereload());
 });
