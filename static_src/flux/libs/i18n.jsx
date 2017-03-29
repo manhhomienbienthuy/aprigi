@@ -13,7 +13,8 @@ i18n.init({
     lng: window.location.pathname.split('/')[1] || 'en',
     debug: false,
     ns: [
-        'common'
+        'common',
+        'countdown'
     ],
     defaultNS: 'common',
     nsSeparator: '.',
@@ -24,7 +25,15 @@ i18n.init({
                 savings: 'Tiết kiệm',
                 expenses: 'Chi tiêu',
                 logout: 'Đăng xuất',
-                login: 'Đăng nhập'
+                login: 'Đăng nhập',
+                Weeks: 'Tuần',
+                Days: 'Ngày',
+                Hours: 'Giờ',
+                Minutes: 'Phút',
+                Seconds: 'Giây'
+            },
+            countdown: {
+                title: 'Năm mới sẽ đến trong'
             }
         },
         en: {
@@ -34,6 +43,9 @@ i18n.init({
                 expenses: 'Expenses',
                 logout: 'Logout',
                 login: 'Login'
+            },
+            countdown: {
+                title: 'Next year begins in'
             }
         }
     }

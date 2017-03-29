@@ -14,6 +14,7 @@ import ReactDOM from 'react-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import CountDown from './components/CountDown';
 
 ReactDOM.render(
     <ScrollToTop />,
@@ -29,3 +30,10 @@ ReactDOM.render(
     <LanguageSwitcher />,
     document.getElementById('js-language-switcher')
 );
+
+if (document.getElementsByClassName('countdown').length > 0) {
+    ReactDOM.render(
+        <CountDown />,
+        document.getElementsByClassName('countdown')[0]
+    );
+}
