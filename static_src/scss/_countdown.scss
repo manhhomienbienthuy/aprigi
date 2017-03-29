@@ -1,114 +1,30 @@
-$bg-bright: darken($bg-gray, 60%);
-$bg-medium: darken($bg-gray, 75%);
-$bg-dark: darken($bg-gray, 90%);
-
 .countdown {
-    margin: 0 auto;
-    width: 100%;
-
-    @include respond-min($screen-medium) {
-        width: 355/16 + rem;
-    }
+    text-align: center;
 
     .countdown-container {
-        height: 100/16 + rem;
-        font-size: 1.25rem;
-
-        @include respond-min($screen-medium) {
-            height: 130/16 + rem;
-        }
-    }
-
-    .time {
-        position: relative;
         display: inline-block;
-        height: 70/16 + rem;
-        width: 3rem;
         text-align: center;
-        border-radius: .5rem;
-        box-shadow: 0 0 .8rem 0 $bg-bright;
-        perspective: 479/16 + rem;
-        backface-visibility: hidden;
-        transform: translateZ(0);
+        font-family: $sans-serif;
+        font-size: 2rem;
 
-        @include respond-min($screen-medium) {
-            height: 95/16 + rem;
-            width: 65/16 + rem;
+        > div {
+            display: inline-block;
+            padding: 1rem;
+            margin-bottom: .5rem;
+            border-radius: .25rem;
+            color: $white;
+            background: lighten($bg-blue, 10%);
         }
-    }
-
-    .count {
-        position: absolute;
-        top: 0;
-        display: block;
-        width: 100%;
-        overflow: hidden;
-        font-family: $condensed-font;
-        font-size: 1.5em;
-        line-height: 70/16 + rem;
-        color: $bg-gray;
-        text-align: center;
-        background: $bg-dark;
-        transform: translateZ(0);
-        transform-style: flat;
-
-        @include respond-min($screen-medium) {
-            font-size: 2em;
-            line-height: 2.4em;
+        div > span {
+            display: inline-block;
+            padding: 1rem;
+            border-radius: .25rem;
+            background: darken($bg-blue, 15%);
         }
 
-        &.top {
-            height: 50%;
-            border-top: 1px solid $text-default;
-            border-bottom: 1px $gray-line;
-            border-radius: .5rem .5rem 0 0;
-            transform-origin: 50% 100%;
-
-            &.curr {
-                z-index: 3;
-                transform: rotateX(0deg);
-            }
-        }
-
-        &.bottom {
-            height: 50%;
-            top: 50%;
-            line-height: 0;
-            background: linear-gradient($bg-medium, $bg-dark);
-            border-top: 1px solid $black;
-            border-bottom: 1px solid $black;
-            border-radius: 0 0 .5rem .5rem;
-            transform-origin: 50% 0;
-
-            &.next {
-                z-index: 2;
-                transform: rotateX(90deg);
-            }
-        }
-    }
-
-    .label {
-        position: absolute;
-        top: 72/16 + rem;
-        display: block;
-        width: 100%;
-        margin-top: .5rem;
-        font-size: .8em;
-
-        @include respond-min($screen-medium) {
-            top: 95/16 + rem;
-            font-size: normal;
-        }
-    }
-
-    .flip {
-        .count.curr.top {
-            transition: all 250ms ease-in-out;
-            transform: rotateX(-90deg);
-        }
-        .count.next.bottom {
-            transition: all 250ms ease-in-out 250ms;
-            transform: rotateX(0deg);
+        .small-text {
+            padding-top: .5rem;
+            font-size: 1rem;
         }
     }
 }

@@ -42,21 +42,6 @@
     {% endif %}
 
     <div class="countdown">
-      <p>
-        {% trans "Next year begins in" %}:
-      </p>
-      <div class="countdown-container" id="countdown"
-           data-labels='["{% trans 'weeks' %}", "{% trans 'days' %}", "{% trans 'hours' %}", "{% trans 'minutes' %}", "{% trans 'seconds' %}"]'>
-      </div>
     </div>
-    <script type="text/html" id="countdown-template">
-      <div class="time <%= label %>">
-        <span class="count curr top"><%= curr %></span>
-        <span class="count next top"><%= next %></span>
-        <span class="count next bottom"><%= next %></span>
-        <span class="count curr bottom"><%= curr %></span>
-        <span class="label"><%= label %></span>
-      </div>
-    </script>
   </div>
 {% endblock %}
