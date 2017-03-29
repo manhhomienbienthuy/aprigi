@@ -30,30 +30,34 @@ export default class CountDown extends React.Component {
                 <p className="small-text">{i18n.t('countdown.title')}</p>
 
                 <div>
-                  <span className="days">{this.state.weeks}</span>
-                  <div className="small-text">{i18n.t('Weeks')}</div>
+                    <span className="days">{this.state.weeks}</span>
+                    <div className="small-text">{i18n.t('Weeks')}</div>
                 </div>
+
                 {' '}
                 <div>
-                  <span className="days">{this.state.days}</span>
-                  <div className="small-text">{i18n.t('Days')}</div>
+                    <span className="days">{this.state.days}</span>
+                    <div className="small-text">{i18n.t('Days')}</div>
                 </div>
+
                 {' '}
                 <div>
-                  <span className="hours">{this.state.hours}</span>
-                  <div className="small-text">{i18n.t('Hours')}</div>
+                    <span className="hours">{this.state.hours}</span>
+                    <div className="small-text">{i18n.t('Hours')}</div>
                 </div>
+
                 {' '}
                 <div>
-                  <span className="minutes">{this.state.minutes}</span>
-                  <div className="small-text">{i18n.t('Minutes')}</div>
+                    <span className="minutes">{this.state.minutes}</span>
+                    <div className="small-text">{i18n.t('Minutes')}</div>
                 </div>
+
                 {' '}
                 <div>
-                  <span className="seconds">{this.state.seconds}</span>
-                  <div className="small-text">{i18n.t('Seconds')}</div>
+                    <span className="seconds">{this.state.seconds}</span>
+                    <div className="small-text">{i18n.t('Seconds')}</div>
                 </div>
-              </div>
+            </div>
         );
     }
 }
