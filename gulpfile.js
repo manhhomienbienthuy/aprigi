@@ -149,7 +149,7 @@ gulp.task('javascript-react', ['react-lint'], () => {
         .on('error', config.plumber.errorHandler)
         .pipe(source('aprigi.js'))
         .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(gulpif(!production, sourcemaps.init({loadMaps: true})))
         .pipe(gulpif(production, uglify(config.uglify)))
         .pipe(header(config.header))
         .pipe(gulpif(!production, sourcemaps.write('.')))
@@ -176,7 +176,6 @@ gulp.task('javascript', [
 ]);
 
 gulp.task('images', () => {
-    // At this time, it simply copy all images file
     return gulp
         .src(config.src.img)
         .pipe(imagemin(config.imagemin.plugins, config.imagemin.options))

@@ -3,7 +3,9 @@
 
 {% block title %}{% trans "About us" %}{% endblock %}
 
-{% block body-attributes %} class="about-me"{% endblock %}
+{% block body-attributes %}
+class="about-me {% if user.is_authenticated %}logged-in{% endif %}"
+{% endblock %}
 
 {% block content %}
   <div class="container">

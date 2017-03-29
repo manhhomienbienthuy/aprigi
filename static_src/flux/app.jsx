@@ -15,6 +15,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import CountDown from './components/CountDown';
+import CountUp from './components/CountUp';
 
 ReactDOM.render(
     <ScrollToTop />,
@@ -35,5 +36,12 @@ if (document.getElementsByClassName('countdown').length > 0) {
     ReactDOM.render(
         <CountDown />,
         document.getElementsByClassName('countdown')[0]
+    );
+}
+
+if (document.getElementsByClassName('countup').length > 0) {
+    ReactDOM.render(
+        <CountUp />,
+        document.getElementsByClassName('countup')[0]
     );
 }

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Aprigi: CountDownStore
+ * Aprigi: CountUpStore
  * This file is distributed under the same license as the aprigi package.
  * --------------------------------------------------------------------------
  */
@@ -9,21 +9,21 @@
 
 import {EventEmitter} from 'events';
 import Dispatcher from '../dispatcher/Dispatcher';
-import {CountDownConstants as Const} from '../constants/CountDownConstants';
+import {CountUpConstants as Const} from '../constants/CountUpConstants';
 import {timeDiff} from '../libs/datetime';
 
-class CountDownStore extends EventEmitter {
+class CountUpStore extends EventEmitter {
     constructor() {
         super();
 
         this.UPDATABLE_ATTRS = ['seconds', 'minutes', 'hours', 'days', 'weeks'];
 
         this.store = {
-            endTime: (new Date().getFullYear() + 1) + '/01/01'
+            startTime: '2013/01/01'
         };
 
         this._updateStore();
-        setInterval(this._countDown.bind(this), 1000);
+        setInterval(this._countUp.bind(this), 1000);
     }
 
     get all() {
@@ -40,24 +40,16 @@ class CountDownStore extends EventEmitter {
 
 
     _updateStore() {
-        const countDiff = timeDiff(new Date(), new Date(this.store.endTime));
+        const countDiff = timeDiff(new Date(this.store.startTime), new Date());
         this.UPDATABLE_ATTRS.forEach((propName) => {
             this.store[propName] = countDiff[propName];
         });
-        this._paddingZeros();
     }
 
-    _paddingZeros() {
-        this.UPDATABLE_ATTRS.forEach((propName) => {
-            this.store[propName] = ('0' + this.store[propName]).slice(-2);
-        });
-    }
-
-    _countDown() {
+    _countUp() {
         this._updateStore();
         this._emitChange();
     }
-
 }
 
-export default new CountDownStore(Dispatcher);
+export default new CountUpStore(Dispatcher);
