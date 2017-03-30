@@ -39,8 +39,11 @@
 
     <p class="copyright">
       {% now 'Y' as current_year %}
+      {% url 'about:us' as about_url %}
       {% blocktrans %}
-        Copyright © {{ current_year }} Anh Tranngoc. All rights reserved.
+        Copyright © 2016-{{ current_year }}
+        <a href="{{ about_url }}">Anh Tranngoc</a>.
+        All rights reserved.
       {% endblocktrans %}
     </p>
 
