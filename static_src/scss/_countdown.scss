@@ -12,16 +12,16 @@
             display: inline-block;
             padding: 10/16 + rem;
             margin-bottom: .5rem;
-            border-radius: .25rem;
             color: $white;
             background: lighten($bg-blue, 10%);
+            border-radius: .25rem;
         }
         div > span {
             display: inline-block;
             padding: 1rem;
-            border-radius: .25rem;
             font-weight: 500;
             background: darken($bg-blue, 15%);
+            border-radius: .25rem;
         }
 
         .small-text {

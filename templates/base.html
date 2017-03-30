@@ -35,7 +35,11 @@
 
     <main>
       {% block content %}{% endblock %}
-      <div id="back-to-top-button"></div>
+      <div id="back-to-top-button">
+        <a href="#top" class="back-to-top"
+          <i className="fa fa-chevron-up"></i>
+        </a>
+      </div>
     </main>
 
     {% include "includes/footer.html" %}

@@ -53,16 +53,13 @@ export default class ScrollToTop extends React.Component {
 
 
     render() {
-        if (getPageHeight() < window.innerHeight * 2) {
+        if (this.state.hidden || getPageHeight() < window.innerHeight * 2) {
             return null;
         }
 
-        let className = 'back-to-top';
-        className += this.state.hidden ? ' hidden' : '';
-
         return (
             <a href="#top"
-                className={className}
+                className="back-to-top"
                 onClick={this.onClickHandler}>
                 <i className="fa fa-chevron-up"></i>
             </a>
