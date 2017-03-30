@@ -8,12 +8,12 @@
 'use strict';
 
 export function timeDiff(startTime, stopTime) {
-    const total = stopTime - startTime;
+    const total = (stopTime - startTime) / 1000;
     return {
-        seconds: Math.floor((total / 1000) % 60),
-        minutes: Math.floor((total / 1000 / 60) % 60),
-        hours: Math.floor((total / (1000 * 60 * 60)) % 24),
-        days: Math.floor((total / (1000 * 60 * 60 * 24)) % 7),
-        weeks: Math.floor(total / (1000 * 60 * 60 * 24 * 7))
+        seconds: total % 60 | 0,
+        minutes: total / 60 % 60 | 0,
+        hours: total / 60 / 60 % 24 | 0,
+        days: total / 60 / 60 / 24 % 7 | 0,
+        weeks: total / 60 / 60 / 24 / 7 | 0
     };
 }
