@@ -1,3 +1,11 @@
+/*!
+ * gulpfile for Aprigi
+ * Description: The app for my April girl
+ * Copyright (C) 2016-present Anh Tranngoc
+ * This file is distributed under the same license as the aprigi package.
+ * Anh Tranngoc <naa@sfc.wide.ad.jp>, 2016.
+ */
+
 'use strict';
 
 // Load basic plugins
@@ -42,7 +50,7 @@ const config = {
         base: 'static_src/',
         init: function() {
             this.js         = this.base + 'js/**/*.js';
-            this.css        = this.base + 'scss/*.scss';
+            this.css        = this.base + 'scss/**/*.scss';
             this.react      = this.base + 'flux/**/*.jsx';
             this.img        = this.base + 'img/**/*';
             return this;
