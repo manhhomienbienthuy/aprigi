@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aprigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-29 11:37+0700\n"
+"POT-Creation-Date: 2017-03-30 11:19+0700\n"
 "PO-Revision-Date: 2016-05-31 16:20+0700\n"
 "Last-Translator: Anh Tranngoc <naa@sfc.wide.ad.jp>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -322,15 +322,18 @@ msgstr ""
 msgid "You don't have any objective for this year"
 msgstr "Bạn chưa đặt mục tiêu cho năm nay"
 
-#: templates/includes/footer.html:42
+#: templates/includes/footer.html:43
 #, python-format
 msgid ""
 "\n"
-"        Copyright © %(current_year)s Anh Tranngoc. All rights reserved.\n"
+"        Copyright © 2016-%(current_year)s\n"
+"        <a href=\"%(about_url)s\">Anh Tranngoc</a>.\n"
+"        All rights reserved.\n"
 "      "
 msgstr ""
 "\n"
-"© %(current_year)s bản quyền thuộc về Anh Tranngoc. Mọi quyền được bảo lưu."
+"© 2016-%(current_year)s bản quyền thuộc về <a href=\"%(about_url)s\">Anh "
+"Tranngoc</a>. Mọi quyền được bảo lưu."
 
 #: templates/includes/header.html:7
 msgid "The app for my April girl, from naa with love"

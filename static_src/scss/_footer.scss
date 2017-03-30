@@ -19,6 +19,17 @@ footer {
     .copyright {
         color: $text-light;
         text-align: center;
+
+        a {
+            @include link-gray;
+            border-bottom: 1px dotted $text-light;
+
+            &:hover,
+            &:active,
+            &:focus {
+                border-bottom: 1px dotted $text-blue;
+            }
+        }
     }
 }
 
