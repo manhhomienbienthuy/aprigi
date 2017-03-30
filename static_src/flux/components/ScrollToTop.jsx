@@ -61,7 +61,7 @@ export default class ScrollToTop extends React.Component {
             <a href="#top"
                 className="back-to-top"
                 onClick={this.onClickHandler}>
-                <i className="fa fa-chevron-up"></i>
+                <i className="apricon apricon-chevron-up"></i>
             </a>
         );
     }

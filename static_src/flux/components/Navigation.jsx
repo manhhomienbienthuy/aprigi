@@ -77,7 +77,7 @@ export default class Navigation extends React.Component {
                 <div
                     className='navigation-button'
                     onClick={this.onClickHandler}>
-                    <i className='fa fa-bars'></i>
+                    <i className='apricon apricon-bars'></i>
                 </div>
 
                 <div className={menuClassName}>

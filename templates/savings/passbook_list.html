@@ -44,7 +44,7 @@
     <div class="object-tools">
       <a href="{% url 'savings:passbook_create' %}"
          class="button button-secondary">
-        <i class="fa fa-plus"></i>
+        <i class="apricon apricon-plus"></i>
         {% trans "Add new passbook" %}
       </a>
 
@@ -53,7 +53,7 @@
         <input name="date" type="date" placeholder="yyyy-mm-dd"
                value="{{ form.upcoming.value }}">
         <button type="submit">
-          <i class="fa fa-money"></i>
+          <i class="apricon apricon-money"></i>
           <span class="visuallyhidden">{% trans "Withdraw" %}</span>
         </button>
       </form>
