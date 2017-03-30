@@ -52,7 +52,7 @@ export default class LanguageSwitcher extends React.Component {
                     type="hidden"
                     value={this.state.currentLanguage}
                 />
-                <li><i className='fa fa-globe'></i></li>
+                <li><i className='apricon apricon-globe'></i></li>
                 {languageLinks}
             </ul>
         );

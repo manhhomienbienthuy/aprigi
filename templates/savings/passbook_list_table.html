@@ -43,9 +43,9 @@
           <td>{{ passbook.stop_date }}</td>
           <td class="center">
             {% if passbook.is_open %}
-              <i class="fa fa-check-circle"></i>
+              <i class="apricon apricon-check-circle"></i>
             {% else %}
-              <i class="fa fa-times-circle"></i>
+              <i class="apricon apricon-times-circle"></i>
             {% endif %}
           </td>
           <td>{{ passbook.interest|default_if_none:"-" }}</td>

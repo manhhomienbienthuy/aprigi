@@ -203,7 +203,7 @@ $text-align: center left right justify;
     .contact-item {
         text-align: center;
 
-        .fa-stack {
+        .apricon-stack {
             font-size: 2em;
             color: $text-light;
             transition-duration: .3s;
@@ -223,7 +223,7 @@ $text-align: center left right justify;
         &:hover,
         &:focus,
         &:active {
-            .fa-stack {
+            .apricon-stack {
                 transform: translateY(-.5rem);
 
                 & + p {
