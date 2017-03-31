@@ -1,0 +1,8 @@
+/* We are humans, not robots */
+    Anh Tranngoc
+    Location: Hanoi, Vietnam
+
+/* SITE */
+    Language: English / Tiếng Việt
+    Doctype: HTML5
+    Tools: Atom, Emacs, Docker, Python, Django, ReactJS

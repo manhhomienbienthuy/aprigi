@@ -53,16 +53,18 @@ const config = {
             this.css        = this.base + 'scss/**/*.scss';
             this.react      = this.base + 'flux/**/*.jsx';
             this.img        = this.base + 'img/**/*';
+            this.root_files = this.base + '{robots.txt,humans.txt}';
             return this;
         }
     }.init(),
     dest: {
         base: 'static/',
         init: function() {
-            this.js       = this.base + 'js';
-            this.react    = this.base + 'js'
-            this.css      = this.base + 'css';
-            this.img      = this.base + 'img';
+            this.js         = this.base + 'js';
+            this.react      = this.base + 'js'
+            this.css        = this.base + 'css';
+            this.img        = this.base + 'img';
+            this.root_files = this.base;
             return this;
         }
     }.init(),
@@ -192,13 +194,26 @@ gulp.task('images', () => {
         .pipe(livereload());
 });
 
-gulp.task('watch', ['stylesheet', 'javascript', 'images'], () => {
-    livereload.listen();
-    gulp.watch(config.src.css, ['stylesheet']);
-    gulp.watch(config.src.react, ['javascript-react']);
-    gulp.watch(config.src.js, ['javascript']);
-    gulp.watch(config.src.img, ['images']);
+gulp.task('root-files', () => {
+    return gulp
+        .src(config.src.root_files)
+        .pipe(gulp.dest(config.dest.root_files));
 });
 
+gulp.task('default', [
+    'set-env',
+    'stylesheet',
+    'javascript',
+    'images',
+    'root-files'
+]);
 
-gulp.task('default', ['set-env', 'stylesheet', 'javascript', 'images']);
+gulp.task('watch', ['default'], () => {
+        livereload.listen();
+        gulp.watch(config.src.css, ['stylesheet']);
+        gulp.watch(config.src.react, ['javascript-react']);
+        gulp.watch(config.src.js, ['javascript']);
+        gulp.watch(config.src.img, ['images']);
+        gulp.watch(config.src.root_files, ['root-files']);
+    }
+);
