@@ -299,3 +299,81 @@ class PassbookWithdrawViewTest(TestCase):
         self.assertEqual(withdraw.amount, 10041832)
         self.assertEqual(withdraw.date, datetime(2016, 6, 7).date())
         self.assertEqual(withdraw.is_open, True)
+
+
+class PassbookCreateViewTest(TestCase):
+    TEST_USERNAME = 'test'
+    TEST_PASSWORD = 'testpassword'
+
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username=self.TEST_USERNAME,
+            password=self.TEST_PASSWORD
+        )
+        self.user.user_permissions.add(
+            Permission.objects.get(codename='add_passbook'))
+
+    def test_post_request(self):
+        self.client.login(username=self.TEST_USERNAME,
+                          password=self.TEST_PASSWORD)
+        data = {
+            'number': 'test_number',
+            'account_number': 'test_account_number',
+            'amount': 1000,
+            'period_type': 1,
+            'period': 1,
+            'rate': 5.5,
+            'start_date': '2017-03-31',
+            'stop_date': '2017-04-07',
+            'is_open': True,
+            'notes': 'test_notes',
+        }
+        response = self.client.post(reverse('savings:passbook_create'), data)
+        self.assertRedirects(response, reverse('savings:passbook_list'))
+
+
+class PassbookUpdateViewTest(TestCase):
+    TEST_USERNAME = 'test'
+    TEST_PASSWORD = 'testpassword'
+
+    def setUp(self):
+        self.passbook = Passbook.objects.create(
+            number="001",
+            account_number="001",
+            amount=10000000,
+            period=1,
+            period_type=2,
+            rate=5.0,
+            start_date=datetime(2016, 5, 6).date(),
+            stop_date=datetime(2016, 6, 6).date(),
+            is_open=True,
+            notes="Note"
+        )
+        self.user = User.objects.create_user(
+            username=self.TEST_USERNAME,
+            password=self.TEST_PASSWORD
+        )
+        self.user.user_permissions.add(
+            Permission.objects.get(codename='change_passbook'))
+
+    def test_post_request(self):
+        self.client.login(username=self.TEST_USERNAME,
+                          password=self.TEST_PASSWORD)
+        data = {
+            'number': 'test_edited_number',
+            'account_number': 'test_edited_account_number',
+            'amount': 1000,
+            'period_type': 1,
+            'period': 1,
+            'rate': 5.5,
+            'start_date': '2017-03-31',
+            'stop_date': '2017-04-07',
+            'is_open': True,
+            'notes': 'test_notes',
+        }
+        response = self.client.post(
+            reverse('savings:passbook_update',
+                    kwargs={'pk': self.passbook.id}),
+            data
+        )
+        self.assertRedirects(response, reverse('savings:passbook_list'))

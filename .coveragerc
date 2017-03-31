@@ -1,0 +1,5 @@
+[run]
+branch = true
+
+[report]
+omit = .tox*,*migrations*,*apps.py,aprigi/wsgi.py,manage.py

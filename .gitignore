@@ -9,3 +9,6 @@ static_root
 log
 *.mo
 docker/data
+.coverage
+.tox
+htmlcov
