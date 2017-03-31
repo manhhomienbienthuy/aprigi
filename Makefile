@@ -40,5 +40,10 @@ collecttranslation:
 translate:
 	$(foreach lang,$(LANG_LIST),./manage.py compilemessages -l $(lang);)
 
-test:
-	./manage.py test $(APP_LIST)
+migrations-check:
+	./manage.py makemigrations --check --dry-run
+test: migrations-check
+	@coverage run --source=. ./manage.py test -v2 $(APP_LIST)
+
+ci: test
+	@coverage report
