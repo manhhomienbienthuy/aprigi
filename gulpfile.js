@@ -16,12 +16,12 @@ const gulp        = require('gulp'),
 
 // Load plugins for stylesheet task
 const sass          = require('gulp-sass'),
-      autoprefixer  = require('gulp-autoprefixer'),
       csslint       = require('gulp-csslint'),
-      shorthand     = require('gulp-shorthand'),
-      combine       = require('gulp-combine-mq'),
-      cssmin        = require('gulp-clean-css'),
       sourcemaps    = require('gulp-sourcemaps'),
+      postcss       = require('gulp-postcss'),
+      cssnext       = require('cssnext'),
+      cssnano       = require('cssnano'),
+      mqpacker      = require('css-mqpacker'),
       plumber       = require('gulp-plumber');
 
 // Load plugins for javascript task
@@ -68,13 +68,22 @@ const config = {
             return this;
         }
     }.init(),
-    autoprefixer: {
+    postcss: {
         browsers: [
             'last 2 versions',
             '> 1%',
             'iOS 7'
-        ]
-    },
+        ],
+        init: function() {
+            this.plugins = [
+                cssnext({browsers: this.browsers}),
+                cssnano({autoprefixer: this.browsers}),
+                mqpacker()
+            ];
+
+            return this;
+        }
+    }.init(),
     babel: {
         presets: [
             'es2015',
@@ -134,12 +143,9 @@ gulp.task('stylesheet', () => {
         .pipe(plumber(config.plumber))
         .pipe(gulpif(!production, sourcemaps.init()))
         .pipe(sass())
-        .pipe(autoprefixer(config.autoprefixer))
+        .pipe(postcss(config.postcss.plugins))
         .pipe(csslint('.csslintrc.json'))
         .pipe(csslint.reporter())
-        .pipe(gulpif(production, shorthand()))
-        .pipe(gulpif(production, combine()))
-        .pipe(gulpif(production, cssmin()))
         .pipe(gulpif(!production, sourcemaps.write('.')))
         .pipe(gulp.dest(config.dest.css))
         .pipe(livereload());
