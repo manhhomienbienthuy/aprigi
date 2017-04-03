@@ -11,7 +11,7 @@ all: docker
 
 install:
 	pip install -r requirements/development.txt
-	npm install
+	yarn
 
 collectstatics: frontend-production
 	./manage.py collectstatic --noinput
