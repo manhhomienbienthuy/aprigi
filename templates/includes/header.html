@@ -11,7 +11,7 @@
       <i class="apricon apricon-bars"></i>
     </div>
 
-    <div class="navigation mobile-navigation active">
+    <div class="navigation active">
       <ul>
         <li{% if 'savings' in request.path %} class="active"{% endif %}>
           <a href="{% url 'savings:index' %}">{% trans "Savings" %}</a>

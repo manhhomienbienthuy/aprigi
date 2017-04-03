@@ -48,7 +48,7 @@ export default class Navigation extends React.Component {
     }
 
     render() {
-        let menuClassName = 'navigation mobile-navigation';
+        let menuClassName = 'navigation';
         if (this.state.showMenu) {
             menuClassName += ' active';
         }

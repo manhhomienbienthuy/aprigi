@@ -72,27 +72,21 @@ header {
         }
     }
 
-    .mobile-navigation {
+    .navigation {
         max-height: 0;
+        width: 100%;
         overflow: hidden;
         transition: all .3s ease-in-out;
 
         @include respond-min($screen-medium) {
+            float: right;
+            width: auto;
             max-height: none;
             transition: none;
         }
 
         &.active {
             max-height: 50rem;
-        }
-    }
-
-    .navigation {
-        width: 100%;
-
-        @include respond-min($screen-medium) {
-            float: right;
-            width: auto;
         }
 
         ul {
