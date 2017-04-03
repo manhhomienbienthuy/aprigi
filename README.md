@@ -2,6 +2,9 @@
 
 # Aprigi: App for my April girl.
 
+[![Build Status](https://travis-ci.org/manhhomienbienthuy/aprigi.svg?branch=master)](https://travis-ci.org/manhhomienbienthuy/aprigi)
+[![Requirements Status](https://requires.io/github/manhhomienbienthuy/aprigi/requirements.svg?branch=master)](https://requires.io/github/manhhomienbienthuy/aprigi/requirements/?branch=master)
+
 Aprigi is the website and service helps you spend smarter and save
 more.  Aprigi will help you pull all your accounts and investments
 into one place so you can track your spending, create a budget and get
