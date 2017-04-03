@@ -3,6 +3,7 @@
 # Aprigi: App for my April girl.
 
 [![Build Status](https://travis-ci.org/manhhomienbienthuy/aprigi.svg?branch=master)](https://travis-ci.org/manhhomienbienthuy/aprigi)
+[![Coverage Status](https://coveralls.io/repos/github/manhhomienbienthuy/aprigi/badge.svg)](https://coveralls.io/github/manhhomienbienthuy/aprigi)
 [![Requirements Status](https://requires.io/github/manhhomienbienthuy/aprigi/requirements.svg?branch=master)](https://requires.io/github/manhhomienbienthuy/aprigi/requirements/?branch=master)
 
 Aprigi is the website and service helps you spend smarter and save
