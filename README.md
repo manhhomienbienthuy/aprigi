@@ -1,10 +1,14 @@
-![Aprigi](static_src/img/logo.svg)
+![Aprigi](https://bytebucket.org/manhhomienbienthuy/aprigi/raw/c53e73941bb1532b824ee69a62a68dfe86e45d45/static_src/img/logo.svg)
 
 # Aprigi: App for my April girl.
 
 [![Build Status](https://travis-ci.org/manhhomienbienthuy/aprigi.svg?branch=master)](https://travis-ci.org/manhhomienbienthuy/aprigi)
 [![Coverage Status](https://coveralls.io/repos/github/manhhomienbienthuy/aprigi/badge.svg)](https://coveralls.io/github/manhhomienbienthuy/aprigi)
 [![Requirements Status](https://requires.io/github/manhhomienbienthuy/aprigi/requirements.svg?branch=master)](https://requires.io/github/manhhomienbienthuy/aprigi/requirements/?branch=master)
+
+> This repository is stored in
+> both [bitbucket](https://bitbucket.org/manhhomienbienthuy/aprigi)
+> and [Github](https://github.com/manhhomienbienthuy/aprigi)
 
 Aprigi is the website and service helps you spend smarter and save
 more.  Aprigi will help you pull all your accounts and investments
@@ -47,7 +51,7 @@ To run locally, do ONE of the following methods
 ### Install dependencies
 
 ```console
-pip install -r requirements/dev.txt
+pip install -r requirements/development.txt
 yarn
 ```
 
