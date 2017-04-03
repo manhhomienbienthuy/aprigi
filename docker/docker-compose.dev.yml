@@ -8,19 +8,29 @@ version: '3'
 services:
   postgres:
     image: postgres
-    env_file: .env
+    container_name: aprigi_postgres
+    env_file: ../conf/.env
     volumes:
-      - ./docker/data:/var/lib/postgresql/data
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - aprigi
   web:
     build:
-      context: ./
-      dockerfile: ./docker/web-dev-dockerfile
+      context: ../
+      dockerfile: docker/web-dev-dockerfile
+    image: aprigi_web
+    container_name: aprigi_web
     env_file:
-      - .env
+      - ../conf/.env
     ports:
       - "8000:8000"
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ..:/code
     depends_on:
       - postgres
+    networks:
+      - aprigi
+networks:
+  aprigi:
+    driver: bridge
