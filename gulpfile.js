@@ -144,7 +144,7 @@ gulp.task('stylesheet', () => {
         .pipe(gulpif(!production, sourcemaps.init()))
         .pipe(sass())
         .pipe(postcss(config.postcss.plugins))
-        .pipe(csslint('.csslintrc.json'))
+        .pipe(csslint('conf/.csslintrc.json'))
         .pipe(csslint.reporter())
         .pipe(gulpif(!production, sourcemaps.write('.')))
         .pipe(gulp.dest(config.dest.css))
@@ -154,7 +154,7 @@ gulp.task('stylesheet', () => {
 gulp.task('react-lint', () => {
     return gulp
         .src(config.src.react)
-        .pipe(eslint('.eslintrc.json'))
+        .pipe(eslint('conf/.eslintrc.json'))
         .pipe(eslint.format());
 });
 

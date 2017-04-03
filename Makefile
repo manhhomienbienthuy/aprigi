@@ -24,7 +24,7 @@ frontend-production:
 	node_modules/gulp/bin/gulp.js --production
 
 docker: frontend
-	sudo docker-compose up
+	sudo docker-compose -f docker/docker-compose.dev.yml up
 
 check-style:
 	$(foreach app,$(APP_LIST),isort -c -rc $(app) --skip migrations;)
@@ -43,7 +43,7 @@ translate:
 migrations-check:
 	./manage.py makemigrations --check --dry-run
 test: migrations-check
-	@coverage run --source=. ./manage.py test -v2 $(APP_LIST)
+	@coverage run --source=. --rcfile=conf/.coveragerc ./manage.py test -v2 $(APP_LIST)
 
 ci: test
-	@coverage report
+	@coverage report --rcfile=conf/.coveragerc
