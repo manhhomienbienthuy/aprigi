@@ -1,8 +1,11 @@
 /* We are humans, not robots */
     Anh Tranngoc
+    naa@sfc.wide.ad.jp
     Location: Hanoi, Vietnam
 
 /* SITE */
-    Language: English / Tiếng Việt
+    Language: English / Vietnamese
     Doctype: HTML5
-    Tools: Atom, Emacs, Docker, Python, Django, ReactJS
+    Core: Python3 and Django 1.11
+    Standards: HTML5, CSS3, W3C (as much as possible)
+    Tools: Atom, Emacs, Docker, Python, Django, ReactJS, SCSS
