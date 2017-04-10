@@ -144,7 +144,7 @@ gulp.task('stylesheet', () => {
         .pipe(sass())
         .pipe(postcss(config.postcss.plugins))
         .pipe(csslint('conf/.csslintrc.json'))
-        .pipe(csslint.formatter())
+        .pipe(csslint.formatter('compact'))
         .pipe(gulpif(!production, sourcemaps.write('.')))
         .pipe(gulp.dest(config.dest.css))
 });
@@ -160,7 +160,7 @@ gulp.task('javascript-react', ['react-lint'], () => {
     return browserify(config.browserify)
         .transform(babelify.configure(config.babel))
         .bundle()
-        .on('error', config.plumber.errorHandler)
+        .pipe(plumber(config.plumber))
         .pipe(source('aprigi.js'))
         .pipe(buffer())
         .pipe(gulpif(!production, sourcemaps.init({loadMaps: true})))
