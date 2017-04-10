@@ -96,7 +96,7 @@ make frontend
 or
 
 ```console
-gulp
+gulp build
 ```
 
 ### Finally run the server
@@ -142,7 +142,7 @@ make frontend
 or
 
 ```console
-gulp
+gulp build
 ```
 
 # Running the tests
@@ -187,7 +187,7 @@ such as HTML5, CSS3, SVG, webfonts.
 # File locations
 
 Static files such as CSS, JavaScript or image files can be found in
-the ``static`` subdirectory.  (Source files are in `static_src`
+the `static/dist` subdirectory.  (Source files are in `static/src`
 folder)
 
 Templates can be found in the `templates` subdirectory.
@@ -209,7 +209,7 @@ SCSS and Javascript (include React JSX) are compiled by using gulp,
 you can use
 
 ```console
-gulp
+gulp build
 ```
 
 or a make task for this
