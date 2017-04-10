@@ -19,7 +19,7 @@ const sass          = require('gulp-sass'),
       csslint       = require('gulp-csslint'),
       sourcemaps    = require('gulp-sourcemaps'),
       postcss       = require('gulp-postcss'),
-      cssnext       = require('cssnext'),
+      cssnext       = require('postcss-cssnext'),
       cssnano       = require('cssnano'),
       mqpacker      = require('css-mqpacker'),
       plumber       = require('gulp-plumber');
@@ -43,11 +43,11 @@ const imagemin = require('gulp-imagemin'),
       pngquant = require('imagemin-pngquant');
 
 // Live reload for any changes
-const livereload = require('gulp-livereload');
+const browser_sync = require('browser-sync').create();
 
 const config = {
     src: {
-        base: 'static_src/',
+        base: 'static/src/',
         init: function() {
             this.js         = this.base + 'js/**/*.js';
             this.css        = this.base + 'scss/**/*.scss';
@@ -58,32 +58,31 @@ const config = {
         }
     }.init(),
     dest: {
-        base: 'static/',
+        base: 'static/dist/',
         init: function() {
             this.js         = this.base + 'js';
             this.react      = this.base + 'js'
             this.css        = this.base + 'css';
             this.img        = this.base + 'img';
             this.root_files = this.base;
+            this.all        = this.base + '**/*';
+            this.sync       = [this.all, 'templates/**/*.html'];
             return this;
         }
     }.init(),
     postcss: {
-        browsers: [
-            'last 2 versions',
-            '> 1%',
-            'iOS 7'
-        ],
-        init: function() {
-            this.plugins = [
-                cssnext({browsers: this.browsers}),
-                cssnano({autoprefixer: this.browsers}),
-                mqpacker()
-            ];
-
-            return this;
-        }
-    }.init(),
+        plugins: [
+            cssnext({
+                browsers: [
+                    'last 2 versions',
+                    '> 1%',
+                    'iOS 7'
+                ]
+            }),
+            cssnano({autoprefixer: false}),
+            mqpacker()
+        ]
+    },
     babel: {
         presets: [
             'es2015',
@@ -145,10 +144,9 @@ gulp.task('stylesheet', () => {
         .pipe(sass())
         .pipe(postcss(config.postcss.plugins))
         .pipe(csslint('conf/.csslintrc.json'))
-        .pipe(csslint.reporter())
+        .pipe(csslint.formatter())
         .pipe(gulpif(!production, sourcemaps.write('.')))
         .pipe(gulp.dest(config.dest.css))
-        .pipe(livereload());
 });
 
 gulp.task('react-lint', () => {
@@ -170,7 +168,6 @@ gulp.task('javascript-react', ['react-lint'], () => {
         .pipe(header(config.header))
         .pipe(gulpif(!production, sourcemaps.write('.')))
         .pipe(gulp.dest(config.dest.react))
-        .pipe(livereload());
 });
 
 gulp.task('javascript-compile', () => {
@@ -183,7 +180,6 @@ gulp.task('javascript-compile', () => {
         .pipe(gulpif(production, uglify(config.uglify)))
         .pipe(header(config.header))
         .pipe(gulp.dest(config.dest.js))
-        .pipe(livereload());
 });
 
 gulp.task('javascript', [
@@ -197,7 +193,6 @@ gulp.task('images', () => {
         .pipe(imagemin(config.imagemin.plugins, config.imagemin.options))
         .pipe(gulp.dest(config.dest.img))
         .pipe(gulp.dest(config.src.img.slice(0, -5)))
-        .pipe(livereload());
 });
 
 gulp.task('root-files', () => {
@@ -206,7 +201,7 @@ gulp.task('root-files', () => {
         .pipe(gulp.dest(config.dest.root_files));
 });
 
-gulp.task('default', [
+gulp.task('build', [
     'set-env',
     'stylesheet',
     'javascript',
@@ -214,12 +209,20 @@ gulp.task('default', [
     'root-files'
 ]);
 
-gulp.task('watch', ['default'], () => {
-        livereload.listen();
+gulp.task('watch', ['build'], () => {
+        browser_sync.init({
+            proxy: 'localhost:8000',
+            port: 8080
+        });
+
         gulp.watch(config.src.css, ['stylesheet']);
         gulp.watch(config.src.react, ['javascript-react']);
         gulp.watch(config.src.js, ['javascript']);
         gulp.watch(config.src.img, ['images']);
         gulp.watch(config.src.root_files, ['root-files']);
+
+        gulp.watch(config.dest.sync).on('change', browser_sync.reload);
     }
 );
+
+gulp.task('default', ['watch']);

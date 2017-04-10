@@ -5,6 +5,10 @@
 [![Build Status](https://travis-ci.org/manhhomienbienthuy/aprigi.svg?branch=master)](https://travis-ci.org/manhhomienbienthuy/aprigi)
 [![Coverage Status](https://coveralls.io/repos/github/manhhomienbienthuy/aprigi/badge.svg)](https://coveralls.io/github/manhhomienbienthuy/aprigi)
 [![Requirements Status](https://requires.io/github/manhhomienbienthuy/aprigi/requirements.svg?branch=master)](https://requires.io/github/manhhomienbienthuy/aprigi/requirements/?branch=master)
+[![Deps Status](https://david-dm.org/manhhomienbienthuy/aprigi.svg)](https://david-dm.org/manhhomienbienthuy/aprigi)
+[![devDeps Status](https://david-dm.org/manhhomienbienthuy/aprigi/dev-status.svg)](https://david-dm.org/manhhomienbienthuy/aprigi?type=dev)
+
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 > This repository is stored in
 > both [bitbucket](https://bitbucket.org/manhhomienbienthuy/aprigi)
