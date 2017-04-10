@@ -8,6 +8,7 @@
     "font-sizes": false,
     "gradients": false,
     "important": false,
+    "order-alphabetical": false,
     "outline-none": false,
     "qualified-headings": false,
     "regex-selectors": false,

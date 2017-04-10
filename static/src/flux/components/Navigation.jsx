@@ -29,7 +29,7 @@ export default class Navigation extends React.Component {
     }
 
     renderAccountLink() {
-        const logoutLink = `/accounts/logout?next=${window.location.href}`;
+        const logoutLink = `/accounts/logout?next=${window.location.pathname}`;
         const loginLink = `/accounts/login?next=${window.location.pathname}`;
         if (this.state.loggedIn) {
             return (

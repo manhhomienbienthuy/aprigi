@@ -4,7 +4,7 @@ __pycache__
 venv/
 node_modules/
 .env
-static
+static/dist
 static_root
 log
 *.mo
