@@ -26,6 +26,9 @@ frontend-production:
 docker: frontend
 	sudo docker-compose -f docker/docker-compose.dev.yml up
 
+docker-down:
+	sudo docker-compose -f docker/docker-compose.dev.yml down
+
 check-style:
 	$(foreach app,$(APP_LIST),isort -c -rc $(app) --skip migrations;)
 	$(foreach app,$(APP_LIST),flake8 --exclude=migrations $(app);)
