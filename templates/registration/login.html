@@ -25,7 +25,11 @@
     <form method="post" action="{% url 'login' %}" class="form-general">
       {% csrf_token %}
 
-      <input type="hidden" name="next" value="{{ next | slice:"3:" }}" />
+      {% if next|slice:":4"|cut:"/"|length == 2 %}
+        <input type="hidden" name="next" value="{{ next | slice:"3:" }}" />
+      {% else %}
+        <input type="hidden" name="next" value="{{ next }}" />
+      {% endif %}
 
       {% if form.errors %}
         <p class="error">
