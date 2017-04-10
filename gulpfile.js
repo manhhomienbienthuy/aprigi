@@ -66,7 +66,7 @@ const config = {
             this.img        = this.base + 'img';
             this.root_files = this.base;
             this.all        = this.base + '**/*';
-            this.sync       = [this.all, 'templates/**/*.html'];
+            this.sync       = [this.all, 'templates/**/*.html', 'locale/**/*.mo'];
             return this;
         }
     }.init(),

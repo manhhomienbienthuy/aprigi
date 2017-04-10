@@ -20,7 +20,7 @@ frontend:
 	node_modules/gulp/bin/gulp.js build
 
 frontend-production:
-	rm -rf static
+	rm -rf static/dist
 	node_modules/gulp/bin/gulp.js build --production
 
 docker: frontend
@@ -38,7 +38,7 @@ fix-style:
 	$(foreach app,$(APP_LIST),autopep8 --in-place $(app)/*.py $(app)/templatetags/*.py;)
 
 collecttranslation:
-	$(foreach lang,$(LANG_LIST),./manage.py makemessages -l $(lang);)
+	$(foreach lang,$(LANG_LIST),./manage.py makemessages -l $(lang) -i ".tox,htmlcov";)
 
 translate:
 	$(foreach lang,$(LANG_LIST),./manage.py compilemessages -l $(lang);)
