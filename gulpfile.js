@@ -121,6 +121,19 @@ const config = {
         options: {
             verbose: true
         }
+    },
+    browser_sync: {
+        proxy: 'localhost:8000',
+        port: 8080,
+        notify: {
+            styles: {
+                top: 'auto',
+                bottom: 0,
+                left: 0,
+                right: 'auto',
+                borderRadius: '0 10px 0 0'
+            }
+        }
     }
 };
 config.browserify = {
@@ -210,10 +223,7 @@ gulp.task('build', [
 ]);
 
 gulp.task('watch', ['build'], () => {
-        browser_sync.init({
-            proxy: 'localhost:8000',
-            port: 8080
-        });
+        browser_sync.init(config.browser_sync);
 
         gulp.watch(config.src.css, ['stylesheet']);
         gulp.watch(config.src.react, ['javascript-react']);
