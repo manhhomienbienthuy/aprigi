@@ -1,0 +1,31 @@
+{% load i18n l10n %}
+
+{% if withdrawn %}
+  <div class="warning">
+    <p>
+      {% blocktrans %}
+        You have withdrawn ${{ withdrawn }} without creating any new
+        passbook.
+      {% endblocktrans %}
+    </p>
+    <a href="/en/savings/passbook/create" class="button button-secondary">
+      <i class="apricon apricon-plus"></i>
+      {% trans "Add new passbook" %}
+    </a>
+  </div>
+{% endif %}
+
+{% if objective %}
+  <p>
+    {% blocktrans %}
+      Objective of the year:
+      <strong>${{ current }} of ${{ objective }}</strong>
+      ({{ percentage }})
+    {% endblocktrans %}
+  </p>
+  <progress value="{{ current|unlocalize }}"
+            max="{{ objective|unlocalize }}">
+  </progress>
+{% else %}
+  <p>{% trans "You don't have any objective for this year" %}</p>
+{% endif %}

@@ -1,0 +1,9 @@
+{% load i18n %}
+
+{% url 'login' as login_url %}
+<p>
+  {% blocktrans %}
+    You have to <a href="{{ login_url }}">log in</a> to use the site.
+    If you don't have an account, please sign up.
+  {% endblocktrans %}
+</p>
