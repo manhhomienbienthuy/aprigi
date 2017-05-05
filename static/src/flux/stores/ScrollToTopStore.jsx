@@ -5,7 +5,7 @@
  * --------------------------------------------------------------------------
  */
 
-'user strict';
+'use strict';
 
 import {EventEmitter} from 'events';
 import Dispatcher from '../dispatcher/Dispatcher';

@@ -36,7 +36,9 @@ const browserify = require('browserify'),
       source     = require('vinyl-source-stream'),
       buffer     = require('vinyl-buffer'),
       glob       = require('glob'),
-      transform  = require('vinyl-transform');
+      transform  = require('vinyl-transform'),
+      collapse   = require('bundle-collapser/plugin'),
+      uglifyify  = require('uglifyify');
 
 // Load plugins for imagemins
 const imagemin = require('gulp-imagemin'),
@@ -171,7 +173,9 @@ gulp.task('react-lint', () => {
 
 gulp.task('javascript-react', ['react-lint'], () => {
     return browserify(config.browserify)
+        .plugin(collapse)
         .transform(babelify.configure(config.babel))
+        .transform(uglifyify)
         .bundle()
         .pipe(plumber(config.plumber))
         .pipe(source('aprigi.js'))
